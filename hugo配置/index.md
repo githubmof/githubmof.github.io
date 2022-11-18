@@ -317,6 +317,8 @@ $(function () {
 
 assets\css\\_custom.scss
 
+包含对各页面的调整
+
 ```scss
 /* 页面 */
 .page{
@@ -333,13 +335,7 @@ assets\css\\_custom.scss
   background: #2f2e2e;
   opacity: .95;
 }
-```
 
-### 首页
-
-assets\css\\_custom.scss
-
-```scss
 /* 首页的阅读全文按钮 */
 .single.summary .post-footer a:first-child {
   position: relative;
@@ -361,6 +357,117 @@ assets\css\\_custom.scss
   &:hover::before {
     transform: scaleX(1);
     transform-origin: center left;
+  }
+}
+
+/* 文章正文 */
+.page.single .content p {
+  margin: 1rem 0;
+  padding: 0 1rem;
+}
+
+/* 文章脚部 */
+.page.single .post-footer {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* 文章元数据meta */
+.post-meta .post-meta-line:nth-child(2) i:nth-child(1) {
+  margin-left: 0;
+}
+.post-meta .post-meta-line:nth-child(2) i {
+  margin-left: 0.3rem;
+}
+.post-meta .post-meta-line:nth-child(2) span i {
+  margin-left: 0.3rem !important;
+}
+.post-meta a#post-meta-vcount {
+  color: #a9a9b3;
+  &:hover {
+      color: #2d96bd;
+  }
+}
+
+
+/* 文章的标签 */
+.post-tags a {
+  position: relative;
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #fc2f70;
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+  }
+
+  &::before {
+    top: 0;
+    transform-origin: center right;
+  }
+
+  &:hover::before {
+    transform-origin: center left;
+    transform: scaleX(1);
+  }
+
+  &::after {
+    bottom: 0;
+    transform-origin: center left;
+  }
+
+  &:hover::after {
+    transform-origin: center right;
+    transform: scaleX(1);
+  }
+
+}
+
+
+/* 页面脚部 */
+.footer {
+  display: block;
+border-top-width: 3px;
+  border-top-style: solid;
+  border-top-color: #a166ab;
+  position: relative;
+  z-index: -1;
+  max-width: 800px;
+  width: 60%;
+  margin: .1rem auto 0 auto;
+padding-left: 1rem;
+padding-right: 1rem;
+  background: white;
+opacity: .95;
+}
+[theme=dark] .footer {
+  background: #3a3535;
+}
+
+@media only screen and (max-width: 1440px) {
+  .footer {
+      width:54.5%
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .footer {
+      width:50.5%
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .footer {
+      width: 77%
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .footer {
+      width: 95%
   }
 }
 ```
