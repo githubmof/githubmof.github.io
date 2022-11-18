@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>test - 标签 - mof&#39;s Blog</title>
+        <link>https://githubmof.github.io/tags/test/</link>
+        <description>test - 标签 - mof&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 16 Nov 2022 16:20:20 &#43;0800</lastBuildDate><atom:link href="https://githubmof.github.io/tags/test/" rel="self" type="application/rss+xml" /><item>
+    <title>Hugo配置</title>
+    <link>https://githubmof.github.io/hugo%E9%85%8D%E7%BD%AE/</link>
+    <pubDate>Wed, 16 Nov 2022 16:20:20 &#43;0800</pubDate>
+    <author>mof</author>
+    <guid>https://githubmof.github.io/hugo%E9%85%8D%E7%BD%AE/</guid>
+    <description><![CDATA[环境： hugo：hugo v0.105.0+extended windows/amd64 theme：LoveIt 配置 参考：Hugo系列(3.0) - LoveIt主题美化与博客功能增强 侧目录 config.toml # 目录配置 [params.page.toc]]]></description>
+</item>
+</channel>
+</rss>
