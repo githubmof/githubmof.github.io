@@ -1,504 +1,220 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="robots" content="noodp" />
-        <title>Hugo配置 - mof&#39;s Blog</title><meta name="Description" content="这是mof的博客"><meta property="og:title" content="Hugo配置" />
-<meta property="og:description" content="环境： hugo：hugo v0.105.0&#43;extended windows/amd64 theme：LoveIt 配置 参考：Hugo系列(3.0) - LoveIt主题美化与博客功能增强 侧目录 config.toml # 目录配置 [params.page.toc]" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://githubmof.github.io/hugo%E9%85%8D%E7%BD%AE/" /><meta property="og:image" content="https://githubmof.github.io/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-11-16T16:20:20+08:00" />
-<meta property="article:modified_time" content="2022-11-18T14:51:24+08:00" /><meta property="og:site_name" content="My cool site" />
-
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://githubmof.github.io/logo.png"/>
-
-<meta name="twitter:title" content="Hugo配置"/>
-<meta name="twitter:description" content="环境： hugo：hugo v0.105.0&#43;extended windows/amd64 theme：LoveIt 配置 参考：Hugo系列(3.0) - LoveIt主题美化与博客功能增强 侧目录 config.toml # 目录配置 [params.page.toc]"/>
-<meta name="application-name" content="LoveIt">
-<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://githubmof.github.io/hugo%E9%85%8D%E7%BD%AE/" /><link rel="prev" href="https://githubmof.github.io/kapcup2021/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "BlogPosting",
-        "headline": "Hugo配置",
-        "inLanguage": "zh-CN",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https:\/\/githubmof.github.io\/hugo%E9%85%8D%E7%BD%AE\/"
-        },"genre": "posts","keywords": "test, blog, hugo, LoveIt","wordcount":  1531 ,
-        "url": "https:\/\/githubmof.github.io\/hugo%E9%85%8D%E7%BD%AE\/","datePublished": "2022-11-16T16:20:20+08:00","dateModified": "2022-11-18T14:51:24+08:00","publisher": {
-            "@type": "Organization",
-            "name": ""},"author": {
-                "@type": "Person",
-                "name": "mof"
-            },"description": ""
-    }
-    </script></head>
-    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
-
-        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
-    <div class="header-wrapper">
-		<a href="https://github.com/githubmof" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="3.5rem" height="3.5rem" viewBox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
-        <div class="header-title">
-            <a href="/" title="mof&#39;s Blog">mof&#39;s Blog</a>
-        </div>
-        <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 
-						</a><a class="menu-item" href="/tags/"> 标签 
-						</a><a class="menu-item" href="/categories/"> 分类 
-						</a>
-						<div class="dropdown">
-							<a href="javascript:void(0);" class="menu-item menu-more dropbtn" title="" > 游戏 
-							</a>
-							<div class="menu-more-content dropdown-content"><a href="/catch-the-cat/" title="" target="_blank" rel="noopener"> 逮住那只猫! </a></div>
-						</div>
-					<a class="menu-item" href="/about/"> 关于 
-						</a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
-                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
-                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
-                        </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
-                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-                </a></div>
-        </div>
-    </div>
-</header><header class="mobile" id="header-mobile">
-    <div class="header-container">
-        <div class="header-wrapper">
-            <div class="header-title">
-                <a href="/" title="mof&#39;s Blog">mof&#39;s Blog</a>
-            </div>
-            <div class="menu-toggle" id="menu-toggle-mobile">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-        <div class="menu" id="menu-mobile"><div class="search-wrapper">
-                    <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
-                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
-                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
-                        </span>
-                    </div>
-                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-                        取消
-                    </a>
-                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/" title="">游戏</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
-                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-            </a></div>
-    </div>
-</header><div class="search-dropdown desktop">
-        <div id="search-dropdown-desktop"></div>
-    </div>
-    <div class="search-dropdown mobile">
-        <div id="search-dropdown-mobile"></div>
-    </div><main class="main">
-                <div class="container"><div class="toc" id="toc-auto">
-            <h2 class="toc-title">目录</h2>
-            <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Hugo配置</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/githubmof" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>mof</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/blog/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>blog</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-16">2022-11-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1531 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
-        </div><div class="details toc" id="toc-static"  data-kept="">
-                <div class="details-summary toc-title">
-                    <span>目录</span>
-                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
-                </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#配置">配置</a>
-      <ul>
-        <li><a href="#侧目录">侧目录</a></li>
-        <li><a href="#搜索">搜索</a></li>
-        <li><a href="#github-corners">github corners</a></li>
-        <li><a href="#子菜单">子菜单</a></li>
-        <li><a href="#更新时间">更新时间</a></li>
-      </ul>
-    </li>
-    <li><a href="#shortcode">shortcode</a>
-      <ul>
-        <li><a href="#typeit">typeit</a></li>
-        <li><a href="#bilibili">bilibili</a></li>
-        <li><a href="#music">music</a></li>
-        <li><a href="#image">image</a></li>
-        <li><a href="#admonition">admonition</a></li>
-        <li><a href="#抓猫游戏">抓猫游戏</a></li>
-        <li><a href="#其他">其他</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav></div>
-            </div><div class="content" id="content"><p>环境：</p>
-<ul>
-<li>
-<p>hugo：hugo v0.105.0+extended windows/amd64</p>
-</li>
-<li>
-<p>theme：LoveIt</p>
-</li>
-</ul>
-<h2 id="配置">配置</h2>
-<p>参考：<a href="https://lewky.cn/posts/hugo-3.html/" target="_blank" rel="noopener noreffer ">Hugo系列(3.0) - LoveIt主题美化与博客功能增强</a></p>
-<h3 id="侧目录">侧目录</h3>
-<p>config.toml</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="c"># 目录配置</span>
-</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">toc</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">      <span class="c"># 是否使用目录</span>
-</span></span><span class="line"><span class="cl">      <span class="nx">enable</span> <span class="p">=</span> <span class="kc">true</span>
-</span></span><span class="line"><span class="cl">      <span class="c"># 是否保持使用文章前面的静态目录</span>
-</span></span><span class="line"><span class="cl">      <span class="nx">keepStatic</span> <span class="p">=</span> <span class="kc">false</span>
-</span></span><span class="line"><span class="cl">      <span class="c"># 是否使侧边目录自动折叠展开</span>
-</span></span><span class="line"><span class="cl">      <span class="nx">auto</span> <span class="p">=</span> <span class="kc">true</span>
-</span></span></code></pre></div><h3 id="搜索">搜索</h3>
-<p>采用<a href="https://www.algolia.com/" target="_blank" rel="noopener noreffer ">Algolia</a>，创建新的Application(free)，记住index，appID和searchAPI，填入下面对应位置</p>
-<p>将public内的index.json上传到Algolia：Search ——&gt; index ——&gt; Add records ——&gt; Upload file</p>
-<p>config.toml</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">search</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">enable</span> <span class="p">=</span> <span class="kc">true</span>
-</span></span><span class="line"><span class="cl">	<span class="c"># 搜索引擎的类型 (&#34;lunr&#34;, &#34;algolia&#34;)</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">type</span> <span class="p">=</span> <span class="s2">&#34;algolia&#34;</span>
-</span></span><span class="line"><span class="cl">	<span class="c"># 文章内容最长索引长度</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">contentLength</span> <span class="p">=</span> <span class="mi">4000</span>
-</span></span><span class="line"><span class="cl">	<span class="c"># 搜索框的占位提示语</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">placeholder</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">	<span class="c"># 最大结果数目</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">maxResultLength</span> <span class="p">=</span> <span class="mi">10</span>
-</span></span><span class="line"><span class="cl">	<span class="c"># 结果内容片段长度</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">snippetLength</span> <span class="p">=</span> <span class="mi">50</span>
-</span></span><span class="line"><span class="cl">	<span class="c"># 搜索结果中高亮部分的 HTML 标签</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">highlightTag</span> <span class="p">=</span> <span class="s2">&#34;em&#34;</span>
-</span></span><span class="line"><span class="cl">	<span class="c"># 是否在搜索索引中使用基于 baseURL 的绝对路径</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">absoluteURL</span> <span class="p">=</span> <span class="kc">false</span>
-</span></span><span class="line"><span class="cl">	<span class="p">[</span><span class="nx">params</span><span class="p">.</span><span class="nx">search</span><span class="p">.</span><span class="nx">algolia</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">	  <span class="nx">index</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">	  <span class="nx">appID</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">	  <span class="nx">searchKey</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span>
-</span></span></code></pre></div><p>存在问题：需要手动上传json</p>
-<h3 id="github-corners">github corners</h3>
-<p>theme内对应文件复制到此位置</p>
-<p>layout\partials\header.htnl</p>
-<p>在<code>&lt;div class=&quot;header-wrapper&quot;&gt;</code>的下一行添加，更改yourname</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://github.com/yourname&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;github-corner&#34;</span> <span class="na">target</span><span class="o">=</span><span class="s">&#34;_blank&#34;</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;Follow me on GitHub&#34;</span> <span class="na">aria-label</span><span class="o">=</span><span class="s">&#34;Follow me on GitHub&#34;</span><span class="p">&gt;&lt;</span><span class="nt">svg</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;3.5rem&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;3.5rem&#34;</span> <span class="na">viewBox</span><span class="o">=</span><span class="s">&#34;0 0 250 250&#34;</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);&#34;</span> <span class="na">aria-hidden</span><span class="o">=</span><span class="s">&#34;true&#34;</span><span class="p">&gt;&lt;</span><span class="nt">path</span> <span class="na">d</span><span class="o">=</span><span class="s">&#34;M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">path</span><span class="p">&gt;&lt;</span><span class="nt">path</span> <span class="na">d</span><span class="o">=</span><span class="s">&#34;M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;currentColor&#34;</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;transform-origin: 130px 106px;&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;octo-arm&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">path</span><span class="p">&gt;&lt;</span><span class="nt">path</span> <span class="na">d</span><span class="o">=</span><span class="s">&#34;M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;currentColor&#34;</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;octo-body&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">path</span><span class="p">&gt;&lt;/</span><span class="nt">svg</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-</span></span></code></pre></div><p>assets\css\_custom.css</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* Github Corner */</span>
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">github-corner</span><span class="p">:</span><span class="nd">hover</span> <span class="p">.</span><span class="nc">octo-arm</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="k">animation</span><span class="p">:</span> <span class="n">octocat-wave</span> <span class="mi">560</span><span class="kt">ms</span> <span class="kc">ease-in-out</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">@</span><span class="k">keyframes</span> <span class="nt">octocat-wave</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nt">0</span><span class="o">%,</span><span class="nt">100</span><span class="o">%</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="k">transform</span><span class="p">:</span> <span class="nb">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="nt">20</span><span class="o">%,</span><span class="nt">60</span><span class="o">%</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="k">transform</span><span class="p">:</span> <span class="nb">rotate</span><span class="p">(</span><span class="mi">-25</span><span class="kt">deg</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="nt">40</span><span class="o">%,</span><span class="nt">80</span><span class="o">%</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="k">transform</span><span class="p">:</span> <span class="nb">rotate</span><span class="p">(</span><span class="mi">10</span><span class="kt">deg</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">@</span><span class="k">media</span> <span class="o">(</span><span class="nt">max-width</span><span class="p">:</span><span class="nd">500px</span><span class="o">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="p">.</span><span class="nc">github-corner</span><span class="p">:</span><span class="nd">hover</span> <span class="p">.</span><span class="nc">octo-arm</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="k">animation</span><span class="p">:</span> <span class="kc">none</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">	<span class="p">.</span><span class="nc">github-corner</span> <span class="p">.</span><span class="nc">octo-arm</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="k">animation</span><span class="p">:</span> <span class="n">octocat-wave</span> <span class="mi">560</span><span class="kt">ms</span> <span class="kc">ease-in-out</span>
-</span></span><span class="line"><span class="cl">	<span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>其他样式：<a href="https://tholman.com/github-corners/" target="_blank" rel="noopener noreffer ">GitHub Corners项目地址</a></p>
-<h3 id="子菜单">子菜单</h3>
-<p>layouts/partials/header.html</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{- range .Site.Menus.main -}}
-</span></span><span class="line"><span class="cl">    {{- $url := .URL | relLangURL -}}
-</span></span><span class="line"><span class="cl">    {{- with .Page -}}
-</span></span><span class="line"><span class="cl">        {{- $url = .RelPermalink -}}
-</span></span><span class="line"><span class="cl">    {{- end -}}
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;menu-item{{ if $.IsMenuCurrent `main` . | or ($.HasMenuCurrent `main` .) | or (eq $.RelPermalink $url) }} active{{ end }}&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;{{ $url }}&#34;</span><span class="err">{{</span> <span class="na">with</span> <span class="err">.</span><span class="na">Title</span> <span class="err">}}</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;{{ . }}&#34;</span><span class="err">{{</span> <span class="na">end</span> <span class="err">}}{{</span> <span class="na">if</span> <span class="err">(</span><span class="na">urls</span><span class="err">.</span><span class="na">Parse</span> <span class="err">$</span><span class="na">url</span><span class="err">).</span><span class="na">Host</span> <span class="err">}}</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;noopener noreffer&#34;</span> <span class="na">target</span><span class="o">=</span><span class="s">&#34;_blank&#34;</span><span class="err">{{</span> <span class="na">end</span> <span class="err">}}</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">        {{- .Pre | safeHTML }} {{ .Name }} {{ .Post | safeHTML -}}
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">{{- end -}}
-</span></span></code></pre></div><p>改为：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{- range .Site.Menus.main -}}
-</span></span><span class="line"><span class="cl">	{{ if .HasChildren }}
-</span></span><span class="line"><span class="cl">		<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;dropdown&#34;</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">a</span> <span class="err">{{</span> <span class="na">if</span> <span class="err">.</span><span class="na">URL</span> <span class="err">}}</span><span class="na">href</span><span class="o">=</span><span class="s">&#34;{{ .URL }}&#34;</span><span class="err">{{</span> <span class="na">else</span> <span class="err">}}</span><span class="na">href</span><span class="o">=</span><span class="s">&#34;javascript:void(0);&#34;</span><span class="err">{{</span> <span class="na">end</span> <span class="err">}}</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;menu-item menu-more dropbtn&#34;</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;{{ .Title }}&#34;</span> <span class="err">{{</span> <span class="na">if</span> <span class="na">eq</span> <span class="err">.</span><span class="na">Post</span> <span class="err">&#34;</span><span class="na">_blank</span><span class="err">&#34;</span> <span class="err">}}</span><span class="na">target</span><span class="o">=</span><span class="s">&#34;_blank&#34;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;noopener&#34;</span><span class="err">{{</span> <span class="na">end</span> <span class="err">}}</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">				{{- .Pre | safeHTML }} {{ .Name }} {{ if ne .Post &#34;_blank&#34; }}{{ .Post | safeHTML -}}{{ end }}
-</span></span><span class="line"><span class="cl">			<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">			<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;menu-more-content dropdown-content&#34;</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">				{{- range .Children -}}
-</span></span><span class="line"><span class="cl">					{{- $url := .URL | relLangURL -}}
-</span></span><span class="line"><span class="cl">					{{- with .Page -}}
-</span></span><span class="line"><span class="cl">						{{- $url = .RelPermalink -}}
-</span></span><span class="line"><span class="cl">					{{- end -}}
-</span></span><span class="line"><span class="cl">						<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;{{ $url }}&#34;</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;{{ .Title }}&#34;</span> <span class="err">{{</span> <span class="na">if</span> <span class="na">eq</span> <span class="err">.</span><span class="na">Post</span> <span class="err">&#34;</span><span class="na">_blank</span><span class="err">&#34;</span> <span class="err">}}</span><span class="na">target</span><span class="o">=</span><span class="s">&#34;_blank&#34;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;noopener&#34;</span><span class="err">{{</span> <span class="na">end</span> <span class="err">}}</span><span class="p">&gt;</span>{{- .Pre | safeHTML }} {{ .Name }} {{ if ne .Post &#34;_blank&#34; }}{{ .Post | safeHTML -}}{{ end }}<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">				{{- end -}}
-</span></span><span class="line"><span class="cl">			<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">		<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">	{{ else }}
-</span></span><span class="line"><span class="cl">		{{- $url := .URL | relLangURL -}}
-</span></span><span class="line"><span class="cl">		{{- with .Page -}}
-</span></span><span class="line"><span class="cl">			{{- $url = .RelPermalink -}}
-</span></span><span class="line"><span class="cl">		{{- end -}}
-</span></span><span class="line"><span class="cl">		<span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;menu-item{{ if $.IsMenuCurrent `main` . | or ($.HasMenuCurrent `main` .) | or (eq $.RelPermalink $url) }} active{{ end }}&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;{{ $url }}&#34;</span><span class="err">{{</span> <span class="na">with</span> <span class="err">.</span><span class="na">Title</span> <span class="err">}}</span> <span class="na">title</span><span class="o">=</span><span class="s">&#34;{{ . }}&#34;</span><span class="err">{{</span> <span class="na">end</span> <span class="err">}}{{</span> <span class="na">if</span> <span class="err">(</span><span class="na">urls</span><span class="err">.</span><span class="na">Parse</span> <span class="err">$</span><span class="na">url</span><span class="err">).</span><span class="na">Host</span> <span class="err">}}</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;noopener noreffer&#34;</span> <span class="na">target</span><span class="o">=</span><span class="s">&#34;_blank&#34;</span><span class="err">{{</span> <span class="na">end</span> <span class="err">}}</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">			{{- .Pre | safeHTML }} {{ .Name }} {{ if ne .Post &#34;_blank&#34; }}{{ .Post | safeHTML -}}{{ end }}
-</span></span><span class="line"><span class="cl">		<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">	{{- end -}}
-</span></span><span class="line"><span class="cl">{{- end -}}
-</span></span></code></pre></div><p>assets\css\_custom.css</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 子菜单栏 */</span>
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">dropdown</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">display</span><span class="p">:</span> <span class="kc">inline-block</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c">/* 子菜单的内容 (默认隐藏) */</span>
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">dropdown-content</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">display</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">background-color</span><span class="p">:</span> <span class="mh">#f9f9f9</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">box-shadow</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span> <span class="mi">8</span><span class="kt">px</span> <span class="mi">16</span><span class="kt">px</span> <span class="mi">0</span><span class="kt">px</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="k">border-radius</span><span class="p">:</span> <span class="mi">4</span><span class="kt">px</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">line-height</span><span class="p">:</span> <span class="mf">1.3</span><span class="kt">rem</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c">/* 子菜单的链接 */</span>
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">dropdown-content</span> <span class="nt">a</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">padding</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span> <span class="mi">18</span><span class="kt">px</span> <span class="mi">10</span><span class="kt">px</span> <span class="mi">14</span><span class="kt">px</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">text-decoration</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">display</span><span class="p">:</span> <span class="kc">block</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="err">&amp;</span> <span class="err">i</span> <span class="err">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">margin-right</span><span class="p">:</span> <span class="mi">3</span><span class="kt">px</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="err">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c">/* 鼠标移上去后修改子菜单链接颜色 */</span>
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">dropdown-content</span> <span class="nt">a</span><span class="p">:</span><span class="nd">hover</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">background-color</span><span class="p">:</span> <span class="mh">#f1f1f1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">border-radius</span><span class="p">:</span> <span class="mi">4</span><span class="kt">px</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c">/* 在鼠标移上去后显示子菜单 */</span>
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">dropdown</span><span class="p">:</span><span class="nd">hover</span> <span class="p">.</span><span class="nc">dropdown-content</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">display</span><span class="p">:</span> <span class="kc">block</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">@</span><span class="k">media</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-width</span><span class="o">:</span> <span class="nt">680px</span><span class="o">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nc">dropdown</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="k">display</span><span class="p">:</span> <span class="kc">inline</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="p">.</span><span class="nc">dropdown</span><span class="p">:</span><span class="nd">hover</span> <span class="p">.</span><span class="nc">dropdown-content</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">display</span><span class="p">:</span> <span class="kc">inline</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">z-index</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">margin-top</span><span class="p">:</span> <span class="mi">-2</span><span class="kt">em</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">margin-left</span><span class="p">:</span> <span class="mi">3</span><span class="kt">em</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="p">.</span><span class="nc">dropdown-content</span> <span class="nt">a</span><span class="p">:</span><span class="nd">hover</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">background-color</span><span class="p">:</span> <span class="kc">transparent</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>config.toml</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[[</span><span class="nx">menu</span><span class="p">.</span><span class="nx">main</span><span class="p">]]</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">parent</span> <span class="p">=</span> <span class="s2">&#34;&lt;idetifier&gt;&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">post</span> <span class="p">=</span> <span class="s2">&#34;_blank&#34;</span>  <span class="c"># 新窗口</span>
-</span></span></code></pre></div><h3 id="更新时间">更新时间</h3>
-<p>直接在文档头加lastmod信息</p>
-<p>或者在config.toml添加</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">frontmatter</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">lastmod</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;:fileModTime&#34;</span><span class="p">,</span> <span class="s2">&#34;lastmod&#34;</span><span class="p">]</span>
-</span></span></code></pre></div><h2 id="shortcode">shortcode</h2>
-<h3 id="typeit">typeit</h3>
-<div class="typeit"><div id="id-1"></div></div>
-
-<h3 id="bilibili">bilibili</h3>
-<p>layouts/shortcodes/bilibili.html</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">aspect-ratio</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">position</span><span class="p">:</span> <span class="kc">relative</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">height</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">padding-bottom</span><span class="p">:</span> <span class="mi">75</span><span class="kt">%</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">      
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">aspect-ratio</span> <span class="nt">iframe</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">left</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">top</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">      
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">align</span><span class="o">=</span><span class="s">center</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;aspect-ratio&#34;</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">iframe</span>  <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://player.bilibili.com/player.html?bvid={{.Get 0 }}&amp;page={{ if .Get 1 }}{{.Get 1}}{{ else }}1&amp;high_quality=1&amp;danmaku=0{{end}}&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="na">scrolling</span><span class="o">=</span><span class="s">&#34;no&#34;</span> 
-</span></span><span class="line"><span class="cl">    <span class="na">border</span><span class="o">=</span><span class="s">&#34;0&#34;</span> 
-</span></span><span class="line"><span class="cl">    <span class="na">frameborder</span><span class="o">=</span><span class="s">&#34;no&#34;</span> 
-</span></span><span class="line"><span class="cl">    <span class="na">framespacing</span><span class="o">=</span><span class="s">&#34;0&#34;</span> 
-</span></span><span class="line"><span class="cl">    <span class="na">allowfullscreen</span><span class="o">=</span><span class="s">&#34;true&#34;</span> 
-</span></span><span class="line"><span class="cl">	<span class="na">sandbox</span><span class="o">=</span><span class="s">&#34;allow-top-navigation allow-same-origin allow-forms allow-scripts&#34;</span><span class="p">&gt;</span> 
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span></code></pre></div><p>存在问题：切换清晰度后无法播放</p>
-<style>
-.aspect-ratio {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 75%;
-    }
-      
-.aspect-ratio iframe {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    }
-</style>
-      
-
-<div align=center class="aspect-ratio">
-    <iframe  src="https://player.bilibili.com/player.html?bvid=BV15D4y197NU&page=1&high_quality=1&danmaku=0"
-    scrolling="no" 
-    border="0" 
-    frameborder="no" 
-    framespacing="0" 
-    allowfullscreen="true" 
-	sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"> 
-    </iframe>
-</div>
-<h3 id="music">music</h3>
-<p>参数：</p>
-<ul>
-<li>server [<code>netease</code>, <code>tencent</code>, <code>kugou</code>, <code>xiami</code>, <code>baidu</code>]</li>
-<li>type [<code>song</code>, <code>playlist</code>, <code>album</code>, <code>search</code>, <code>artist</code>]</li>
-<li>id</li>
-</ul>
-<meting-js server="netease" type="playlist" id="3131254747" theme="#448aff"></meting-js>
-<h3 id="image">image</h3>
-<a class="lightgallery" href="/images/w.jpg" title="/images/w.jpg" data-thumbnail="/images/w.jpg">
-        <img
-            class="lazyload"
-            src="/svg/loading.min.svg"
-            data-src="/images/w.jpg"
-            data-srcset="/images/w.jpg, /images/w.jpg 1.5x, /images/w.jpg 2x"
-            data-sizes="auto"
-            alt="/images/w.jpg" height="300" />
-    </a>
-<a class="lightgallery" href="https://raw.githubusercontent.com/githubmof/Img/main/img/w%28%E5%B0%8F%29.jpg" title="https://raw.githubusercontent.com/githubmof/Img/main/img/w(%E5%B0%8F).jpg" data-thumbnail="https://raw.githubusercontent.com/githubmof/Img/main/img/w(%E5%B0%8F).jpg">
-        <img
-            class="lazyload"
-            src="/svg/loading.min.svg"
-            data-src="https://raw.githubusercontent.com/githubmof/Img/main/img/w%28%E5%B0%8F%29.jpg"
-            data-srcset="https://raw.githubusercontent.com/githubmof/Img/main/img/w%28%E5%B0%8F%29.jpg, https://raw.githubusercontent.com/githubmof/Img/main/img/w%28%E5%B0%8F%29.jpg 1.5x, https://raw.githubusercontent.com/githubmof/Img/main/img/w%28%E5%B0%8F%29.jpg 2x"
-            data-sizes="auto"
-            alt="https://raw.githubusercontent.com/githubmof/Img/main/img/w(%E5%B0%8F).jpg" height="300" />
-    </a>
-<p>存在问题：缩放后无法居中</p>
-<h3 id="admonition">admonition</h3>
-<div class="details admonition note open">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>注意<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">一个 <strong>注意</strong> 横幅</div>
-        </div>
-    </div>
-<h3 id="抓猫游戏">抓猫游戏</h3>
-<p>项目：<a href="https://github.com/ganlvtech/phaser-catch-the-cat" target="_blank" rel="noopener noreffer ">ganlvtech/phaser-catch-the-cat: An HTML5 game &lsquo;Catch The Cat&rsquo; powered by Phaser 3 </a></p>
-<p>md文件直接引用js无效，选择创建shortcode</p>
-<p>layouts\shortcodes\catch-the-cat</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;/js/catch-the-cat/phaser.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;/js/catch-the-cat/catch-the-cat.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;catch-the-cat&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">game</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CatchTheCatGame</span><span class="p">({</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">w</span><span class="o">:</span> <span class="mi">11</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">h</span><span class="o">:</span> <span class="mi">11</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">r</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">backgroundColor</span><span class="o">:</span> <span class="mh">0xeeeeee</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">parent</span><span class="o">:</span> <span class="s1">&#39;catch-the-cat&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">statusBarAlign</span><span class="o">:</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">credit</span><span class="o">:</span> <span class="s1">&#39;github.com/ganlvtech&#39;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">});</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</span></span></code></pre></div><p>将phaser.min.js和catch-the-cat.js保存到static\js\catch-the-cat\下</p>
-<p>content\catch-the-cat\index.md</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">---
-</span></span><span class="line"><span class="cl">title: &#34;逮住那只猫!&#34;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">---
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="gu">## 游戏规则
-</span></span></span><span class="line"><span class="cl"><span class="gu"></span>
-</span></span><span class="line"><span class="cl"><span class="k">1.</span> 点击小圆点，围住小猫。
-</span></span><span class="line"><span class="cl"><span class="k">2.</span> 你点击一次，小猫走一次。
-</span></span><span class="line"><span class="cl"><span class="k">3.</span> 直到你把小猫围住（赢），或者小猫走到边界并逃跑（输）。
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">---
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">{\{<span class="p">&lt;</span> <span class="nt">catch-the-cat</span> <span class="p">&gt;</span>}}
-</span></span></code></pre></div><p>（去掉括号中间斜杆）</p>
-<p>在config.toml的menu引入即可</p>
-<h3 id="其他">其他</h3>
-<p><a href="https://hugoloveit.com/zh-cn/theme-documentation-extended-shortcodes/" target="_blank" rel="noopener noreffer ">主题文档 - 扩展 Shortcodes - LoveIt (hugoloveit.com)</a></p>
-</div><div class="post-footer" id="post-footer">
-    <div class="post-info">
-        <div class="post-info-line">
-            <div class="post-info-mod">
-                <span>更新于 2022-11-18</span>
-            </div></div>
-        <div class="post-info-line">
-            <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/hugo%E9%85%8D%E7%BD%AE/index.md" target="_blank">阅读原始文档</a>
-                        </span></div>
-            <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://githubmof.github.io/hugo%E9%85%8D%E7%BD%AE/" data-title="Hugo配置" data-hashtags="test,blog,hugo,LoveIt"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://githubmof.github.io/hugo%E9%85%8D%E7%BD%AE/" data-hashtag="test"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a></span>
-            </div>
-        </div>
-    </div>
-
-    <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/test/">test</a>,&nbsp;<a href="/tags/blog/">blog</a>,&nbsp;<a href="/tags/hugo/">hugo</a>,&nbsp;<a href="/tags/loveit/">LoveIt</a></section>
-        <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
-        </section>
-    </div>
-
-    <div class="post-nav"><a href="/kapcup2021/" class="prev" rel="prev" title="KapCup2021"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>KapCup2021</a></div>
-</div>
-</article></div>
-            </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.105.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/githubmof" target="_blank">mof</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
-        </div>
-    </footer></div>
-
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
-                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
-                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
-            </a>
-        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/aplayer/APlayer.min.css"><link rel="stylesheet" href="/lib/aplayer/dark.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/typeit/index.umd.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript" src="/lib/aplayer/APlayer.min.js"></script><script type="text/javascript" src="/lib/meting/Meting.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"data":{"id-1":"这一个带有基于 \u003ca href=\"https://typeitjs.com/\" target=\"_blank\" rel=\"noopener noreffer \"\u003eTypeIt\u003c/a\u003e 的 \u003cstrong\u003e打字动画\u003c/strong\u003e 的 \u003cem\u003e段落\u003c/em\u003e\u0026hellip;"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"06C5J0ZYUN","algoliaIndex":"githubmof","algoliaSearchKey":"a3cde6a74f0166767bdda9dbe2235fdb","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
-</html>
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>Hugo配置 - mof's Blog</title><meta name=Description content="这是mof的博客"><meta property="og:title" content="Hugo配置"><meta property="og:description" content="环境： hugo：hugo v0.105.0+extended windows/amd64 theme：LoveIt 配置 参考：Hugo系列(3.0) - LoveIt主题美化与博客功能增强 侧目录 config.toml # 目录配置 [params.page.toc]"><meta property="og:type" content="article"><meta property="og:url" content="https://githubmof.github.io/hugo%E9%85%8D%E7%BD%AE/"><meta property="og:image" content="https://githubmof.github.io/logo.png"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-11-16T16:20:20+08:00"><meta property="article:modified_time" content="2022-11-18T07:32:31+00:00"><meta property="og:site_name" content="My cool site"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://githubmof.github.io/logo.png"><meta name=twitter:title content="Hugo配置"><meta name=twitter:description content="环境： hugo：hugo v0.105.0+extended windows/amd64 theme：LoveIt 配置 参考：Hugo系列(3.0) - LoveIt主题美化与博客功能增强 侧目录 config.toml # 目录配置 [params.page.toc]"><meta name=application-name content="LoveIt"><meta name=apple-mobile-web-app-title content="LoveIt"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://githubmof.github.io/hugo%E9%85%8D%E7%BD%AE/><link rel=prev href=https://githubmof.github.io/kapcup2021/><link rel=stylesheet href=/css/style.min.css><link rel=preload href=/lib/fontawesome-free/all.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload href=/lib/animate/animate.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Hugo配置","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/githubmof.github.io\/hugo%E9%85%8D%E7%BD%AE\/"},"genre":"posts","keywords":"test, blog, hugo, LoveIt","wordcount":1531,"url":"https:\/\/githubmof.github.io\/hugo%E9%85%8D%E7%BD%AE\/","datePublished":"2022-11-16T16:20:20+08:00","dateModified":"2022-11-18T07:32:31+00:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"mof"},"description":""}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><a href=https://github.com/githubmof class=github-corner target=_blank title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="3.5rem" height="3.5rem" viewBox="0 0 250 250" style="fill:#70b7fd;color:#fff;position:absolute;top:0;border:0;left:0;transform:scale(-1,1)" aria-hidden="true"><path d="M0 0 115 115h15l12 27L250 250V0z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentcolor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4l13.9-13.8C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8z" fill="currentcolor" class="octo-body"/></svg></a><div class=header-title><a href=/ title="mof's Blog">mof's Blog</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>文章
+</a><a class=menu-item href=/tags/>标签
+</a><a class=menu-item href=/categories/>分类</a><div class=dropdown><a href=/ class="menu-item menu-more dropbtn" title>游戏</a><div class="menu-more-content dropdown-content"><a href=/catch-the-cat/ title target=_blank rel=noopener>逮住那只猫!</a></div></div><a class=menu-item href=/about/>关于
+</a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索><i class="fas fa-search fa-fw" aria-hidden=true></i></a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空><i class="fas fa-times-circle fa-fw" aria-hidden=true></i></a>
+<span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i></span>
+</span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="mof's Blog">mof's Blog</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索><i class="fas fa-search fa-fw" aria-hidden=true></i></a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空><i class="fas fa-times-circle fa-fw" aria-hidden=true></i></a>
+<span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>取消</a></div><a class=menu-item href=/posts/ title>文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=/ title>游戏</a><a class=menu-item href=/about/ title>关于</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Hugo配置</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=https://github.com/githubmof title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw" aria-hidden=true></i>mof</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/blog/><i class="far fa-folder fa-fw" aria-hidden=true></i>blog</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw" aria-hidden=true></i>&nbsp;<time datetime=2022-11-16>2022-11-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden=true></i>&nbsp;约 1531 字&nbsp;
+<i class="far fa-clock fa-fw" aria-hidden=true></i>&nbsp;预计阅读 4 分钟&nbsp;</div></div><div class="details toc" id=toc-static data-kept><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fas fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#配置>配置</a><ul><li><a href=#侧目录>侧目录</a></li><li><a href=#搜索>搜索</a></li><li><a href=#github-corners>github corners</a></li><li><a href=#子菜单>子菜单</a></li><li><a href=#更新时间>更新时间</a></li></ul></li><li><a href=#shortcode>shortcode</a><ul><li><a href=#typeit>typeit</a></li><li><a href=#bilibili>bilibili</a></li><li><a href=#music>music</a></li><li><a href=#image>image</a></li><li><a href=#admonition>admonition</a></li><li><a href=#抓猫游戏>抓猫游戏</a></li><li><a href=#其他>其他</a></li></ul></li></ul></nav></div></div><div class=content id=content><p>环境：</p><ul><li><p>hugo：hugo v0.105.0+extended windows/amd64</p></li><li><p>theme：LoveIt</p></li></ul><h2 id=配置>配置</h2><p>参考：<a href=https://lewky.cn/posts/hugo-3.html/ target=_blank rel="noopener noreffer">Hugo系列(3.0) - LoveIt主题美化与博客功能增强</a></p><h3 id=侧目录>侧目录</h3><p>config.toml</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-toml data-lang=toml><span class=line><span class=cl><span class=c># 目录配置</span>
+</span></span><span class=line><span class=cl>    <span class=p>[</span><span class=nx>params</span><span class=p>.</span><span class=nx>page</span><span class=p>.</span><span class=nx>toc</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>      <span class=c># 是否使用目录</span>
+</span></span><span class=line><span class=cl>      <span class=nx>enable</span> <span class=p>=</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>      <span class=c># 是否保持使用文章前面的静态目录</span>
+</span></span><span class=line><span class=cl>      <span class=nx>keepStatic</span> <span class=p>=</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl>      <span class=c># 是否使侧边目录自动折叠展开</span>
+</span></span><span class=line><span class=cl>      <span class=nx>auto</span> <span class=p>=</span> <span class=kc>true</span>
+</span></span></code></pre></div><h3 id=搜索>搜索</h3><p>采用<a href=https://www.algolia.com/ target=_blank rel="noopener noreffer">Algolia</a>，创建新的Application(free)，记住index，appID和searchAPI，填入下面对应位置</p><p>将public内的index.json上传到Algolia：Search ——> index ——> Add records ——> Upload file</p><p>config.toml</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-toml data-lang=toml><span class=line><span class=cl><span class=p>[</span><span class=nx>params</span><span class=p>.</span><span class=nx>search</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>	<span class=nx>enable</span> <span class=p>=</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>	<span class=c># 搜索引擎的类型 (&#34;lunr&#34;, &#34;algolia&#34;)</span>
+</span></span><span class=line><span class=cl>	<span class=nx>type</span> <span class=p>=</span> <span class=s2>&#34;algolia&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=c># 文章内容最长索引长度</span>
+</span></span><span class=line><span class=cl>	<span class=nx>contentLength</span> <span class=p>=</span> <span class=mi>4000</span>
+</span></span><span class=line><span class=cl>	<span class=c># 搜索框的占位提示语</span>
+</span></span><span class=line><span class=cl>	<span class=nx>placeholder</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=c># 最大结果数目</span>
+</span></span><span class=line><span class=cl>	<span class=nx>maxResultLength</span> <span class=p>=</span> <span class=mi>10</span>
+</span></span><span class=line><span class=cl>	<span class=c># 结果内容片段长度</span>
+</span></span><span class=line><span class=cl>	<span class=nx>snippetLength</span> <span class=p>=</span> <span class=mi>50</span>
+</span></span><span class=line><span class=cl>	<span class=c># 搜索结果中高亮部分的 HTML 标签</span>
+</span></span><span class=line><span class=cl>	<span class=nx>highlightTag</span> <span class=p>=</span> <span class=s2>&#34;em&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=c># 是否在搜索索引中使用基于 baseURL 的绝对路径</span>
+</span></span><span class=line><span class=cl>	<span class=nx>absoluteURL</span> <span class=p>=</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl>	<span class=p>[</span><span class=nx>params</span><span class=p>.</span><span class=nx>search</span><span class=p>.</span><span class=nx>algolia</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>	  <span class=nx>index</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>	  <span class=nx>appID</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>	  <span class=nx>searchKey</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+</span></span></code></pre></div><p>存在问题：需要手动上传json</p><h3 id=github-corners>github corners</h3><p>theme内对应文件复制到此位置</p><p>layout\partials\header.htnl</p><p>在<code>&lt;div class="header-wrapper"></code>的下一行添加，更改yourname</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>a</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;https://github.com/yourname&#34;</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;github-corner&#34;</span> <span class=na>target</span><span class=o>=</span><span class=s>&#34;_blank&#34;</span> <span class=na>title</span><span class=o>=</span><span class=s>&#34;Follow me on GitHub&#34;</span> <span class=na>aria-label</span><span class=o>=</span><span class=s>&#34;Follow me on GitHub&#34;</span><span class=p>&gt;&lt;</span><span class=nt>svg</span> <span class=na>width</span><span class=o>=</span><span class=s>&#34;3.5rem&#34;</span> <span class=na>height</span><span class=o>=</span><span class=s>&#34;3.5rem&#34;</span> <span class=na>viewBox</span><span class=o>=</span><span class=s>&#34;0 0 250 250&#34;</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);&#34;</span> <span class=na>aria-hidden</span><span class=o>=</span><span class=s>&#34;true&#34;</span><span class=p>&gt;&lt;</span><span class=nt>path</span> <span class=na>d</span><span class=o>=</span><span class=s>&#34;M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>path</span><span class=p>&gt;&lt;</span><span class=nt>path</span> <span class=na>d</span><span class=o>=</span><span class=s>&#34;M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2&#34;</span> <span class=na>fill</span><span class=o>=</span><span class=s>&#34;currentColor&#34;</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;transform-origin: 130px 106px;&#34;</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;octo-arm&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>path</span><span class=p>&gt;&lt;</span><span class=nt>path</span> <span class=na>d</span><span class=o>=</span><span class=s>&#34;M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z&#34;</span> <span class=na>fill</span><span class=o>=</span><span class=s>&#34;currentColor&#34;</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;octo-body&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>path</span><span class=p>&gt;&lt;/</span><span class=nt>svg</span><span class=p>&gt;&lt;/</span><span class=nt>a</span><span class=p>&gt;</span>
+</span></span></code></pre></div><p>assets\css\_custom.css</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=line><span class=cl><span class=c>/* Github Corner */</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nc>github-corner</span><span class=p>:</span><span class=nd>hover</span> <span class=p>.</span><span class=nc>octo-arm</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>animation</span><span class=p>:</span> <span class=n>octocat-wave</span> <span class=mi>560</span><span class=kt>ms</span> <span class=kc>ease-in-out</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>@</span><span class=k>keyframes</span> <span class=nt>octocat-wave</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=nt>0</span><span class=o>%,</span><span class=nt>100</span><span class=o>%</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>transform</span><span class=p>:</span> <span class=nb>rotate</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nt>20</span><span class=o>%,</span><span class=nt>60</span><span class=o>%</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>transform</span><span class=p>:</span> <span class=nb>rotate</span><span class=p>(</span><span class=mi>-25</span><span class=kt>deg</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=nt>40</span><span class=o>%,</span><span class=nt>80</span><span class=o>%</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>transform</span><span class=p>:</span> <span class=nb>rotate</span><span class=p>(</span><span class=mi>10</span><span class=kt>deg</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>@</span><span class=k>media</span> <span class=o>(</span><span class=nt>max-width</span><span class=p>:</span><span class=nd>500px</span><span class=o>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=p>.</span><span class=nc>github-corner</span><span class=p>:</span><span class=nd>hover</span> <span class=p>.</span><span class=nc>octo-arm</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>animation</span><span class=p>:</span> <span class=kc>none</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=p>.</span><span class=nc>github-corner</span> <span class=p>.</span><span class=nc>octo-arm</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>animation</span><span class=p>:</span> <span class=n>octocat-wave</span> <span class=mi>560</span><span class=kt>ms</span> <span class=kc>ease-in-out</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>其他样式：<a href=https://tholman.com/github-corners/ target=_blank rel="noopener noreffer">GitHub Corners项目地址</a></p><h3 id=子菜单>子菜单</h3><p>layouts/partials/header.html</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl>{{- range .Site.Menus.main -}}
+</span></span><span class=line><span class=cl>    {{- $url := .URL | relLangURL -}}
+</span></span><span class=line><span class=cl>    {{- with .Page -}}
+</span></span><span class=line><span class=cl>        {{- $url = .RelPermalink -}}
+</span></span><span class=line><span class=cl>    {{- end -}}
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>a</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;menu-item{{ if $.IsMenuCurrent `main` . | or ($.HasMenuCurrent `main` .) | or (eq $.RelPermalink $url) }} active{{ end }}&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;{{ $url }}&#34;</span><span class=err>{{</span> <span class=na>with</span> <span class=err>.</span><span class=na>Title</span> <span class=err>}}</span> <span class=na>title</span><span class=o>=</span><span class=s>&#34;{{ . }}&#34;</span><span class=err>{{</span> <span class=na>end</span> <span class=err>}}{{</span> <span class=na>if</span> <span class=err>(</span><span class=na>urls</span><span class=err>.</span><span class=na>Parse</span> <span class=err>$</span><span class=na>url</span><span class=err>).</span><span class=na>Host</span> <span class=err>}}</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;noopener noreffer&#34;</span> <span class=na>target</span><span class=o>=</span><span class=s>&#34;_blank&#34;</span><span class=err>{{</span> <span class=na>end</span> <span class=err>}}</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>        {{- .Pre | safeHTML }} {{ .Name }} {{ .Post | safeHTML -}}
+</span></span><span class=line><span class=cl>    <span class=p>&lt;/</span><span class=nt>a</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>{{- end -}}
+</span></span></code></pre></div><p>改为：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl>{{- range .Site.Menus.main -}}
+</span></span><span class=line><span class=cl>	{{ if .HasChildren }}
+</span></span><span class=line><span class=cl>		<span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;dropdown&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=p>&lt;</span><span class=nt>a</span> <span class=err>{{</span> <span class=na>if</span> <span class=err>.</span><span class=na>URL</span> <span class=err>}}</span><span class=na>href</span><span class=o>=</span><span class=s>&#34;{{ .URL }}&#34;</span><span class=err>{{</span> <span class=na>else</span> <span class=err>}}</span><span class=na>href</span><span class=o>=</span><span class=s>&#34;javascript:void(0);&#34;</span><span class=err>{{</span> <span class=na>end</span> <span class=err>}}</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;menu-item menu-more dropbtn&#34;</span> <span class=na>title</span><span class=o>=</span><span class=s>&#34;{{ .Title }}&#34;</span> <span class=err>{{</span> <span class=na>if</span> <span class=na>eq</span> <span class=err>.</span><span class=na>Post</span> <span class=err>&#34;</span><span class=na>_blank</span><span class=err>&#34;</span> <span class=err>}}</span><span class=na>target</span><span class=o>=</span><span class=s>&#34;_blank&#34;</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;noopener&#34;</span><span class=err>{{</span> <span class=na>end</span> <span class=err>}}</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>				{{- .Pre | safeHTML }} {{ .Name }} {{ if ne .Post &#34;_blank&#34; }}{{ .Post | safeHTML -}}{{ end }}
+</span></span><span class=line><span class=cl>			<span class=p>&lt;/</span><span class=nt>a</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;menu-more-content dropdown-content&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>				{{- range .Children -}}
+</span></span><span class=line><span class=cl>					{{- $url := .URL | relLangURL -}}
+</span></span><span class=line><span class=cl>					{{- with .Page -}}
+</span></span><span class=line><span class=cl>						{{- $url = .RelPermalink -}}
+</span></span><span class=line><span class=cl>					{{- end -}}
+</span></span><span class=line><span class=cl>						<span class=p>&lt;</span><span class=nt>a</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;{{ $url }}&#34;</span> <span class=na>title</span><span class=o>=</span><span class=s>&#34;{{ .Title }}&#34;</span> <span class=err>{{</span> <span class=na>if</span> <span class=na>eq</span> <span class=err>.</span><span class=na>Post</span> <span class=err>&#34;</span><span class=na>_blank</span><span class=err>&#34;</span> <span class=err>}}</span><span class=na>target</span><span class=o>=</span><span class=s>&#34;_blank&#34;</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;noopener&#34;</span><span class=err>{{</span> <span class=na>end</span> <span class=err>}}</span><span class=p>&gt;</span>{{- .Pre | safeHTML }} {{ .Name }} {{ if ne .Post &#34;_blank&#34; }}{{ .Post | safeHTML -}}{{ end }}<span class=p>&lt;/</span><span class=nt>a</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>				{{- end -}}
+</span></span><span class=line><span class=cl>			<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>		<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>	{{ else }}
+</span></span><span class=line><span class=cl>		{{- $url := .URL | relLangURL -}}
+</span></span><span class=line><span class=cl>		{{- with .Page -}}
+</span></span><span class=line><span class=cl>			{{- $url = .RelPermalink -}}
+</span></span><span class=line><span class=cl>		{{- end -}}
+</span></span><span class=line><span class=cl>		<span class=p>&lt;</span><span class=nt>a</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;menu-item{{ if $.IsMenuCurrent `main` . | or ($.HasMenuCurrent `main` .) | or (eq $.RelPermalink $url) }} active{{ end }}&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;{{ $url }}&#34;</span><span class=err>{{</span> <span class=na>with</span> <span class=err>.</span><span class=na>Title</span> <span class=err>}}</span> <span class=na>title</span><span class=o>=</span><span class=s>&#34;{{ . }}&#34;</span><span class=err>{{</span> <span class=na>end</span> <span class=err>}}{{</span> <span class=na>if</span> <span class=err>(</span><span class=na>urls</span><span class=err>.</span><span class=na>Parse</span> <span class=err>$</span><span class=na>url</span><span class=err>).</span><span class=na>Host</span> <span class=err>}}</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;noopener noreffer&#34;</span> <span class=na>target</span><span class=o>=</span><span class=s>&#34;_blank&#34;</span><span class=err>{{</span> <span class=na>end</span> <span class=err>}}</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>			{{- .Pre | safeHTML }} {{ .Name }} {{ if ne .Post &#34;_blank&#34; }}{{ .Post | safeHTML -}}{{ end }}
+</span></span><span class=line><span class=cl>		<span class=p>&lt;/</span><span class=nt>a</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>	{{- end -}}
+</span></span><span class=line><span class=cl>{{- end -}}
+</span></span></code></pre></div><p>assets\css\_custom.css</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=line><span class=cl><span class=c>/* 子菜单栏 */</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nc>dropdown</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>display</span><span class=p>:</span> <span class=kc>inline-block</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>/* 子菜单的内容 (默认隐藏) */</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nc>dropdown-content</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>display</span><span class=p>:</span> <span class=kc>none</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>position</span><span class=p>:</span> <span class=kc>absolute</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>background-color</span><span class=p>:</span> <span class=mh>#f9f9f9</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>box-shadow</span><span class=p>:</span> <span class=mi>0</span><span class=kt>px</span> <span class=mi>8</span><span class=kt>px</span> <span class=mi>16</span><span class=kt>px</span> <span class=mi>0</span><span class=kt>px</span> <span class=nb>rgba</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mf>0.2</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=k>border-radius</span><span class=p>:</span> <span class=mi>4</span><span class=kt>px</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>line-height</span><span class=p>:</span> <span class=mf>1.3</span><span class=kt>rem</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>/* 子菜单的链接 */</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nc>dropdown-content</span> <span class=nt>a</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>padding</span><span class=p>:</span> <span class=mi>10</span><span class=kt>px</span> <span class=mi>18</span><span class=kt>px</span> <span class=mi>10</span><span class=kt>px</span> <span class=mi>14</span><span class=kt>px</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>text-decoration</span><span class=p>:</span> <span class=kc>none</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>display</span><span class=p>:</span> <span class=kc>block</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=err>&amp;</span> <span class=err>i</span> <span class=err>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>margin-right</span><span class=p>:</span> <span class=mi>3</span><span class=kt>px</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=err>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>/* 鼠标移上去后修改子菜单链接颜色 */</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nc>dropdown-content</span> <span class=nt>a</span><span class=p>:</span><span class=nd>hover</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>background-color</span><span class=p>:</span> <span class=mh>#f1f1f1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>border-radius</span><span class=p>:</span> <span class=mi>4</span><span class=kt>px</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>/* 在鼠标移上去后显示子菜单 */</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nc>dropdown</span><span class=p>:</span><span class=nd>hover</span> <span class=p>.</span><span class=nc>dropdown-content</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>display</span><span class=p>:</span> <span class=kc>block</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>@</span><span class=k>media</span> <span class=nt>screen</span> <span class=nt>and</span> <span class=o>(</span><span class=nt>max-width</span><span class=o>:</span> <span class=nt>680px</span><span class=o>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=p>.</span><span class=nc>dropdown</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=k>display</span><span class=p>:</span> <span class=kc>inline</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>.</span><span class=nc>dropdown</span><span class=p>:</span><span class=nd>hover</span> <span class=p>.</span><span class=nc>dropdown-content</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>display</span><span class=p>:</span> <span class=kc>inline</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>z-index</span><span class=p>:</span> <span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>margin-top</span><span class=p>:</span> <span class=mi>-2</span><span class=kt>em</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>margin-left</span><span class=p>:</span> <span class=mi>3</span><span class=kt>em</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>.</span><span class=nc>dropdown-content</span> <span class=nt>a</span><span class=p>:</span><span class=nd>hover</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>background-color</span><span class=p>:</span> <span class=kc>transparent</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>config.toml</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-toml data-lang=toml><span class=line><span class=cl><span class=p>[[</span><span class=nx>menu</span><span class=p>.</span><span class=nx>main</span><span class=p>]]</span>
+</span></span><span class=line><span class=cl>  <span class=nx>parent</span> <span class=p>=</span> <span class=s2>&#34;&lt;idetifier&gt;&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=nx>post</span> <span class=p>=</span> <span class=s2>&#34;_blank&#34;</span>  <span class=c># 新窗口</span>
+</span></span></code></pre></div><h3 id=更新时间>更新时间</h3><p>直接在文档头加lastmod信息</p><p>或者在config.toml添加</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-toml data-lang=toml><span class=line><span class=cl><span class=p>[</span><span class=nx>frontmatter</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>  <span class=nx>lastmod</span> <span class=p>=</span> <span class=p>[</span><span class=s2>&#34;:fileModTime&#34;</span><span class=p>,</span> <span class=s2>&#34;lastmod&#34;</span><span class=p>]</span>
+</span></span></code></pre></div><h2 id=shortcode>shortcode</h2><h3 id=typeit>typeit</h3><div class=typeit><div id=id-1></div></div><h3 id=bilibili>bilibili</h3><p>layouts/shortcodes/bilibili.html</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>style</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nc>aspect-ratio</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>position</span><span class=p>:</span> <span class=kc>relative</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>width</span><span class=p>:</span> <span class=mi>100</span><span class=kt>%</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>height</span><span class=p>:</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>padding-bottom</span><span class=p>:</span> <span class=mi>75</span><span class=kt>%</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>      
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nc>aspect-ratio</span> <span class=nt>iframe</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>position</span><span class=p>:</span> <span class=kc>absolute</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>width</span><span class=p>:</span> <span class=mi>100</span><span class=kt>%</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>height</span><span class=p>:</span> <span class=mi>100</span><span class=kt>%</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>left</span><span class=p>:</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>top</span><span class=p>:</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>style</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>      
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>div</span> <span class=na>align</span><span class=o>=</span><span class=s>center</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;aspect-ratio&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>iframe</span>  <span class=na>src</span><span class=o>=</span><span class=s>&#34;https://player.bilibili.com/player.html?bvid={{.Get 0 }}&amp;page={{ if .Get 1 }}{{.Get 1}}{{ else }}1&amp;high_quality=1&amp;danmaku=0{{end}}&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=na>scrolling</span><span class=o>=</span><span class=s>&#34;no&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=na>border</span><span class=o>=</span><span class=s>&#34;0&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=na>frameborder</span><span class=o>=</span><span class=s>&#34;no&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=na>framespacing</span><span class=o>=</span><span class=s>&#34;0&#34;</span> 
+</span></span><span class=line><span class=cl>    <span class=na>allowfullscreen</span><span class=o>=</span><span class=s>&#34;true&#34;</span> 
+</span></span><span class=line><span class=cl>	<span class=na>sandbox</span><span class=o>=</span><span class=s>&#34;allow-top-navigation allow-same-origin allow-forms allow-scripts&#34;</span><span class=p>&gt;</span> 
+</span></span><span class=line><span class=cl>    <span class=p>&lt;/</span><span class=nt>iframe</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span></code></pre></div><p>存在问题：切换清晰度后无法播放</p><style>.aspect-ratio{position:relative;width:100%;height:0;padding-bottom:75%}.aspect-ratio iframe{position:absolute;width:100%;height:100%;left:0;top:0}</style><div align=center class=aspect-ratio><iframe src="https://player.bilibili.com/player.html?bvid=BV15D4y197NU&page=1&high_quality=1&danmaku=0" scrolling=no border=0 frameborder=no framespacing=0 allowfullscreen sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe></div><h3 id=music>music</h3><p>参数：</p><ul><li>server [<code>netease</code>, <code>tencent</code>, <code>kugou</code>, <code>xiami</code>, <code>baidu</code>]</li><li>type [<code>song</code>, <code>playlist</code>, <code>album</code>, <code>search</code>, <code>artist</code>]</li><li>id</li></ul><meting-js server=netease type=playlist id=3131254747 theme=#448aff></meting-js><h3 id=image>image</h3><a class=lightgallery href=/images/w.jpg title=/images/w.jpg data-thumbnail=/images/w.jpg><img class=lazyload src=/svg/loading.min.svg data-src=/images/w.jpg data-srcset="/images/w.jpg, /images/w.jpg 1.5x, /images/w.jpg 2x" data-sizes=auto alt=/images/w.jpg height=300></a>
+<a class=lightgallery href=https://raw.githubusercontent.com/githubmof/Img/main/img/w%28%E5%B0%8F%29.jpg title=https://raw.githubusercontent.com/githubmof/Img/main/img/w(%E5%B0%8F).jpg data-thumbnail=https://raw.githubusercontent.com/githubmof/Img/main/img/w(%E5%B0%8F).jpg><img class=lazyload src=/svg/loading.min.svg data-src=https://raw.githubusercontent.com/githubmof/Img/main/img/w%28%E5%B0%8F%29.jpg data-srcset="https://raw.githubusercontent.com/githubmof/Img/main/img/w%28%E5%B0%8F%29.jpg, https://raw.githubusercontent.com/githubmof/Img/main/img/w%28%E5%B0%8F%29.jpg 1.5x, https://raw.githubusercontent.com/githubmof/Img/main/img/w%28%E5%B0%8F%29.jpg 2x" data-sizes=auto alt=https://raw.githubusercontent.com/githubmof/Img/main/img/w(%E5%B0%8F).jpg height=300></a><p>存在问题：缩放后无法居中</p><h3 id=admonition>admonition</h3><div class="details admonition note open"><div class="details-summary admonition-title"><i class="icon fas fa-pencil-alt fa-fw" aria-hidden=true></i>注意<i class="details-icon fas fa-angle-right fa-fw" aria-hidden=true></i></div><div class=details-content><div class=admonition-content>一个 <strong>注意</strong> 横幅</div></div></div><h3 id=抓猫游戏>抓猫游戏</h3><p>项目：<a href=https://github.com/ganlvtech/phaser-catch-the-cat target=_blank rel="noopener noreffer">ganlvtech/phaser-catch-the-cat: An HTML5 game &lsquo;Catch The Cat&rsquo; powered by Phaser 3</a></p><p>md文件直接引用js无效，选择创建shortcode</p><p>layouts\shortcodes\catch-the-cat</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>script</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;/js/catch-the-cat/phaser.min.js&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>script</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;/js/catch-the-cat/catch-the-cat.js&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;catch-the-cat&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=nb>window</span><span class=p>.</span><span class=nx>game</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>CatchTheCatGame</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>        <span class=nx>w</span><span class=o>:</span> <span class=mi>11</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>h</span><span class=o>:</span> <span class=mi>11</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>r</span><span class=o>:</span> <span class=mi>20</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>backgroundColor</span><span class=o>:</span> <span class=mh>0xeeeeee</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>parent</span><span class=o>:</span> <span class=s1>&#39;catch-the-cat&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>statusBarAlign</span><span class=o>:</span> <span class=s1>&#39;center&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nx>credit</span><span class=o>:</span> <span class=s1>&#39;github.com/ganlvtech&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</span></span></code></pre></div><p>将phaser.min.js和catch-the-cat.js保存到static\js\catch-the-cat\下</p><p>content\catch-the-cat\index.md</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-markdown data-lang=markdown><span class=line><span class=cl>---
+</span></span><span class=line><span class=cl>title: &#34;逮住那只猫!&#34;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>---
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=gu>## 游戏规则
+</span></span></span><span class=line><span class=cl><span class=gu></span>
+</span></span><span class=line><span class=cl><span class=k>1.</span> 点击小圆点，围住小猫。
+</span></span><span class=line><span class=cl><span class=k>2.</span> 你点击一次，小猫走一次。
+</span></span><span class=line><span class=cl><span class=k>3.</span> 直到你把小猫围住（赢），或者小猫走到边界并逃跑（输）。
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>---
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>{\{<span class=p>&lt;</span> <span class=nt>catch-the-cat</span> <span class=p>&gt;</span>}}
+</span></span></code></pre></div><p>（去掉括号中间斜杆）</p><p>在config.toml的menu引入即可</p><h3 id=其他>其他</h3><p><a href=https://hugoloveit.com/zh-cn/theme-documentation-extended-shortcodes/ target=_blank rel="noopener noreffer">主题文档 - 扩展 Shortcodes - LoveIt (hugoloveit.com)</a></p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2022-11-18</span></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-markdown href=/hugo%E9%85%8D%E7%BD%AE/index.md target=_blank>阅读原始文档</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://githubmof.github.io/hugo%E9%85%8D%E7%BD%AE/ data-title=Hugo配置 data-hashtags=test,blog,hugo,LoveIt><i class="fab fa-twitter fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://githubmof.github.io/hugo%E9%85%8D%E7%BD%AE/ data-hashtag=test><i class="fab fa-facebook-square fa-fw" aria-hidden=true></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw" aria-hidden=true></i>&nbsp;<a href=/tags/test/>test</a>,&nbsp;<a href=/tags/blog/>blog</a>,&nbsp;<a href=/tags/hugo/>hugo</a>,&nbsp;<a href=/tags/loveit/>LoveIt</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/kapcup2021/ class=prev rel=prev title=KapCup2021><i class="fas fa-angle-left fa-fw" aria-hidden=true></i>KapCup2021</a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.105.0">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden=true></i> LoveIt</a></div><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright fa-fw" aria-hidden=true></i><span itemprop=copyrightYear>2021 - 2022</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/githubmof target=_blank>mof</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw" aria-hidden=true></i>
+</a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw" aria-hidden=true></i></a></div><link rel=stylesheet href=/lib/katex/katex.min.css><link rel=stylesheet href=/lib/aplayer/APlayer.min.css><link rel=stylesheet href=/lib/aplayer/dark.min.css><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/algoliasearch/algoliasearch-lite.umd.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/lib/typeit/index.umd.js></script><script type=text/javascript src=/lib/katex/katex.min.js></script><script type=text/javascript src=/lib/katex/contrib/auto-render.min.js></script><script type=text/javascript src=/lib/katex/contrib/copy-tex.min.js></script><script type=text/javascript src=/lib/katex/contrib/mhchem.min.js></script><script type=text/javascript src=/lib/aplayer/APlayer.min.js></script><script type=text/javascript src=/lib/meting/Meting.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{},data:{"id-1":'这一个带有基于 \u003ca href="https://typeitjs.com/" target="_blank" rel="noopener noreffer "\u003eTypeIt\u003c/a\u003e 的 \u003cstrong\u003e打字动画\u003c/strong\u003e 的 \u003cem\u003e段落\u003c/em\u003e\u0026hellip;'},math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!0,left:"\\begin{equation}",right:"\\end{equation}"},{display:!0,left:"\\begin{equation*}",right:"\\end{equation*}"},{display:!0,left:"\\begin{align}",right:"\\end{align}"},{display:!0,left:"\\begin{align*}",right:"\\end{align*}"},{display:!0,left:"\\begin{alignat}",right:"\\end{alignat}"},{display:!0,left:"\\begin{alignat*}",right:"\\end{alignat*}"},{display:!0,left:"\\begin{gather}",right:"\\end{gather}"},{display:!0,left:"\\begin{CD}",right:"\\end{CD}"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},search:{algoliaAppID:"06C5J0ZYUN",algoliaIndex:"githubmof",algoliaSearchKey:"a3cde6a74f0166767bdda9dbe2235fdb",highlightTag:"em",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50,type:"algolia"},typeit:{cursorChar:"|",cursorSpeed:1e3,data:{"id-1":["id-1"]},duration:-1,speed:100}}</script><script type=text/javascript src=/js/theme.min.js></script></body></html>
