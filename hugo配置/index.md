@@ -186,6 +186,11 @@ assets\css\\_custom.css
   background-color: #f1f1f1;
   border-radius: 4px;
 }
+/* 鼠标移上去后修改子菜单链接颜色 */
+[theme=dark] .dropdown-content a:hover {
+  background-color: #6c9dda;
+  border-radius: 4px;
+}
 
 /* 在鼠标移上去后显示子菜单 */
 .dropdown:hover .dropdown-content {
@@ -227,7 +232,22 @@ config.toml
   lastmod = [":fileModTime", "lastmod"]
 ```
 
+### 自定义js
 
+\static\js\custom.js为自定义js
+
+\layouts\partials\assets.html（复制theme下同文件
+
+在`{{- partial "plugin/analytics.html" . -}}`上一行添加
+
+```js
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+
+{{- /* 自定义的js文件 */ -}}
+<script type="text/javascript" src="/js/custom.js"></script>
+```
+
+第一行为引入jQuery
 
 ## shortcode
 
@@ -359,6 +379,8 @@ title: "逮住那只猫!"
 （去掉括号中间斜杆）
 
 在config.toml的menu引入即可
+
+
 
 ### 其他
 
