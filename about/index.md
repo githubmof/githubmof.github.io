@@ -9,5 +9,5 @@
 
 
 
-{{< image src="/images/Gaze.jpg" caption="Gaze">}}
+{{< image src="/images/background/Gaze.jpg" caption="Gaze">}}
 

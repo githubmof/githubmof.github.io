@@ -26,6 +26,48 @@ config.toml
       auto = true
 ```
 
+assets\css\\_custom.scss
+
+```scss
+/* 目录 */
+.toc {
+  background: white;
+opacity: .95;
+}
+[theme=dark] .toc {
+  background: #2f2e2e;
+}
+[theme=dark] #toc-auto {
+  border-left-color: #6c9dda;
+}
+
+.toc .toc-content {
+  font-size: .8rem;
+}
+
+.toc .toc-content code {
+  border: none;
+  color: #f7ab01;
+  font-size: 1em;
+}
+
+nav#TableOfContents ol {
+  padding-inline-start: 30px;
+
+  & ol {
+      padding-inline-start: 15px;
+      font-size: .75rem;
+      display: none;
+  }
+
+  & li.has-active ol {
+      display: block;
+  }
+}
+```
+
+
+
 ### 搜索
 
 采用[Algolia](https://www.algolia.com/)，创建新的Application(free)，记住index，appID和searchAPI，填入下面对应位置
@@ -153,9 +195,9 @@ layouts/partials/header.html
 {{- end -}}
 ```
 
-assets\css\\_custom.css
+assets\css\\_custom.scss
 
-```css
+```scss
 /* 子菜单栏 */
 .dropdown {
   display: inline-block;
@@ -248,6 +290,82 @@ config.toml
 ```
 
 第一行为引入jQuery
+
+### 背景图片轮换
+
+layouts\partials\assets.html
+
+在引入custom.js前添加
+
+```js
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+```
+
+static\js\custom.js
+
+```js
+/* 轮播背景图片 */
+$(function () {
+	$.backstretch([
+		  "/images/background/saber1.jpg",
+		  "/images/background/saber2.jpg",
+		  "/images/background/wlop.jpg"
+	], { duration: 60000, fade: 1500 });
+});
+```
+
+assets\css\\_custom.scss
+
+```scss
+/* 页面 */
+.page{
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  background: white;
+  opacity: .95;
+}
+[theme=dark] .page{
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  background: #2f2e2e;
+  opacity: .95;
+}
+```
+
+### 首页
+
+assets\css\\_custom.scss
+
+```scss
+/* 首页的阅读全文按钮 */
+.single.summary .post-footer a:first-child {
+  position: relative;
+  z-index: 1;
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: -0.25em;
+    right: -0.25em;
+    background-color: hsla(341, 66%, 74%, 0.75);
+    transform-origin: center right;
+    transform: scaleX(0);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  &:hover::before {
+    transform: scaleX(1);
+    transform-origin: center left;
+  }
+}
+```
+
+
 
 ## shortcode
 
