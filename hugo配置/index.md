@@ -101,6 +101,8 @@ config.toml
 
 存在问题：需要手动上传json
 
+
+
 ### github corners
 
 theme内对应文件复制到此位置
@@ -147,6 +149,8 @@ assets\css\\_custom.css
 ```
 
 其他样式：[GitHub Corners项目地址](https://tholman.com/github-corners/)
+
+
 
 ### 子菜单
 
@@ -263,6 +267,8 @@ config.toml
   post = "_blank"  # 新窗口
 ```
 
+
+
 ### 更新时间
 
 直接在文档头加lastmod信息
@@ -273,6 +279,8 @@ config.toml
 [frontmatter]
   lastmod = [":fileModTime", "lastmod"]
 ```
+
+
 
 ### 自定义js
 
@@ -291,7 +299,11 @@ config.toml
 
 第一行为引入jQuery
 
+
+
 ### 背景图片轮换
+
+这个功能需要引入图片轮播插件`jquery-backstretch`的cdn，并且该插件依赖于jQuery
 
 layouts\partials\assets.html
 
@@ -320,22 +332,6 @@ assets\css\\_custom.scss
 包含对各页面的调整
 
 ```scss
-/* 页面 */
-.page{
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-bottom: 1rem;
-  background: white;
-  opacity: .95;
-}
-[theme=dark] .page{
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-bottom: 1rem;
-  background: #2f2e2e;
-  opacity: .95;
-}
-
 /* 首页的阅读全文按钮 */
 .single.summary .post-footer a:first-child {
   position: relative;
@@ -470,6 +466,103 @@ opacity: .95;
       width: 95%
   }
 }
+
+/* 分隔线 */
+hr {
+  border: none;
+  border-bottom: 2px dashed #7a7a7a !important;
+}
+
+/* 标题 */
+.page.single h2 {
+  box-shadow: rgb(95, 90, 75) 0px 0px 0px 1px, rgba(10, 10, 0, 0.5) 1px 1px 6px 1px;
+  color: rgb(255, 255, 255);
+  font-family: 微软雅黑, 宋体, 黑体, Arial;
+  font-weight: bold;
+  line-height: 1.3;
+  text-shadow: rgb(34, 34, 34) 2px 2px 3px;
+  background: rgb(43, 102, 149);
+  border-radius: 6px;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  padding: 7px;
+  margin: 18px 0px 18px -5px !important;
+}
+
+/* 归档、标签、分类、特殊页面 */
+.page.archive, .page.single, .page.single.special {
+	padding-left: 1rem;
+	padding-right: 1rem;
+    padding-bottom: 1rem;
+    background: white;	
+	opacity: .95;
+}
+[theme=dark] .page.archive,
+[theme=dark] .page.single,
+[theme=dark] .page.single.special {
+    background: #3a3535;
+}
+
+.archive-item-date2 {
+    color: #a9a9b3;
+}
+
+[theme=dark] .archive .archive-item-date {
+    color: #a9a9b3;
+}
+
+.page.single.special .single-title.animated.pulse.faster {
+    padding-right: 1rem;
+}
+
+.archive .card-item-title a sup {
+    color: #a9a9b3;
+	font-weight: initial;
+}
+
+.archive .group-title sup {
+    color: #a9a9b3;
+	font-weight: initial;
+}
+
+.archive .single-title.animated.pulse.faster sup {
+	margin-left: .4rem;
+    color: #a9a9b3;
+	font-weight: initial;
+}
+
+[theme=dark] .archive .tag-cloud-tags a sup {
+    color: #a9a9b3;
+}
+
+/* 分类页面 */
+.archive .categories-card {
+    margin-top: 1rem;
+
+    & .card-item {
+        margin-top: 1rem;
+    }
+}
+```
+
+
+
+### 其他
+
+assets\css\\_custom.scss
+
+```scss
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 0.7rem;
+}
+
+/* 右下角按钮 */
+.fixed-button {
+  margin-bottom: 5rem;
+}
 ```
 
 
@@ -598,10 +691,8 @@ title: "逮住那只猫!"
 
 ---
 
-{\{< catch-the-cat >}}
+{{</* catch-the-cat */>}}
 ```
-
-（去掉括号中间斜杆）
 
 在config.toml的menu引入即可
 
