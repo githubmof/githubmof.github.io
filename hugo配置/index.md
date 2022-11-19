@@ -332,10 +332,67 @@ assets\css\\_custom.scss
 包含对各页面的调整
 
 ```scss
+/* 首页头部 */
+.home[posts] .home-profile {
+  padding-top: 0;
+}
+
+.home-avatar {
+  padding-top: 2rem !important;
+}
+
+.home-profile {
+  margin-left: -1rem;
+  margin-right: -1rem;
+  background: white;
+  opacity: .85;
+}
+
+[theme=dark] .home-profile {
+  background: #3a3535;
+  opacity: .8;
+}
+
+.home .home-profile .home-title {
+  margin-top: .67em;
+}
+
+/* 首页文章摘要 */
+.summary {
+  margin-bottom: .1rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background: white;
+  opacity: .95;
+}
+
+[theme=dark] .summary {
+  background: #3a3535;
+}
+
+/* 首页的分页页码 */
+.pagination {
+  margin-top: .1rem;
+  margin-bottom: 0;
+  margin-left: -1rem;
+  margin-right: 1rem;
+  padding: 1rem 2rem .5rem 0;
+  background: white;
+  opacity: .95;
+}
+
+[theme=dark] .pagination {
+  background: #3a3535;
+}
+
+
 /* 首页的阅读全文按钮 */
 .single.summary .post-footer a:first-child {
   position: relative;
   z-index: 1;
+
   &::before {
     content: '';
     position: absolute;
@@ -372,16 +429,20 @@ assets\css\\_custom.scss
 .post-meta .post-meta-line:nth-child(2) i:nth-child(1) {
   margin-left: 0;
 }
+
 .post-meta .post-meta-line:nth-child(2) i {
   margin-left: 0.3rem;
 }
+
 .post-meta .post-meta-line:nth-child(2) span i {
   margin-left: 0.3rem !important;
 }
+
 .post-meta a#post-meta-vcount {
   color: #a9a9b3;
+
   &:hover {
-      color: #2d96bd;
+    color: #2d96bd;
   }
 }
 
@@ -389,7 +450,9 @@ assets\css\\_custom.scss
 /* 文章的标签 */
 .post-tags a {
   position: relative;
-  &::before, &::after {
+
+  &::before,
+  &::after {
     content: '';
     position: absolute;
     left: 0;
@@ -426,7 +489,7 @@ assets\css\\_custom.scss
 /* 页面脚部 */
 .footer {
   display: block;
-border-top-width: 3px;
+  border-top-width: 3px;
   border-top-style: solid;
   border-top-color: #a166ab;
   position: relative;
@@ -434,36 +497,37 @@ border-top-width: 3px;
   max-width: 800px;
   width: 60%;
   margin: .1rem auto 0 auto;
-padding-left: 1rem;
-padding-right: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   background: white;
-opacity: .95;
+  opacity: .95;
 }
+
 [theme=dark] .footer {
   background: #3a3535;
 }
 
 @media only screen and (max-width: 1440px) {
   .footer {
-      width:54.5%
+    width: 54.5%
   }
 }
 
 @media only screen and (max-width: 1200px) {
   .footer {
-      width:50.5%
+    width: 50.5%
   }
 }
 
 @media only screen and (max-width: 960px) {
   .footer {
-      width: 77%
+    width: 77%
   }
 }
 
 @media only screen and (max-width: 680px) {
   .footer {
-      width: 95%
+    width: 95%
   }
 }
 
@@ -492,58 +556,68 @@ hr {
 }
 
 /* 归档、标签、分类、特殊页面 */
-.page.archive, .page.single, .page.single.special {
-	padding-left: 1rem;
-	padding-right: 1rem;
-    padding-bottom: 1rem;
-    background: white;	
-	opacity: .95;
+.page.archive,
+.page.single,
+.page.single.special {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  background: white;
+  opacity: .95;
 }
+
 [theme=dark] .page.archive,
 [theme=dark] .page.single,
 [theme=dark] .page.single.special {
-    background: #3a3535;
+  background: #3a3535;
 }
 
 .archive-item-date2 {
-    color: #a9a9b3;
+  color: #a9a9b3;
 }
 
 [theme=dark] .archive .archive-item-date {
-    color: #a9a9b3;
+  color: #a9a9b3;
 }
 
 .page.single.special .single-title.animated.pulse.faster {
-    padding-right: 1rem;
+  padding-right: 1rem;
 }
 
 .archive .card-item-title a sup {
-    color: #a9a9b3;
-	font-weight: initial;
+  color: #a9a9b3;
+  font-weight: initial;
 }
 
 .archive .group-title sup {
-    color: #a9a9b3;
-	font-weight: initial;
+  color: #a9a9b3;
+  font-weight: initial;
 }
 
 .archive .single-title.animated.pulse.faster sup {
-	margin-left: .4rem;
-    color: #a9a9b3;
-	font-weight: initial;
+  margin-left: .4rem;
+  color: #a9a9b3;
+  font-weight: initial;
 }
 
 [theme=dark] .archive .tag-cloud-tags a sup {
-    color: #a9a9b3;
+  color: #a9a9b3;
 }
 
 /* 分类页面 */
 .archive .categories-card {
-    margin-top: 1rem;
+  margin-top: 1rem;
 
-    & .card-item {
-        margin-top: 1rem;
-    }
+  & .card-item {
+    margin-top: 1rem;
+  }
+}
+
+/* 标题里的代码块样式 */
+.page.single .content>h2 code {
+  color: #f7ab01;
+  background: transparent !important;
+  border: none;
 }
 ```
 
@@ -632,7 +706,7 @@ layouts/shortcodes/bilibili.html
 
 ### image
 
-{{< image src="/images/w.jpg" height="300">}}
+{{< image src="/images/w.jpg" height="300">}}  
 
 {{< image src="https://raw.githubusercontent.com/githubmof/Img/main/img/w(%E5%B0%8F).jpg" height="300">}}
 
