@@ -3,7 +3,7 @@ $(function () {
 	$.backstretch([
 		  "/images/background/yourname.png",
           "/images/background/yourname2.jpg",
-          "/images/background/Gaze.jpg"
+          "/images/background/Gaze.png"
 	], { duration: 60000, fade: 1500 });
 });
 
