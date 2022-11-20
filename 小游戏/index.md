@@ -1,0 +1,144 @@
+# 小游戏
+
+
+### 抓猫游戏
+
+参考：[Hugo系列(3.3) - LoveIt主题美化与博客功能增强 · 第四章 - Yulin Lewis' Blog (lewky.cn)](https://lewky.cn/posts/hugo-3-3/#添加抓住猫咪小游戏)
+
+项目：[ganlvtech/phaser-catch-the-cat: An HTML5 game 'Catch The Cat' powered by Phaser 3 ](https://github.com/ganlvtech/phaser-catch-the-cat)
+
+md文件直接引用js无效，选择创建shortcode
+
+（或者在layouts\\_default\中创建html，再在md文件引用）
+
+layouts\shortcodes\catch-the-cat
+
+```html
+<script src="/js/catch-the-cat/phaser.min.js"></script>
+<script src="/js/catch-the-cat/catch-the-cat.js"></script>
+<div id="catch-the-cat"></div>
+<script>
+    window.game = new CatchTheCatGame({
+        w: 11,
+        h: 11,
+        r: 20,
+        backgroundColor: 0xeeeeee,
+        parent: 'catch-the-cat',
+        statusBarAlign: 'center',
+        credit: 'github.com/ganlvtech'
+    });
+</script>
+```
+
+将phaser.min.js和catch-the-cat.js保存到static\js\catch-the-cat\下
+
+content\catch-the-cat\index.md
+
+```markdown
+---
+title: "逮住那只猫!"
+
+---
+
+## 游戏规则
+
+1. 点击小圆点，围住小猫。
+2. 你点击一次，小猫走一次。
+3. 直到你把小猫围住（赢），或者小猫走到边界并逃跑（输）。
+
+---
+
+{{</* catch-the-cat */>}}
+```
+
+在config.toml的menu引入即可
+
+
+
+### mikutap
+
+参考：[Mikutap~初音未来音乐游戏 (lewky.cn)](https://lewky.cn/funny/mikutap/)
+
+layouts\\_default\mikutap.htmll
+
+```html
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+  <meta name="description" content="初音未来版本的通过点击/触摸播放声音并出现变化图案的互动内容。">
+  <title>Mikutap~初音未来音乐游戏</title>
+  <link rel="apple-touch-icon" href="icon.png">
+  <link href="https://fonts.loli.net/css?family=Quicksand:400" rel="stylesheet">
+  <link charset="UTF-8" href="https://cdn.jsdelivr.net/gh/lewky/mikutap@master/shared/sp/css/common.css" rel="stylesheet">
+  <link charset="utf-8" href="https://cdn.jsdelivr.net/gh/lewky/mikutap@master/css/mikutap.css" rel="stylesheet">
+  <script charset="utf-8" src="https://cdnjs.loli.net/ajax/libs/jquery/2.2.4/jquery.min.js" type="text/javascript"></script>
+  <script charset="utf-8" src="https://cdnjs.loli.net/ajax/libs/pixi.js/3.0.11/pixi.min.js" type="text/javascript"></script>
+  <script charset="utf-8" src="https://cdnjs.loli.net/ajax/libs/gsap/1.19.1/TweenMax.min.js" type="text/javascript"></script>
+  <script charset="UTF-8" src="https://cdn.jsdelivr.net/gh/lewky/mikutap@master/shared/js/common-2.min.js" type="text/javascript"></script>
+  <script charset="utf-8" src="https://cdn.jsdelivr.net/gh/lewky/mikutap@master/js/mikutap.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <div id="view"></div>
+  <div id="scene_top">
+    <h1>Mikutap</h1>
+    <div id="ng">
+      <p class="atten">十分抱歉<br>您的浏览器并不支持本页面需要的特性</p>
+    </div>
+    <div class="ok">
+      <p id="bt_start"><a href="">!开始!</a></p>
+    </div>
+    <p id="bt_about"><a href="">*关于*</a></p>
+    <div class="ok">
+      <p class="attention">※请打开声音并享受。</p>
+    </div>
+     <div class="ok">
+     <p class="tit"><strong>本页面源自(Origin Site): <a href="https://aidn.jp/mikutap">https://aidn.jp/mikutap</a></strong></p>
+    </div>
+  </div>
+  <div id="scene_loading">
+    <hr size="1" color="#fff"> </div>
+  <div id="scene_main">
+    <div class="set">
+      <p class="attention">点击 &amp; 拖动或者按任意键!</p>
+      <p id="bt_backtrack"><a href="">背景音乐: 开启</a></p>
+    </div>
+  </div>
+  <div id="about_cover"></div>
+  <div id="about">
+    <div id="about_in">
+      <p class="close"><span id="bt_close">×</span></p>
+      <p class="con"> 声音来源 <a href="https://ec.crypton.co.jp/pages/prod/vocaloid/mikuv4x" target="_blank">Hatsune Miku</a> </p>
+      <p class="con"> 作者 <a href="https://aidn.jp" target="_blank">daniwell</a> (<a href="https://twitter.com/daniwell_aidn" target="_blank">twitter</a>) </p>
+      <p class="link"> 灵感来源 <a href="http://patatap.com/" target="_blank">Patatap</a><br>(令人赞叹的网页!)</p>
+    </div>
+  </div>
+  <div id="bt_fs">□全屏显示</div>
+
+	{{- /* 百度统计 */ -}}
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?6f278ed0fdb01edb3b1e7398379e5432";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</body>
+
+</html>
+```
+
+md文件头部
+
+```markdown
+layout: "mikutap.html"
+```
+
+

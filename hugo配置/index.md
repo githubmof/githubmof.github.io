@@ -999,56 +999,6 @@ layouts/shortcodes/bilibili.html
 
 
 
-### 抓猫游戏
-
-项目：[ganlvtech/phaser-catch-the-cat: An HTML5 game 'Catch The Cat' powered by Phaser 3 ](https://github.com/ganlvtech/phaser-catch-the-cat)
-
-md文件直接引用js无效，选择创建shortcode
-
-layouts\shortcodes\catch-the-cat
-
-```html
-<script src="/js/catch-the-cat/phaser.min.js"></script>
-<script src="/js/catch-the-cat/catch-the-cat.js"></script>
-<div id="catch-the-cat"></div>
-<script>
-    window.game = new CatchTheCatGame({
-        w: 11,
-        h: 11,
-        r: 20,
-        backgroundColor: 0xeeeeee,
-        parent: 'catch-the-cat',
-        statusBarAlign: 'center',
-        credit: 'github.com/ganlvtech'
-    });
-</script>
-```
-
-将phaser.min.js和catch-the-cat.js保存到static\js\catch-the-cat\下
-
-content\catch-the-cat\index.md
-
-```markdown
----
-title: "逮住那只猫!"
-
----
-
-## 游戏规则
-
-1. 点击小圆点，围住小猫。
-2. 你点击一次，小猫走一次。
-3. 直到你把小猫围住（赢），或者小猫走到边界并逃跑（输）。
-
----
-
-{{</* catch-the-cat */>}}
-```
-
-在config.toml的menu引入即可
-
-
-
 ### 其他
 
 [主题文档 - 扩展 Shortcodes - LoveIt (hugoloveit.com)](https://hugoloveit.com/zh-cn/theme-documentation-extended-shortcodes/)
