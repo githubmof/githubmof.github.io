@@ -621,6 +621,273 @@ hr {
 }
 ```
 
+### 文章加密
+
+layouts\posts\single.html
+
+在`{{- $params := .Scratch.Get "params" -}}`的下一行添加
+
+```html
+{{- $password := $params.password | default "" -}}
+{{- if ne $password "" -}}
+	<script>
+		(function(){
+			if({{ $password }}){
+				if (prompt('请输入文章密码') != {{ $password }}){
+					alert('密码错误！');
+					if (history.length === 1) {
+						window.opener = null;
+						window.open('', '_self');
+						window.close();
+					} else {
+						history.back();
+					}
+				}
+			}
+		})();
+	</script>
+{{- end -}}
+```
+
+文章头部加上password属性即可加密
+
+
+
+### 拉姆雷姆跳转
+
+layouts\_default\baseof.html
+
+在`{{- /* Load JavaScript scripts and CSS */ -}}`的上面一行添加
+
+```html
+<div class="sidebar_wo">
+  <div id="leimu">
+	<img src="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/b2t/leimuA.png" alt="雷姆" 
+	onmouseover="this.src='https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/b2t/leimuB.png'" 
+	onmouseout="this.src='https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/b2t/leimuA.png'" title="回到顶部">
+  </div>
+  <div class="sidebar_wo" id="lamu">
+	<img src="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/b2t/lamuA.png" alt="雷姆" 
+	onmouseover="this.src='https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/b2t/lamuB.png'" 
+	onmouseout="this.src='https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/b2t/lamuA.png'" title="回到底部">
+  </div>
+</div>
+```
+
+assets\css\\_custom.scss
+
+```scss
+<div class="sidebar_wo">
+  <div id="leimu">
+	<img src="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/b2t/leimuA.png" alt="雷姆" 
+	onmouseover="this.src='https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/b2t/leimuB.png'" 
+	onmouseout="this.src='https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/b2t/leimuA.png'" title="回到顶部">
+  </div>
+  <div class="sidebar_wo" id="lamu">
+	<img src="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/b2t/lamuA.png" alt="雷姆" 
+	onmouseover="this.src='https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/b2t/lamuB.png'" 
+	onmouseout="this.src='https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/b2t/lamuA.png'" title="回到底部">
+  </div>
+</div>
+```
+
+static\js\custom.js
+
+需引入jQuery
+
+```js
+/* 拉姆蕾姆回到顶部或底部按钮 */
+$(function() {
+	$("#lamu img").eq(0).click(function() {
+		$("html,body").animate({scrollTop:$(document).height()},800);
+		return false;
+	});
+	$("#leimu img").eq(0).click(function() {
+		$("html,body").animate({scrollTop:0},800);
+		return false;
+	});
+});
+```
+
+
+
+### 添加文章数量统计
+
+layouts\taxonomy\list.html
+
+```html
+{{- if eq $taxonomy "category" -}}
+    <i class="far fa-folder-open fa-fw"></i>&nbsp;{{ .Title }}
+{{- else if eq $taxonomy "tag" -}}
+    <i class="fas fa-tag fa-fw"></i>&nbsp;{{ .Title }}
+{{- else -}}
+```
+
+改为：
+
+```html
+{{- if eq $taxonomy "category" -}}
+    <i class="far fa-folder-open fa-fw"></i>&nbsp;{{ .Title }}<sup>{{ len .Pages }}</sup>
+{{- else if eq $taxonomy "tag" -}}
+    <i class="fas fa-tag fa-fw"></i>&nbsp;{{ .Title }}<sup>{{ len .Pages }}</sup>
+{{- else -}}
+```
+
+```html
+{{- range $pages.PageGroups -}}
+    <h3 class="group-title">{{ .Key }}</h3>
+```
+
+改为：
+
+```html
+{{- range $pages.PageGroups -}}
+    <h3 class="group-title">{{ .Key }} <sup>{{ len .Pages }}</sup></h3>
+```
+
+改为按月份分组
+
+```html
+{{- /* Paginate */ -}}
+{{- if .Pages -}}
+    {{- $pages := .Pages.GroupByDate "2006" -}}
+```
+
+改为：
+
+```html
+{{- /* Paginate */ -}}
+{{- if .Pages -}}
+    {{- $pages := .Pages.GroupByDate "2006-01" -}}
+```
+
+layouts\taxonomy\terms.html
+
+```html
+<div class="page archive">
+    {{- /* Title */ -}}
+    <h2 class="single-title animated pulse faster">
+        {{- .Params.Title | default (T $taxonomies) | default $taxonomies | dict "Some" | T "allSome" -}}
+    </h2>
+```
+
+改为：
+
+```html
+<div class="page archive">
+    {{- /* Title */ -}}
+    <h2 class="single-title animated pulse faster">
+        {{- .Params.Title | default (T $taxonomies) | default $taxonomies | dict "Some" | T "allSome" -}}<sup>{{ len .Pages }}</sup>
+    </h2>
+```
+
+```html
+<h3 class="card-item-title">
+    <a href="{{ .RelPermalink }}">
+        <i class="far fa-folder fa-fw"></i>&nbsp;{{ .Page.Title }}
+    </a>
+</h3>
+```
+
+改为：
+
+```html
+<h3 class="card-item-title">
+    <a href="{{ .RelPermalink }}">
+        <i class="far fa-folder fa-fw"></i>&nbsp;{{ .Page.Title }} <sup>{{ len .Pages }}</sup>
+    </a>
+</h3>
+```
+
+layouts\_default\section.html
+
+```html
+<div class="page archive">
+    {{- /* Title */ -}}
+    <h2 class="single-title animated pulse faster">
+        {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" -}}
+    </h2>
+```
+
+改为：
+
+```html
+<div class="page archive">
+    {{- /* Title */ -}}
+    <h2 class="single-title animated pulse faster">
+        {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" -}}<sup>{{ len .Pages }}</sup>
+    </h2>
+```
+
+```html
+{{- range $pages.PageGroups -}}
+            <h3 class="group-title">{{ .Key }}</h3>
+```
+
+改为：
+
+```html
+{{- range $pages.PageGroups -}}
+    <h3 class="group-title">{{ .Key }} <sup>{{ len .Pages }}</sup></h3>
+```
+
+按月份分组
+
+```html
+{{- /* Paginate */ -}}
+{{- if .Pages -}}
+    {{- $pages := .Pages.GroupByDate "2006" -}}
+```
+
+改为：
+
+```html
+{{- /* Paginate */ -}}
+{{- if .Pages -}}
+    {{- $pages := .Pages.GroupByDate "2006-01" -}}
+```
+
+
+
+### 站点运行时间
+
+layouts\partials\footer.html
+
+在`<div class="footer-container">`的下方添加
+
+```html
+<div class="footer-line">
+	<span id="run-time"></span>
+</div>
+```
+
+static\js\custom.js
+
+```js
+/* 站点运行时间 */
+function runtime() {
+	window.setTimeout("runtime()", 1000);
+	/* 请修改这里的起始时间 */
+    let startTime = new Date('12/1/2021 15:00:00');
+    let endTime = new Date();
+    let usedTime = endTime - startTime;
+    let days = Math.floor(usedTime / (24 * 3600 * 1000));
+    let leavel = usedTime % (24 * 3600 * 1000);
+    let hours = Math.floor(leavel / (3600 * 1000));
+    let leavel2 = leavel % (3600 * 1000);
+    let minutes = Math.floor(leavel2 / (60 * 1000));
+    let leavel3 = leavel2 % (60 * 1000);
+    let seconds = Math.floor(leavel3 / (1000));
+    let runbox = document.getElementById('run-time');
+    runbox.innerHTML = '本站已运行<i class="far fa-clock fa-fw"></i> '
+        + ((days < 10) ? '0' : '') + days + ' 天 '
+        + ((hours < 10) ? '0' : '') + hours + ' 时 '
+        + ((minutes < 10) ? '0' : '') + minutes + ' 分 '
+        + ((seconds < 10) ? '0' : '') + seconds + ' 秒 ';
+}
+runtime();
+```
+
 
 
 ### 其他
@@ -636,6 +903,16 @@ assets\css\\_custom.scss
 /* 右下角按钮 */
 .fixed-button {
   margin-bottom: 5rem;
+}
+
+/* 图片 */
+figcaption {
+  display: none !important;
+}
+
+img[data-sizes="auto"] {
+  display: block;
+  /*    width: 50%;*/
 }
 ```
 
