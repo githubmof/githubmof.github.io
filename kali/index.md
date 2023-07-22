@@ -257,6 +257,18 @@ vim /etc/apt/sources.list  // 如果还无法update，替换源
 
 参考：[kail升级报错："E: 仓库 “https://download.docker.com/linux/debian kali-rolling Release” 没有 Release 文件。 - laolao - 博客园 (cnblogs.com)](https://www.cnblogs.com/chrysanthemum/p/14720786.html)
 
+```bash
+E: 仓库 “http://http.kali.org/kali kali-rolling InRelease” 没有数字签名。
+N: 无法安全地用该源进行更新，所以默认禁用该源。
+N: 参见 apt-secure(8) 手册以了解仓库创建和用户配置方面的细节。
+```
 
+```bash
+wget archive.kali.org/archive-key.asc   //下载签名
+ 
+apt-key add archive-key.asc   //安装签名
+```
+
+[kali linux出现下列签名无效： EXPKEYSIG ED444FF07D8D0BF6 Kali Linux Repository ＜devel@kali.org＞_隔壁山上小道士的博客-CSDN博客](https://blog.csdn.net/weixin_43267605/article/details/116101161)
 
 

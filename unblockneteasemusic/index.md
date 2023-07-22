@@ -69,6 +69,10 @@ if ERRORLEVEL 1 (
 node app.js -p 5000:5002 -e http://music.163.com
 ```
 
+开机自启动文件夹
+
+C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
+
 #### linux
 
 云服务器 centos
