@@ -1,16 +1,13 @@
 /* 轮播背景图片 */
 $(function () {
 	$.backstretch([
-      "/images/background/baizi.jpg",
-      "/images/background/Gaze.jpg",
       "/images/background/miku1.jpg",
-      "/images/background/milu2.jpg",
+      "/images/background/miku2.jpg",
       "/images/background/miku3.jpg",
       "/images/background/NPE.jpg",
-      "/images/background/w.jpg",
 		  "/images/background/yourname.jpg",
       "/images/background/zhuodi.jpg"
-	], { duration: 6000, fade: 1500 });
+	], { duration: 30000, fade: 1500 });
 });
 
 /* 拉姆蕾姆回到顶部或底部按钮 */
