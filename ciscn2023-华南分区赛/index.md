@@ -232,9 +232,11 @@ print(r.text)
 r=s.get(url=url+"/admin")
 print(r.text)
 ```
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1689392963105-a1e6fb04-2f62-418f-903e-85b9f9a24f6d.png#averageHue=%23282c34&clientId=u39f79e6e-e562-4&from=paste&height=924&id=u19fdc33d&originHeight=924&originWidth=1559&originalType=binary&ratio=1&rotation=0&showTitle=false&size=109123&status=done&style=none&taskId=u9d252e99-47af-4170-8502-48b7dc82f3d&title=&width=1559)
+![image-20230805011736905](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050117091.png)
+
 fix
 pug ssti黑名单
+
 ### pollution
 原型链污染；readFileSync绕过
 ```javascript

