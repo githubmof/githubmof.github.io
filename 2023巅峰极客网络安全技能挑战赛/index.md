@@ -1,6 +1,10 @@
 # 2023“巅峰极客”网络安全技能挑战赛
 
 
+
+
+参考：
+
 [https://mp.weixin.qq.com/s/DvRYMkFSr9SFqt_M0f8umg](https://mp.weixin.qq.com/s/DvRYMkFSr9SFqt_M0f8umg)
 [https://mp.weixin.qq.com/s/gOkixXbYSUewUlhd82CkeQ](https://mp.weixin.qq.com/s/gOkixXbYSUewUlhd82CkeQ)
 [https://fq6p9pyo5tt.feishu.cn/docx/PPG0dCRT4oPLGOxotaicGSKonsc](https://fq6p9pyo5tt.feishu.cn/docx/PPG0dCRT4oPLGOxotaicGSKonsc)
@@ -8,12 +12,14 @@
 ## Web
 ### hellosql
 过滤
-```javascript
+```bash
 sleep, benchmark, union, if, *
 ```
-笛卡尔积造成延时
+笛卡尔积造成延时  
+
 exp.py
-```javascript
+
+```python
 import requests
 import string
 import time
@@ -85,7 +91,7 @@ echo serialize(new push_it($root, $pwd));
 注意点：
 
 - private属性的成员反序列化后为`%00类名%00成员名`，这里直接echo看不到`%00`，发包时要自行添加
-- 舍弃`";s:12:"%00push_it%00pwd";s:89:"`（28），`bbbbbb`转化为`aaaa`多出2个，故需要14个`bbbbbb`
+- 舍弃`";s:12:"%00push_it%00pwd";s:89:"`（28），`bbbbbb`转化为`aaaa`减少2个，故需要14个`bbbbbb`
 - `s:27:"(~%8F%97%8F%96%91%99%90)();"`，s数字要根据取反后实际数，修改为`s:13:"(~%8F%97%8F%96%91%99%90)();"`
 - 最后要舍弃一个`}`
 
@@ -135,7 +141,7 @@ base64解码
 dmp文件，010editor查看，搜索flag
 ![image-20230805102544472](https://raw.githubusercontent.com/githubmof/Img/main/img/202308051025685.png)
 
-```javascript
+```bash
 It's just a dump file, and you've found a new lead
 Maybe you know the Netflix picture format? Hope this hint helps you. Search for more information to find the flag!
 ```
@@ -196,7 +202,7 @@ y=-x+55{51<x<52}
 
 ### Simple_encryption
 1.py
-```javascript
+```python
 from Crypto.Util.number import *
 import gmpy2
 import random
@@ -262,7 +268,7 @@ Cs= [169344749640075373576242675009728258220389451148511261586575300167955718284
 '''
 ```
 exp.py
-```javascript
+```python
 import gmpy2
 from sympy import *
 from Crypto.Util.number import *

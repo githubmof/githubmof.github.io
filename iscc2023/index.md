@@ -7,7 +7,7 @@
 ### 羊了个羊
 
 ![](https://raw.githubusercontent.com/githubmof/Img/main/img/202305072232150.png#id=S7CgZ&originHeight=95&originWidth=524&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
-```
+```bash
 U1ZORFEzczJkR3BvZWpsdVlrWk9WMWd5ZGpOa05VTTFORGRwTTIweFRFRktVRWwzVFgwPQ==
 两次base64
 ISCC{6tjhz9nbFNWX2v3d5C547i3m1LAJPIwM}
@@ -36,9 +36,12 @@ eval(decode("%83%7d%82%45%72%7d%71%85%7b%73%7c%84%34%75%73%84%4d%7a%73%7b%73%7c%
 > "<div id="ISCC2" style="position:absolute;left:600" onmousemove="escmv()"><input id="but1" type="button" value="follow me!" onfocus="nokp();" onclick="window.location='Enc.php';"/></div>"
 > "<div id="ISCC3" style="position:absolute;left:800" onmousemove="escsw()"><input id="but2" type="button"  value="look me!" onfocus="nokp();" onclick="window.location='LoveStory.php';"/></div>"
 ```
-Download.php ==> keyiscc.pem
-Enc.php ==> letter.php
+Download.php ==> keyiscc.pem  
+
+Enc.php ==> letter.php  
+
 LoveStory.php
+
 ```php
 ?> <?php
 include("./xxxiscc.php");
@@ -98,8 +101,10 @@ if (isset($_GET["iscc"])) {
 }
 ```
 ### 上大号说话
-输入 马保国，提示有东西在.git下
+输入 马保国，提示有东西在.git下  
+
 app.py.bak
+
 ```python
 class ED:
     def __init__(self):
@@ -183,8 +188,10 @@ for i1 in dic:
                 except:
                     continue
 ```
-pickle反序列化外带结果
+pickle反序列化外带结果  
+
 [奇安信攻防社区-pickle反序列化深入python源码分析 (butian.net)](https://forum.butian.net/share/1929)
+
 ```python
 class ED:
     def __init__(self):
@@ -210,21 +217,30 @@ print(base)
 ```
 ## MOBILE
 ### NOJAVA
-apk反编译
-[apk 反编译（使用apktool、dex2jar、jd-gui，进行反编译apk，查看apk源码）_villen_t的博客-CSDN博客](https://blog.csdn.net/qq_34801506/article/details/80569293)
-获取资源
+apk反编译  
+
+[apk 反编译（使用apktool、dex2jar、jd-gui，进行反编译apk，查看apk源码）_villen_t的博客-CSDN博客](https://blog.csdn.net/qq_34801506/article/details/80569293)  
+
+获取资源  
+
 apktool
+
 ```bash
 java -jar .\apktool_2.7.0.jar d -f attachment-21.apk -o MMTS
 ```
-获取代码
+获取代码  
+
 dex2jar-2.0 + jd-gui
+
 ```bash
 .\d2j-dex2jar.bat .\classes.dex
 ```
-得到.\classes-dex2jar.jar
-jd-gui打开
+得到.\classes-dex2jar.jar  
+
+jd-gui打开  
+
 com/example.nojava/MainActivity.class
+
 ```java
  private final boolean B(String paramString) {
     if (paramString.length() <= 6)
@@ -240,8 +256,10 @@ com/example.nojava/MainActivity.class
     return false;
   }
 ```
-或者jadx gui直接apk反编译
+或者jadx gui直接apk反编译  
+
 exp.py
+
 ```python
 import libnum #
 

