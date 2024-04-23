@@ -1,11 +1,6 @@
 /* 轮播背景图片 */
 $(function () {
 	$.backstretch([
-      "/images/background/miku1.jpg",
-      "/images/background/miku2.jpg",
-      "/images/background/miku3.jpg",
-      "/images/background/NPE.jpg",
-		  "/images/background/yourname.jpg",
       "/images/background/zhuodi.jpg"
 	], { duration: 30000, fade: 1500 });
 });
@@ -43,7 +38,7 @@ function runtime() {
         + ((minutes < 10) ? '0' : '') + minutes + ' 分 '
         + ((seconds < 10) ? '0' : '') + seconds + ' 秒 ';
 }
-runtime();
+// runtime();
 
 /* 离开当前页面时修改网页标题，回到当前页面时恢复原来标题 */
 window.onload = function() {
